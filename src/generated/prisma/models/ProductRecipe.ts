@@ -208,8 +208,8 @@ export type ProductRecipeWhereInput = {
   productId?: Prisma.StringFilter<"ProductRecipe"> | string
   inventoryItemId?: Prisma.StringFilter<"ProductRecipe"> | string
   quantityUsed?: Prisma.DecimalFilter<"ProductRecipe"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  inventoryItem?: Prisma.XOR<Prisma.InventoryItemScalarRelationFilter, Prisma.InventoryItemWhereInput>
   product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.ProductWhereInput>
+  inventoryItem?: Prisma.XOR<Prisma.InventoryItemScalarRelationFilter, Prisma.InventoryItemWhereInput>
 }
 
 export type ProductRecipeOrderByWithRelationInput = {
@@ -217,8 +217,8 @@ export type ProductRecipeOrderByWithRelationInput = {
   productId?: Prisma.SortOrder
   inventoryItemId?: Prisma.SortOrder
   quantityUsed?: Prisma.SortOrder
-  inventoryItem?: Prisma.InventoryItemOrderByWithRelationInput
   product?: Prisma.ProductOrderByWithRelationInput
+  inventoryItem?: Prisma.InventoryItemOrderByWithRelationInput
 }
 
 export type ProductRecipeWhereUniqueInput = Prisma.AtLeast<{
@@ -230,8 +230,8 @@ export type ProductRecipeWhereUniqueInput = Prisma.AtLeast<{
   productId?: Prisma.StringFilter<"ProductRecipe"> | string
   inventoryItemId?: Prisma.StringFilter<"ProductRecipe"> | string
   quantityUsed?: Prisma.DecimalFilter<"ProductRecipe"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  inventoryItem?: Prisma.XOR<Prisma.InventoryItemScalarRelationFilter, Prisma.InventoryItemWhereInput>
   product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.ProductWhereInput>
+  inventoryItem?: Prisma.XOR<Prisma.InventoryItemScalarRelationFilter, Prisma.InventoryItemWhereInput>
 }, "id" | "productId_inventoryItemId">
 
 export type ProductRecipeOrderByWithAggregationInput = {
@@ -259,8 +259,8 @@ export type ProductRecipeScalarWhereWithAggregatesInput = {
 export type ProductRecipeCreateInput = {
   id?: string
   quantityUsed: runtime.Decimal | runtime.DecimalJsLike | number | string
-  inventoryItem: Prisma.InventoryItemCreateNestedOneWithoutRecipesInput
   product: Prisma.ProductCreateNestedOneWithoutRecipesInput
+  inventoryItem: Prisma.InventoryItemCreateNestedOneWithoutRecipesInput
 }
 
 export type ProductRecipeUncheckedCreateInput = {
@@ -273,8 +273,8 @@ export type ProductRecipeUncheckedCreateInput = {
 export type ProductRecipeUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   quantityUsed?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  inventoryItem?: Prisma.InventoryItemUpdateOneRequiredWithoutRecipesNestedInput
   product?: Prisma.ProductUpdateOneRequiredWithoutRecipesNestedInput
+  inventoryItem?: Prisma.InventoryItemUpdateOneRequiredWithoutRecipesNestedInput
 }
 
 export type ProductRecipeUncheckedUpdateInput = {
@@ -572,8 +572,8 @@ export type ProductRecipeSelect<ExtArgs extends runtime.Types.Extensions.Interna
   productId?: boolean
   inventoryItemId?: boolean
   quantityUsed?: boolean
-  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["productRecipe"]>
 
 export type ProductRecipeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -581,8 +581,8 @@ export type ProductRecipeSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   productId?: boolean
   inventoryItemId?: boolean
   quantityUsed?: boolean
-  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["productRecipe"]>
 
 export type ProductRecipeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -590,8 +590,8 @@ export type ProductRecipeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   productId?: boolean
   inventoryItemId?: boolean
   quantityUsed?: boolean
-  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["productRecipe"]>
 
 export type ProductRecipeSelectScalar = {
@@ -603,23 +603,23 @@ export type ProductRecipeSelectScalar = {
 
 export type ProductRecipeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "productId" | "inventoryItemId" | "quantityUsed", ExtArgs["result"]["productRecipe"]>
 export type ProductRecipeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
 }
 export type ProductRecipeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
 }
 export type ProductRecipeIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
 }
 
 export type $ProductRecipePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ProductRecipe"
   objects: {
-    inventoryItem: Prisma.$InventoryItemPayload<ExtArgs>
     product: Prisma.$ProductPayload<ExtArgs>
+    inventoryItem: Prisma.$InventoryItemPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1020,8 +1020,8 @@ readonly fields: ProductRecipeFieldRefs;
  */
 export interface Prisma__ProductRecipeClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  inventoryItem<T extends Prisma.InventoryItemDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItemDefaultArgs<ExtArgs>>): Prisma.Prisma__InventoryItemClient<runtime.Types.Result.GetResult<Prisma.$InventoryItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   product<T extends Prisma.ProductDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductDefaultArgs<ExtArgs>>): Prisma.Prisma__ProductClient<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  inventoryItem<T extends Prisma.InventoryItemDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItemDefaultArgs<ExtArgs>>): Prisma.Prisma__InventoryItemClient<runtime.Types.Result.GetResult<Prisma.$InventoryItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

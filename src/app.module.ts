@@ -9,6 +9,12 @@ import { UsersController } from './modules/users/users.controller';
 import { CashDrawerService } from '@modules/cash/cash-drawer.service';
 import { CashMovementService } from '@modules/cash/cash-movement.service';
 import { CashSessionService } from '@modules/cash/cash-session.service';
+import { CashController } from './modules/cash/cash.controller';
+import { CashModule } from './modules/cash/cash.module';
+import { InventoryService } from './modules/inventory/inventory.service';
+import { ProductService } from './modules/product/product.service';
+import { ProductController } from './modules/product/product.controller';
+import { ProductModule } from './modules/product/product.module';
 
 JwtModule.register({
   secret: process.env.JWT_SECRET,
@@ -24,8 +30,10 @@ JwtModule.register({
     PrismaModule,
     AuthModule,
     OrdersModule,
+    CashModule,
+    ProductModule,
   ],
-  providers: [UsersService, CashDrawerService, CashMovementService, CashSessionService],
-  controllers: [UsersController],
+  providers: [UsersService, CashDrawerService, CashMovementService, CashSessionService, InventoryService, ProductService],
+  controllers: [UsersController, CashController, ProductController],
 })
 export class AppModule {}

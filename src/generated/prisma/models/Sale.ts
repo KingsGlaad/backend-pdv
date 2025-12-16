@@ -44,8 +44,8 @@ export type SaleMinAggregateOutputType = {
   totalAmount: runtime.Decimal | null
   discount: runtime.Decimal | null
   finalAmount: runtime.Decimal | null
-  createdAt: Date | null
   status: $Enums.SaleStatus | null
+  createdAt: Date | null
 }
 
 export type SaleMaxAggregateOutputType = {
@@ -54,8 +54,8 @@ export type SaleMaxAggregateOutputType = {
   totalAmount: runtime.Decimal | null
   discount: runtime.Decimal | null
   finalAmount: runtime.Decimal | null
-  createdAt: Date | null
   status: $Enums.SaleStatus | null
+  createdAt: Date | null
 }
 
 export type SaleCountAggregateOutputType = {
@@ -64,8 +64,8 @@ export type SaleCountAggregateOutputType = {
   totalAmount: number
   discount: number
   finalAmount: number
-  createdAt: number
   status: number
+  createdAt: number
   _all: number
 }
 
@@ -88,8 +88,8 @@ export type SaleMinAggregateInputType = {
   totalAmount?: true
   discount?: true
   finalAmount?: true
-  createdAt?: true
   status?: true
+  createdAt?: true
 }
 
 export type SaleMaxAggregateInputType = {
@@ -98,8 +98,8 @@ export type SaleMaxAggregateInputType = {
   totalAmount?: true
   discount?: true
   finalAmount?: true
-  createdAt?: true
   status?: true
+  createdAt?: true
 }
 
 export type SaleCountAggregateInputType = {
@@ -108,8 +108,8 @@ export type SaleCountAggregateInputType = {
   totalAmount?: true
   discount?: true
   finalAmount?: true
-  createdAt?: true
   status?: true
+  createdAt?: true
   _all?: true
 }
 
@@ -205,8 +205,8 @@ export type SaleGroupByOutputType = {
   totalAmount: runtime.Decimal
   discount: runtime.Decimal
   finalAmount: runtime.Decimal
-  createdAt: Date
   status: $Enums.SaleStatus
+  createdAt: Date
   _count: SaleCountAggregateOutputType | null
   _avg: SaleAvgAggregateOutputType | null
   _sum: SaleSumAggregateOutputType | null
@@ -238,10 +238,10 @@ export type SaleWhereInput = {
   totalAmount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFilter<"Sale"> | Date | string
   status?: Prisma.EnumSaleStatusFilter<"Sale"> | $Enums.SaleStatus
-  payments?: Prisma.PaymentListRelationFilter
+  createdAt?: Prisma.DateTimeFilter<"Sale"> | Date | string
   order?: Prisma.XOR<Prisma.OrderScalarRelationFilter, Prisma.OrderWhereInput>
+  payments?: Prisma.PaymentListRelationFilter
 }
 
 export type SaleOrderByWithRelationInput = {
@@ -250,10 +250,10 @@ export type SaleOrderByWithRelationInput = {
   totalAmount?: Prisma.SortOrder
   discount?: Prisma.SortOrder
   finalAmount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  payments?: Prisma.PaymentOrderByRelationAggregateInput
+  createdAt?: Prisma.SortOrder
   order?: Prisma.OrderOrderByWithRelationInput
+  payments?: Prisma.PaymentOrderByRelationAggregateInput
 }
 
 export type SaleWhereUniqueInput = Prisma.AtLeast<{
@@ -265,10 +265,10 @@ export type SaleWhereUniqueInput = Prisma.AtLeast<{
   totalAmount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFilter<"Sale"> | Date | string
   status?: Prisma.EnumSaleStatusFilter<"Sale"> | $Enums.SaleStatus
-  payments?: Prisma.PaymentListRelationFilter
+  createdAt?: Prisma.DateTimeFilter<"Sale"> | Date | string
   order?: Prisma.XOR<Prisma.OrderScalarRelationFilter, Prisma.OrderWhereInput>
+  payments?: Prisma.PaymentListRelationFilter
 }, "id" | "orderId">
 
 export type SaleOrderByWithAggregationInput = {
@@ -277,8 +277,8 @@ export type SaleOrderByWithAggregationInput = {
   totalAmount?: Prisma.SortOrder
   discount?: Prisma.SortOrder
   finalAmount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   _count?: Prisma.SaleCountOrderByAggregateInput
   _avg?: Prisma.SaleAvgOrderByAggregateInput
   _max?: Prisma.SaleMaxOrderByAggregateInput
@@ -295,8 +295,8 @@ export type SaleScalarWhereWithAggregatesInput = {
   totalAmount?: Prisma.DecimalWithAggregatesFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalWithAggregatesFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalWithAggregatesFilter<"Sale"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Sale"> | Date | string
   status?: Prisma.EnumSaleStatusWithAggregatesFilter<"Sale"> | $Enums.SaleStatus
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Sale"> | Date | string
 }
 
 export type SaleCreateInput = {
@@ -304,10 +304,10 @@ export type SaleCreateInput = {
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Date | string
   status?: $Enums.SaleStatus
-  payments?: Prisma.PaymentCreateNestedManyWithoutSaleInput
+  createdAt?: Date | string
   order: Prisma.OrderCreateNestedOneWithoutSaleInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutSaleInput
 }
 
 export type SaleUncheckedCreateInput = {
@@ -316,8 +316,8 @@ export type SaleUncheckedCreateInput = {
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Date | string
   status?: $Enums.SaleStatus
+  createdAt?: Date | string
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutSaleInput
 }
 
@@ -326,10 +326,10 @@ export type SaleUpdateInput = {
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumSaleStatusFieldUpdateOperationsInput | $Enums.SaleStatus
-  payments?: Prisma.PaymentUpdateManyWithoutSaleNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order?: Prisma.OrderUpdateOneRequiredWithoutSaleNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutSaleNestedInput
 }
 
 export type SaleUncheckedUpdateInput = {
@@ -338,8 +338,8 @@ export type SaleUncheckedUpdateInput = {
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumSaleStatusFieldUpdateOperationsInput | $Enums.SaleStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutSaleNestedInput
 }
 
@@ -349,8 +349,8 @@ export type SaleCreateManyInput = {
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Date | string
   status?: $Enums.SaleStatus
+  createdAt?: Date | string
 }
 
 export type SaleUpdateManyMutationInput = {
@@ -358,8 +358,8 @@ export type SaleUpdateManyMutationInput = {
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumSaleStatusFieldUpdateOperationsInput | $Enums.SaleStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SaleUncheckedUpdateManyInput = {
@@ -368,8 +368,8 @@ export type SaleUncheckedUpdateManyInput = {
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumSaleStatusFieldUpdateOperationsInput | $Enums.SaleStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SaleNullableScalarRelationFilter = {
@@ -383,8 +383,8 @@ export type SaleCountOrderByAggregateInput = {
   totalAmount?: Prisma.SortOrder
   discount?: Prisma.SortOrder
   finalAmount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type SaleAvgOrderByAggregateInput = {
@@ -399,8 +399,8 @@ export type SaleMaxOrderByAggregateInput = {
   totalAmount?: Prisma.SortOrder
   discount?: Prisma.SortOrder
   finalAmount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type SaleMinOrderByAggregateInput = {
@@ -409,8 +409,8 @@ export type SaleMinOrderByAggregateInput = {
   totalAmount?: Prisma.SortOrder
   discount?: Prisma.SortOrder
   finalAmount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type SaleSumOrderByAggregateInput = {
@@ -479,8 +479,8 @@ export type SaleCreateWithoutOrderInput = {
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Date | string
   status?: $Enums.SaleStatus
+  createdAt?: Date | string
   payments?: Prisma.PaymentCreateNestedManyWithoutSaleInput
 }
 
@@ -489,8 +489,8 @@ export type SaleUncheckedCreateWithoutOrderInput = {
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Date | string
   status?: $Enums.SaleStatus
+  createdAt?: Date | string
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutSaleInput
 }
 
@@ -515,8 +515,8 @@ export type SaleUpdateWithoutOrderInput = {
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumSaleStatusFieldUpdateOperationsInput | $Enums.SaleStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   payments?: Prisma.PaymentUpdateManyWithoutSaleNestedInput
 }
 
@@ -525,8 +525,8 @@ export type SaleUncheckedUpdateWithoutOrderInput = {
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumSaleStatusFieldUpdateOperationsInput | $Enums.SaleStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutSaleNestedInput
 }
 
@@ -535,8 +535,8 @@ export type SaleCreateWithoutPaymentsInput = {
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Date | string
   status?: $Enums.SaleStatus
+  createdAt?: Date | string
   order: Prisma.OrderCreateNestedOneWithoutSaleInput
 }
 
@@ -546,8 +546,8 @@ export type SaleUncheckedCreateWithoutPaymentsInput = {
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Date | string
   status?: $Enums.SaleStatus
+  createdAt?: Date | string
 }
 
 export type SaleCreateOrConnectWithoutPaymentsInput = {
@@ -571,8 +571,8 @@ export type SaleUpdateWithoutPaymentsInput = {
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumSaleStatusFieldUpdateOperationsInput | $Enums.SaleStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order?: Prisma.OrderUpdateOneRequiredWithoutSaleNestedInput
 }
 
@@ -582,8 +582,8 @@ export type SaleUncheckedUpdateWithoutPaymentsInput = {
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   finalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumSaleStatusFieldUpdateOperationsInput | $Enums.SaleStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -623,10 +623,10 @@ export type SaleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   totalAmount?: boolean
   discount?: boolean
   finalAmount?: boolean
-  createdAt?: boolean
   status?: boolean
-  payments?: boolean | Prisma.Sale$paymentsArgs<ExtArgs>
+  createdAt?: boolean
   order?: boolean | Prisma.OrderDefaultArgs<ExtArgs>
+  payments?: boolean | Prisma.Sale$paymentsArgs<ExtArgs>
   _count?: boolean | Prisma.SaleCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sale"]>
 
@@ -636,8 +636,8 @@ export type SaleSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   totalAmount?: boolean
   discount?: boolean
   finalAmount?: boolean
-  createdAt?: boolean
   status?: boolean
+  createdAt?: boolean
   order?: boolean | Prisma.OrderDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sale"]>
 
@@ -647,8 +647,8 @@ export type SaleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   totalAmount?: boolean
   discount?: boolean
   finalAmount?: boolean
-  createdAt?: boolean
   status?: boolean
+  createdAt?: boolean
   order?: boolean | Prisma.OrderDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sale"]>
 
@@ -658,14 +658,14 @@ export type SaleSelectScalar = {
   totalAmount?: boolean
   discount?: boolean
   finalAmount?: boolean
-  createdAt?: boolean
   status?: boolean
+  createdAt?: boolean
 }
 
-export type SaleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orderId" | "totalAmount" | "discount" | "finalAmount" | "createdAt" | "status", ExtArgs["result"]["sale"]>
+export type SaleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orderId" | "totalAmount" | "discount" | "finalAmount" | "status" | "createdAt", ExtArgs["result"]["sale"]>
 export type SaleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  payments?: boolean | Prisma.Sale$paymentsArgs<ExtArgs>
   order?: boolean | Prisma.OrderDefaultArgs<ExtArgs>
+  payments?: boolean | Prisma.Sale$paymentsArgs<ExtArgs>
   _count?: boolean | Prisma.SaleCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SaleIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -678,8 +678,8 @@ export type SaleIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $SalePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Sale"
   objects: {
-    payments: Prisma.$PaymentPayload<ExtArgs>[]
     order: Prisma.$OrderPayload<ExtArgs>
+    payments: Prisma.$PaymentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -687,8 +687,8 @@ export type $SalePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     totalAmount: runtime.Decimal
     discount: runtime.Decimal
     finalAmount: runtime.Decimal
-    createdAt: Date
     status: $Enums.SaleStatus
+    createdAt: Date
   }, ExtArgs["result"]["sale"]>
   composites: {}
 }
@@ -1083,8 +1083,8 @@ readonly fields: SaleFieldRefs;
  */
 export interface Prisma__SaleClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  payments<T extends Prisma.Sale$paymentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sale$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   order<T extends Prisma.OrderDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrderDefaultArgs<ExtArgs>>): Prisma.Prisma__OrderClient<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  payments<T extends Prisma.Sale$paymentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sale$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1119,8 +1119,8 @@ export interface SaleFieldRefs {
   readonly totalAmount: Prisma.FieldRef<"Sale", 'Decimal'>
   readonly discount: Prisma.FieldRef<"Sale", 'Decimal'>
   readonly finalAmount: Prisma.FieldRef<"Sale", 'Decimal'>
-  readonly createdAt: Prisma.FieldRef<"Sale", 'DateTime'>
   readonly status: Prisma.FieldRef<"Sale", 'SaleStatus'>
+  readonly createdAt: Prisma.FieldRef<"Sale", 'DateTime'>
 }
     
 

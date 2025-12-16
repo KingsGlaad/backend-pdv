@@ -24,14 +24,16 @@ model User {
 }
 
 model Product {
-  id        String    @id @default(uuid())
-  name      String
-  price     Decimal   @db.Decimal(12, 2)
-  category  String?
-  active    Boolean   @default(true)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+  id          String    @id @default(uuid())
+  code        String    @unique
+  name        String
+  price       Decimal   @db.Decimal(12, 2)
+  description String?
+  category    String?
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
 
   orderItems OrderItem[]
   recipes    ProductRecipe[]
@@ -107,7 +109,7 @@ model Payment {
 
 model CashRegister {
   id        String   @id @default(uuid())
-  name      String
+  name      String   @unique
   active    Boolean  @default(true)
   createdAt DateTime @default(now())
 
@@ -168,6 +170,11 @@ model InventoryItem {
   name      String
   unit      String
   active    Boolean   @default(true)
+  quantity  Decimal   @db.Decimal(12, 3)
+  minStock  Decimal   @db.Decimal(12, 3)
+  maxStock  Decimal   @db.Decimal(12, 3)
+  price     Decimal   @db.Decimal(12, 2)
+  category  String?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
@@ -263,4 +270,12 @@ enum InventoryMovementType {
   OUT
   LOSS
   ADJUSTMENT
+}
+
+enum ProductUnit {
+  UNIT
+  GRAM
+  KILOGRAM
+  LITER
+  MILLILITER
 }

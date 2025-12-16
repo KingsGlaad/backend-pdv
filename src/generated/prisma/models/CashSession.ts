@@ -267,6 +267,7 @@ export type CashSessionOrderByWithRelationInput = {
 
 export type CashSessionWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  cashRegisterId_status?: Prisma.CashSessionCashRegisterIdStatusCompoundUniqueInput
   AND?: Prisma.CashSessionWhereInput | Prisma.CashSessionWhereInput[]
   OR?: Prisma.CashSessionWhereInput[]
   NOT?: Prisma.CashSessionWhereInput | Prisma.CashSessionWhereInput[]
@@ -281,7 +282,7 @@ export type CashSessionWhereUniqueInput = Prisma.AtLeast<{
   drawerLogs?: Prisma.CashDrawerLogListRelationFilter
   cashRegister?: Prisma.XOR<Prisma.CashRegisterScalarRelationFilter, Prisma.CashRegisterWhereInput>
   openedBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id">
+}, "id" | "cashRegisterId_status">
 
 export type CashSessionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -404,6 +405,11 @@ export type CashSessionListRelationFilter = {
 
 export type CashSessionOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type CashSessionCashRegisterIdStatusCompoundUniqueInput = {
+  cashRegisterId: string
+  status: $Enums.CashRegisterStatus
 }
 
 export type CashSessionCountOrderByAggregateInput = {

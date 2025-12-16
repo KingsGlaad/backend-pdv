@@ -59,6 +59,24 @@ async function main() {
 
     console.log(`✅ Usuário ${user.role} criado: ${user.email}`);
   }
+
+  const cashRegisters = [{ name: 'Caixa 01' }, { name: 'Caixa 02' }, { name: 'Caixa 03' }];
+
+  for (const register of cashRegisters) {
+    const exists = await prisma.cashRegister.findUnique({
+      where: { name: register.name },
+    });
+
+    if (exists) {
+      console.log(`⚠️ Caixa já existe: ${register.name}`);
+      continue;
+    }
+
+    await prisma.cashRegister.create({
+      data: { name: register.name },
+    });
+    console.log(`✅ Caixa criado: ${register.name}`);
+  }
 }
 
 main()

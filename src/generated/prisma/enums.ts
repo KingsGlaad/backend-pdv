@@ -9,15 +9,6 @@
 * 🟢 You can import this file directly.
 */
 
-export const DrawerOpenReason = {
-  SALE: 'SALE',
-  MANUAL: 'MANUAL',
-  ERROR: 'ERROR'
-} as const
-
-export type DrawerOpenReason = (typeof DrawerOpenReason)[keyof typeof DrawerOpenReason]
-
-
 export const UserRole = {
   ADMIN: 'ADMIN',
   MANAGER: 'MANAGER',
@@ -45,6 +36,15 @@ export const OrderItemStatus = {
 } as const
 
 export type OrderItemStatus = (typeof OrderItemStatus)[keyof typeof OrderItemStatus]
+
+
+export const SaleStatus = {
+  PENDING: 'PENDING',
+  COMPLETED: 'COMPLETED',
+  CANCELED: 'CANCELED'
+} as const
+
+export type SaleStatus = (typeof SaleStatus)[keyof typeof SaleStatus]
 
 
 export const PaymentMethod = {
@@ -84,6 +84,15 @@ export const CashMovementType = {
 export type CashMovementType = (typeof CashMovementType)[keyof typeof CashMovementType]
 
 
+export const DrawerOpenReason = {
+  SALE: 'SALE',
+  MANUAL: 'MANUAL',
+  ERROR: 'ERROR'
+} as const
+
+export type DrawerOpenReason = (typeof DrawerOpenReason)[keyof typeof DrawerOpenReason]
+
+
 export const InventoryMovementType = {
   IN: 'IN',
   OUT: 'OUT',
@@ -94,10 +103,12 @@ export const InventoryMovementType = {
 export type InventoryMovementType = (typeof InventoryMovementType)[keyof typeof InventoryMovementType]
 
 
-export const SaleStatus = {
-  PENDING: 'PENDING',
-  COMPLETED: 'COMPLETED',
-  CANCELED: 'CANCELED'
+export const ProductUnit = {
+  UNIT: 'UNIT',
+  GRAM: 'GRAM',
+  KILOGRAM: 'KILOGRAM',
+  LITER: 'LITER',
+  MILLILITER: 'MILLILITER'
 } as const
 
-export type SaleStatus = (typeof SaleStatus)[keyof typeof SaleStatus]
+export type ProductUnit = (typeof ProductUnit)[keyof typeof ProductUnit]

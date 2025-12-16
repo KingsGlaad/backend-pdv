@@ -20,92 +20,58 @@ export type CashRegisterModel = runtime.Types.Result.DefaultSelection<Prisma.$Ca
 
 export type AggregateCashRegister = {
   _count: CashRegisterCountAggregateOutputType | null
-  _avg: CashRegisterAvgAggregateOutputType | null
-  _sum: CashRegisterSumAggregateOutputType | null
   _min: CashRegisterMinAggregateOutputType | null
   _max: CashRegisterMaxAggregateOutputType | null
 }
 
-export type CashRegisterAvgAggregateOutputType = {
-  openingAmount: runtime.Decimal | null
-  closingAmount: runtime.Decimal | null
-}
-
-export type CashRegisterSumAggregateOutputType = {
-  openingAmount: runtime.Decimal | null
-  closingAmount: runtime.Decimal | null
-}
-
 export type CashRegisterMinAggregateOutputType = {
   id: string | null
-  status: $Enums.CashRegisterStatus | null
-  openingAmount: runtime.Decimal | null
-  closingAmount: runtime.Decimal | null
-  openedAt: Date | null
-  closedAt: Date | null
-  openedById: string | null
+  name: string | null
+  active: boolean | null
+  createdAt: Date | null
+  userId: string | null
 }
 
 export type CashRegisterMaxAggregateOutputType = {
   id: string | null
-  status: $Enums.CashRegisterStatus | null
-  openingAmount: runtime.Decimal | null
-  closingAmount: runtime.Decimal | null
-  openedAt: Date | null
-  closedAt: Date | null
-  openedById: string | null
+  name: string | null
+  active: boolean | null
+  createdAt: Date | null
+  userId: string | null
 }
 
 export type CashRegisterCountAggregateOutputType = {
   id: number
-  status: number
-  openingAmount: number
-  closingAmount: number
-  openedAt: number
-  closedAt: number
-  openedById: number
+  name: number
+  active: number
+  createdAt: number
+  userId: number
   _all: number
 }
 
 
-export type CashRegisterAvgAggregateInputType = {
-  openingAmount?: true
-  closingAmount?: true
-}
-
-export type CashRegisterSumAggregateInputType = {
-  openingAmount?: true
-  closingAmount?: true
-}
-
 export type CashRegisterMinAggregateInputType = {
   id?: true
-  status?: true
-  openingAmount?: true
-  closingAmount?: true
-  openedAt?: true
-  closedAt?: true
-  openedById?: true
+  name?: true
+  active?: true
+  createdAt?: true
+  userId?: true
 }
 
 export type CashRegisterMaxAggregateInputType = {
   id?: true
-  status?: true
-  openingAmount?: true
-  closingAmount?: true
-  openedAt?: true
-  closedAt?: true
-  openedById?: true
+  name?: true
+  active?: true
+  createdAt?: true
+  userId?: true
 }
 
 export type CashRegisterCountAggregateInputType = {
   id?: true
-  status?: true
-  openingAmount?: true
-  closingAmount?: true
-  openedAt?: true
-  closedAt?: true
-  openedById?: true
+  name?: true
+  active?: true
+  createdAt?: true
+  userId?: true
   _all?: true
 }
 
@@ -147,18 +113,6 @@ export type CashRegisterAggregateArgs<ExtArgs extends runtime.Types.Extensions.I
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: CashRegisterAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: CashRegisterSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: CashRegisterMinAggregateInputType
@@ -189,23 +143,17 @@ export type CashRegisterGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   _count?: CashRegisterCountAggregateInputType | true
-  _avg?: CashRegisterAvgAggregateInputType
-  _sum?: CashRegisterSumAggregateInputType
   _min?: CashRegisterMinAggregateInputType
   _max?: CashRegisterMaxAggregateInputType
 }
 
 export type CashRegisterGroupByOutputType = {
   id: string
-  status: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal
-  closingAmount: runtime.Decimal
-  openedAt: Date
-  closedAt: Date | null
-  openedById: string
+  name: string
+  active: boolean
+  createdAt: Date
+  userId: string | null
   _count: CashRegisterCountAggregateOutputType | null
-  _avg: CashRegisterAvgAggregateOutputType | null
-  _sum: CashRegisterSumAggregateOutputType | null
   _min: CashRegisterMinAggregateOutputType | null
   _max: CashRegisterMaxAggregateOutputType | null
 }
@@ -230,26 +178,22 @@ export type CashRegisterWhereInput = {
   OR?: Prisma.CashRegisterWhereInput[]
   NOT?: Prisma.CashRegisterWhereInput | Prisma.CashRegisterWhereInput[]
   id?: Prisma.StringFilter<"CashRegister"> | string
-  status?: Prisma.EnumCashRegisterStatusFilter<"CashRegister"> | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFilter<"CashRegister"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFilter<"CashRegister"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFilter<"CashRegister"> | Date | string
-  closedAt?: Prisma.DateTimeNullableFilter<"CashRegister"> | Date | string | null
-  openedById?: Prisma.StringFilter<"CashRegister"> | string
-  movements?: Prisma.CashMovementListRelationFilter
-  openedBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  name?: Prisma.StringFilter<"CashRegister"> | string
+  active?: Prisma.BoolFilter<"CashRegister"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"CashRegister"> | Date | string
+  userId?: Prisma.StringNullableFilter<"CashRegister"> | string | null
+  sessions?: Prisma.CashSessionListRelationFilter
+  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
 }
 
 export type CashRegisterOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  openingAmount?: Prisma.SortOrder
-  closingAmount?: Prisma.SortOrder
-  openedAt?: Prisma.SortOrder
-  closedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  openedById?: Prisma.SortOrder
-  movements?: Prisma.CashMovementOrderByRelationAggregateInput
-  openedBy?: Prisma.UserOrderByWithRelationInput
+  name?: Prisma.SortOrder
+  active?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrderInput | Prisma.SortOrder
+  sessions?: Prisma.CashSessionOrderByRelationAggregateInput
+  user?: Prisma.UserOrderByWithRelationInput
 }
 
 export type CashRegisterWhereUniqueInput = Prisma.AtLeast<{
@@ -257,29 +201,23 @@ export type CashRegisterWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.CashRegisterWhereInput | Prisma.CashRegisterWhereInput[]
   OR?: Prisma.CashRegisterWhereInput[]
   NOT?: Prisma.CashRegisterWhereInput | Prisma.CashRegisterWhereInput[]
-  status?: Prisma.EnumCashRegisterStatusFilter<"CashRegister"> | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFilter<"CashRegister"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFilter<"CashRegister"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFilter<"CashRegister"> | Date | string
-  closedAt?: Prisma.DateTimeNullableFilter<"CashRegister"> | Date | string | null
-  openedById?: Prisma.StringFilter<"CashRegister"> | string
-  movements?: Prisma.CashMovementListRelationFilter
-  openedBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  name?: Prisma.StringFilter<"CashRegister"> | string
+  active?: Prisma.BoolFilter<"CashRegister"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"CashRegister"> | Date | string
+  userId?: Prisma.StringNullableFilter<"CashRegister"> | string | null
+  sessions?: Prisma.CashSessionListRelationFilter
+  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
 }, "id">
 
 export type CashRegisterOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  openingAmount?: Prisma.SortOrder
-  closingAmount?: Prisma.SortOrder
-  openedAt?: Prisma.SortOrder
-  closedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  openedById?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  active?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.CashRegisterCountOrderByAggregateInput
-  _avg?: Prisma.CashRegisterAvgOrderByAggregateInput
   _max?: Prisma.CashRegisterMaxOrderByAggregateInput
   _min?: Prisma.CashRegisterMinOrderByAggregateInput
-  _sum?: Prisma.CashRegisterSumOrderByAggregateInput
 }
 
 export type CashRegisterScalarWhereWithAggregatesInput = {
@@ -287,85 +225,69 @@ export type CashRegisterScalarWhereWithAggregatesInput = {
   OR?: Prisma.CashRegisterScalarWhereWithAggregatesInput[]
   NOT?: Prisma.CashRegisterScalarWhereWithAggregatesInput | Prisma.CashRegisterScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"CashRegister"> | string
-  status?: Prisma.EnumCashRegisterStatusWithAggregatesFilter<"CashRegister"> | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalWithAggregatesFilter<"CashRegister"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalWithAggregatesFilter<"CashRegister"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeWithAggregatesFilter<"CashRegister"> | Date | string
-  closedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"CashRegister"> | Date | string | null
-  openedById?: Prisma.StringWithAggregatesFilter<"CashRegister"> | string
+  name?: Prisma.StringWithAggregatesFilter<"CashRegister"> | string
+  active?: Prisma.BoolWithAggregatesFilter<"CashRegister"> | boolean
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"CashRegister"> | Date | string
+  userId?: Prisma.StringNullableWithAggregatesFilter<"CashRegister"> | string | null
 }
 
 export type CashRegisterCreateInput = {
   id?: string
-  status?: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Date | string
-  closedAt?: Date | string | null
-  movements?: Prisma.CashMovementCreateNestedManyWithoutCashRegisterInput
-  openedBy: Prisma.UserCreateNestedOneWithoutCashRegistersInput
+  name: string
+  active?: boolean
+  createdAt?: Date | string
+  sessions?: Prisma.CashSessionCreateNestedManyWithoutCashRegisterInput
+  user?: Prisma.UserCreateNestedOneWithoutCashRegistersInput
 }
 
 export type CashRegisterUncheckedCreateInput = {
   id?: string
-  status?: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Date | string
-  closedAt?: Date | string | null
-  openedById: string
-  movements?: Prisma.CashMovementUncheckedCreateNestedManyWithoutCashRegisterInput
+  name: string
+  active?: boolean
+  createdAt?: Date | string
+  userId?: string | null
+  sessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutCashRegisterInput
 }
 
 export type CashRegisterUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  movements?: Prisma.CashMovementUpdateManyWithoutCashRegisterNestedInput
-  openedBy?: Prisma.UserUpdateOneRequiredWithoutCashRegistersNestedInput
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.CashSessionUpdateManyWithoutCashRegisterNestedInput
+  user?: Prisma.UserUpdateOneWithoutCashRegistersNestedInput
 }
 
 export type CashRegisterUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  openedById?: Prisma.StringFieldUpdateOperationsInput | string
-  movements?: Prisma.CashMovementUncheckedUpdateManyWithoutCashRegisterNestedInput
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sessions?: Prisma.CashSessionUncheckedUpdateManyWithoutCashRegisterNestedInput
 }
 
 export type CashRegisterCreateManyInput = {
   id?: string
-  status?: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Date | string
-  closedAt?: Date | string | null
-  openedById: string
+  name: string
+  active?: boolean
+  createdAt?: Date | string
+  userId?: string | null
 }
 
 export type CashRegisterUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CashRegisterUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  openedById?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CashRegisterListRelationFilter = {
@@ -380,42 +302,26 @@ export type CashRegisterOrderByRelationAggregateInput = {
 
 export type CashRegisterCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  openingAmount?: Prisma.SortOrder
-  closingAmount?: Prisma.SortOrder
-  openedAt?: Prisma.SortOrder
-  closedAt?: Prisma.SortOrder
-  openedById?: Prisma.SortOrder
-}
-
-export type CashRegisterAvgOrderByAggregateInput = {
-  openingAmount?: Prisma.SortOrder
-  closingAmount?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  active?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type CashRegisterMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  openingAmount?: Prisma.SortOrder
-  closingAmount?: Prisma.SortOrder
-  openedAt?: Prisma.SortOrder
-  closedAt?: Prisma.SortOrder
-  openedById?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  active?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type CashRegisterMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  openingAmount?: Prisma.SortOrder
-  closingAmount?: Prisma.SortOrder
-  openedAt?: Prisma.SortOrder
-  closedAt?: Prisma.SortOrder
-  openedById?: Prisma.SortOrder
-}
-
-export type CashRegisterSumOrderByAggregateInput = {
-  openingAmount?: Prisma.SortOrder
-  closingAmount?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  active?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type CashRegisterScalarRelationFilter = {
@@ -423,110 +329,102 @@ export type CashRegisterScalarRelationFilter = {
   isNot?: Prisma.CashRegisterWhereInput
 }
 
-export type CashRegisterCreateNestedManyWithoutOpenedByInput = {
-  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutOpenedByInput, Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput> | Prisma.CashRegisterCreateWithoutOpenedByInput[] | Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput[]
-  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutOpenedByInput | Prisma.CashRegisterCreateOrConnectWithoutOpenedByInput[]
-  createMany?: Prisma.CashRegisterCreateManyOpenedByInputEnvelope
+export type CashRegisterCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutUserInput, Prisma.CashRegisterUncheckedCreateWithoutUserInput> | Prisma.CashRegisterCreateWithoutUserInput[] | Prisma.CashRegisterUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutUserInput | Prisma.CashRegisterCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.CashRegisterCreateManyUserInputEnvelope
   connect?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
 }
 
-export type CashRegisterUncheckedCreateNestedManyWithoutOpenedByInput = {
-  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutOpenedByInput, Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput> | Prisma.CashRegisterCreateWithoutOpenedByInput[] | Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput[]
-  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutOpenedByInput | Prisma.CashRegisterCreateOrConnectWithoutOpenedByInput[]
-  createMany?: Prisma.CashRegisterCreateManyOpenedByInputEnvelope
+export type CashRegisterUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutUserInput, Prisma.CashRegisterUncheckedCreateWithoutUserInput> | Prisma.CashRegisterCreateWithoutUserInput[] | Prisma.CashRegisterUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutUserInput | Prisma.CashRegisterCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.CashRegisterCreateManyUserInputEnvelope
   connect?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
 }
 
-export type CashRegisterUpdateManyWithoutOpenedByNestedInput = {
-  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutOpenedByInput, Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput> | Prisma.CashRegisterCreateWithoutOpenedByInput[] | Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput[]
-  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutOpenedByInput | Prisma.CashRegisterCreateOrConnectWithoutOpenedByInput[]
-  upsert?: Prisma.CashRegisterUpsertWithWhereUniqueWithoutOpenedByInput | Prisma.CashRegisterUpsertWithWhereUniqueWithoutOpenedByInput[]
-  createMany?: Prisma.CashRegisterCreateManyOpenedByInputEnvelope
+export type CashRegisterUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutUserInput, Prisma.CashRegisterUncheckedCreateWithoutUserInput> | Prisma.CashRegisterCreateWithoutUserInput[] | Prisma.CashRegisterUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutUserInput | Prisma.CashRegisterCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.CashRegisterUpsertWithWhereUniqueWithoutUserInput | Prisma.CashRegisterUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.CashRegisterCreateManyUserInputEnvelope
   set?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
   disconnect?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
   delete?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
   connect?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
-  update?: Prisma.CashRegisterUpdateWithWhereUniqueWithoutOpenedByInput | Prisma.CashRegisterUpdateWithWhereUniqueWithoutOpenedByInput[]
-  updateMany?: Prisma.CashRegisterUpdateManyWithWhereWithoutOpenedByInput | Prisma.CashRegisterUpdateManyWithWhereWithoutOpenedByInput[]
+  update?: Prisma.CashRegisterUpdateWithWhereUniqueWithoutUserInput | Prisma.CashRegisterUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.CashRegisterUpdateManyWithWhereWithoutUserInput | Prisma.CashRegisterUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.CashRegisterScalarWhereInput | Prisma.CashRegisterScalarWhereInput[]
 }
 
-export type CashRegisterUncheckedUpdateManyWithoutOpenedByNestedInput = {
-  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutOpenedByInput, Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput> | Prisma.CashRegisterCreateWithoutOpenedByInput[] | Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput[]
-  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutOpenedByInput | Prisma.CashRegisterCreateOrConnectWithoutOpenedByInput[]
-  upsert?: Prisma.CashRegisterUpsertWithWhereUniqueWithoutOpenedByInput | Prisma.CashRegisterUpsertWithWhereUniqueWithoutOpenedByInput[]
-  createMany?: Prisma.CashRegisterCreateManyOpenedByInputEnvelope
+export type CashRegisterUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutUserInput, Prisma.CashRegisterUncheckedCreateWithoutUserInput> | Prisma.CashRegisterCreateWithoutUserInput[] | Prisma.CashRegisterUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutUserInput | Prisma.CashRegisterCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.CashRegisterUpsertWithWhereUniqueWithoutUserInput | Prisma.CashRegisterUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.CashRegisterCreateManyUserInputEnvelope
   set?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
   disconnect?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
   delete?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
   connect?: Prisma.CashRegisterWhereUniqueInput | Prisma.CashRegisterWhereUniqueInput[]
-  update?: Prisma.CashRegisterUpdateWithWhereUniqueWithoutOpenedByInput | Prisma.CashRegisterUpdateWithWhereUniqueWithoutOpenedByInput[]
-  updateMany?: Prisma.CashRegisterUpdateManyWithWhereWithoutOpenedByInput | Prisma.CashRegisterUpdateManyWithWhereWithoutOpenedByInput[]
+  update?: Prisma.CashRegisterUpdateWithWhereUniqueWithoutUserInput | Prisma.CashRegisterUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.CashRegisterUpdateManyWithWhereWithoutUserInput | Prisma.CashRegisterUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.CashRegisterScalarWhereInput | Prisma.CashRegisterScalarWhereInput[]
 }
 
-export type EnumCashRegisterStatusFieldUpdateOperationsInput = {
-  set?: $Enums.CashRegisterStatus
-}
-
-export type CashRegisterCreateNestedOneWithoutMovementsInput = {
-  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutMovementsInput, Prisma.CashRegisterUncheckedCreateWithoutMovementsInput>
-  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutMovementsInput
+export type CashRegisterCreateNestedOneWithoutSessionsInput = {
+  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutSessionsInput, Prisma.CashRegisterUncheckedCreateWithoutSessionsInput>
+  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutSessionsInput
   connect?: Prisma.CashRegisterWhereUniqueInput
 }
 
-export type CashRegisterUpdateOneRequiredWithoutMovementsNestedInput = {
-  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutMovementsInput, Prisma.CashRegisterUncheckedCreateWithoutMovementsInput>
-  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutMovementsInput
-  upsert?: Prisma.CashRegisterUpsertWithoutMovementsInput
+export type CashRegisterUpdateOneRequiredWithoutSessionsNestedInput = {
+  create?: Prisma.XOR<Prisma.CashRegisterCreateWithoutSessionsInput, Prisma.CashRegisterUncheckedCreateWithoutSessionsInput>
+  connectOrCreate?: Prisma.CashRegisterCreateOrConnectWithoutSessionsInput
+  upsert?: Prisma.CashRegisterUpsertWithoutSessionsInput
   connect?: Prisma.CashRegisterWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CashRegisterUpdateToOneWithWhereWithoutMovementsInput, Prisma.CashRegisterUpdateWithoutMovementsInput>, Prisma.CashRegisterUncheckedUpdateWithoutMovementsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CashRegisterUpdateToOneWithWhereWithoutSessionsInput, Prisma.CashRegisterUpdateWithoutSessionsInput>, Prisma.CashRegisterUncheckedUpdateWithoutSessionsInput>
 }
 
-export type CashRegisterCreateWithoutOpenedByInput = {
+export type CashRegisterCreateWithoutUserInput = {
   id?: string
-  status?: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Date | string
-  closedAt?: Date | string | null
-  movements?: Prisma.CashMovementCreateNestedManyWithoutCashRegisterInput
+  name: string
+  active?: boolean
+  createdAt?: Date | string
+  sessions?: Prisma.CashSessionCreateNestedManyWithoutCashRegisterInput
 }
 
-export type CashRegisterUncheckedCreateWithoutOpenedByInput = {
+export type CashRegisterUncheckedCreateWithoutUserInput = {
   id?: string
-  status?: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Date | string
-  closedAt?: Date | string | null
-  movements?: Prisma.CashMovementUncheckedCreateNestedManyWithoutCashRegisterInput
+  name: string
+  active?: boolean
+  createdAt?: Date | string
+  sessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutCashRegisterInput
 }
 
-export type CashRegisterCreateOrConnectWithoutOpenedByInput = {
+export type CashRegisterCreateOrConnectWithoutUserInput = {
   where: Prisma.CashRegisterWhereUniqueInput
-  create: Prisma.XOR<Prisma.CashRegisterCreateWithoutOpenedByInput, Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput>
+  create: Prisma.XOR<Prisma.CashRegisterCreateWithoutUserInput, Prisma.CashRegisterUncheckedCreateWithoutUserInput>
 }
 
-export type CashRegisterCreateManyOpenedByInputEnvelope = {
-  data: Prisma.CashRegisterCreateManyOpenedByInput | Prisma.CashRegisterCreateManyOpenedByInput[]
+export type CashRegisterCreateManyUserInputEnvelope = {
+  data: Prisma.CashRegisterCreateManyUserInput | Prisma.CashRegisterCreateManyUserInput[]
   skipDuplicates?: boolean
 }
 
-export type CashRegisterUpsertWithWhereUniqueWithoutOpenedByInput = {
+export type CashRegisterUpsertWithWhereUniqueWithoutUserInput = {
   where: Prisma.CashRegisterWhereUniqueInput
-  update: Prisma.XOR<Prisma.CashRegisterUpdateWithoutOpenedByInput, Prisma.CashRegisterUncheckedUpdateWithoutOpenedByInput>
-  create: Prisma.XOR<Prisma.CashRegisterCreateWithoutOpenedByInput, Prisma.CashRegisterUncheckedCreateWithoutOpenedByInput>
+  update: Prisma.XOR<Prisma.CashRegisterUpdateWithoutUserInput, Prisma.CashRegisterUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.CashRegisterCreateWithoutUserInput, Prisma.CashRegisterUncheckedCreateWithoutUserInput>
 }
 
-export type CashRegisterUpdateWithWhereUniqueWithoutOpenedByInput = {
+export type CashRegisterUpdateWithWhereUniqueWithoutUserInput = {
   where: Prisma.CashRegisterWhereUniqueInput
-  data: Prisma.XOR<Prisma.CashRegisterUpdateWithoutOpenedByInput, Prisma.CashRegisterUncheckedUpdateWithoutOpenedByInput>
+  data: Prisma.XOR<Prisma.CashRegisterUpdateWithoutUserInput, Prisma.CashRegisterUncheckedUpdateWithoutUserInput>
 }
 
-export type CashRegisterUpdateManyWithWhereWithoutOpenedByInput = {
+export type CashRegisterUpdateManyWithWhereWithoutUserInput = {
   where: Prisma.CashRegisterScalarWhereInput
-  data: Prisma.XOR<Prisma.CashRegisterUpdateManyMutationInput, Prisma.CashRegisterUncheckedUpdateManyWithoutOpenedByInput>
+  data: Prisma.XOR<Prisma.CashRegisterUpdateManyMutationInput, Prisma.CashRegisterUncheckedUpdateManyWithoutUserInput>
 }
 
 export type CashRegisterScalarWhereInput = {
@@ -534,106 +432,88 @@ export type CashRegisterScalarWhereInput = {
   OR?: Prisma.CashRegisterScalarWhereInput[]
   NOT?: Prisma.CashRegisterScalarWhereInput | Prisma.CashRegisterScalarWhereInput[]
   id?: Prisma.StringFilter<"CashRegister"> | string
-  status?: Prisma.EnumCashRegisterStatusFilter<"CashRegister"> | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFilter<"CashRegister"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFilter<"CashRegister"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFilter<"CashRegister"> | Date | string
-  closedAt?: Prisma.DateTimeNullableFilter<"CashRegister"> | Date | string | null
-  openedById?: Prisma.StringFilter<"CashRegister"> | string
+  name?: Prisma.StringFilter<"CashRegister"> | string
+  active?: Prisma.BoolFilter<"CashRegister"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"CashRegister"> | Date | string
+  userId?: Prisma.StringNullableFilter<"CashRegister"> | string | null
 }
 
-export type CashRegisterCreateWithoutMovementsInput = {
+export type CashRegisterCreateWithoutSessionsInput = {
   id?: string
-  status?: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Date | string
-  closedAt?: Date | string | null
-  openedBy: Prisma.UserCreateNestedOneWithoutCashRegistersInput
+  name: string
+  active?: boolean
+  createdAt?: Date | string
+  user?: Prisma.UserCreateNestedOneWithoutCashRegistersInput
 }
 
-export type CashRegisterUncheckedCreateWithoutMovementsInput = {
+export type CashRegisterUncheckedCreateWithoutSessionsInput = {
   id?: string
-  status?: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Date | string
-  closedAt?: Date | string | null
-  openedById: string
+  name: string
+  active?: boolean
+  createdAt?: Date | string
+  userId?: string | null
 }
 
-export type CashRegisterCreateOrConnectWithoutMovementsInput = {
+export type CashRegisterCreateOrConnectWithoutSessionsInput = {
   where: Prisma.CashRegisterWhereUniqueInput
-  create: Prisma.XOR<Prisma.CashRegisterCreateWithoutMovementsInput, Prisma.CashRegisterUncheckedCreateWithoutMovementsInput>
+  create: Prisma.XOR<Prisma.CashRegisterCreateWithoutSessionsInput, Prisma.CashRegisterUncheckedCreateWithoutSessionsInput>
 }
 
-export type CashRegisterUpsertWithoutMovementsInput = {
-  update: Prisma.XOR<Prisma.CashRegisterUpdateWithoutMovementsInput, Prisma.CashRegisterUncheckedUpdateWithoutMovementsInput>
-  create: Prisma.XOR<Prisma.CashRegisterCreateWithoutMovementsInput, Prisma.CashRegisterUncheckedCreateWithoutMovementsInput>
+export type CashRegisterUpsertWithoutSessionsInput = {
+  update: Prisma.XOR<Prisma.CashRegisterUpdateWithoutSessionsInput, Prisma.CashRegisterUncheckedUpdateWithoutSessionsInput>
+  create: Prisma.XOR<Prisma.CashRegisterCreateWithoutSessionsInput, Prisma.CashRegisterUncheckedCreateWithoutSessionsInput>
   where?: Prisma.CashRegisterWhereInput
 }
 
-export type CashRegisterUpdateToOneWithWhereWithoutMovementsInput = {
+export type CashRegisterUpdateToOneWithWhereWithoutSessionsInput = {
   where?: Prisma.CashRegisterWhereInput
-  data: Prisma.XOR<Prisma.CashRegisterUpdateWithoutMovementsInput, Prisma.CashRegisterUncheckedUpdateWithoutMovementsInput>
+  data: Prisma.XOR<Prisma.CashRegisterUpdateWithoutSessionsInput, Prisma.CashRegisterUncheckedUpdateWithoutSessionsInput>
 }
 
-export type CashRegisterUpdateWithoutMovementsInput = {
+export type CashRegisterUpdateWithoutSessionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  openedBy?: Prisma.UserUpdateOneRequiredWithoutCashRegistersNestedInput
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneWithoutCashRegistersNestedInput
 }
 
-export type CashRegisterUncheckedUpdateWithoutMovementsInput = {
+export type CashRegisterUncheckedUpdateWithoutSessionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  openedById?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type CashRegisterCreateManyOpenedByInput = {
+export type CashRegisterCreateManyUserInput = {
   id?: string
-  status?: $Enums.CashRegisterStatus
-  openingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Date | string
-  closedAt?: Date | string | null
+  name: string
+  active?: boolean
+  createdAt?: Date | string
 }
 
-export type CashRegisterUpdateWithoutOpenedByInput = {
+export type CashRegisterUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  movements?: Prisma.CashMovementUpdateManyWithoutCashRegisterNestedInput
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.CashSessionUpdateManyWithoutCashRegisterNestedInput
 }
 
-export type CashRegisterUncheckedUpdateWithoutOpenedByInput = {
+export type CashRegisterUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  movements?: Prisma.CashMovementUncheckedUpdateManyWithoutCashRegisterNestedInput
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.CashSessionUncheckedUpdateManyWithoutCashRegisterNestedInput
 }
 
-export type CashRegisterUncheckedUpdateManyWithoutOpenedByInput = {
+export type CashRegisterUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumCashRegisterStatusFieldUpdateOperationsInput | $Enums.CashRegisterStatus
-  openingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  closingAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -642,11 +522,11 @@ export type CashRegisterUncheckedUpdateManyWithoutOpenedByInput = {
  */
 
 export type CashRegisterCountOutputType = {
-  movements: number
+  sessions: number
 }
 
 export type CashRegisterCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  movements?: boolean | CashRegisterCountOutputTypeCountMovementsArgs
+  sessions?: boolean | CashRegisterCountOutputTypeCountSessionsArgs
 }
 
 /**
@@ -662,83 +542,73 @@ export type CashRegisterCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types
 /**
  * CashRegisterCountOutputType without action
  */
-export type CashRegisterCountOutputTypeCountMovementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CashMovementWhereInput
+export type CashRegisterCountOutputTypeCountSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CashSessionWhereInput
 }
 
 
 export type CashRegisterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  status?: boolean
-  openingAmount?: boolean
-  closingAmount?: boolean
-  openedAt?: boolean
-  closedAt?: boolean
-  openedById?: boolean
-  movements?: boolean | Prisma.CashRegister$movementsArgs<ExtArgs>
-  openedBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  name?: boolean
+  active?: boolean
+  createdAt?: boolean
+  userId?: boolean
+  sessions?: boolean | Prisma.CashRegister$sessionsArgs<ExtArgs>
+  user?: boolean | Prisma.CashRegister$userArgs<ExtArgs>
   _count?: boolean | Prisma.CashRegisterCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashRegister"]>
 
 export type CashRegisterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  status?: boolean
-  openingAmount?: boolean
-  closingAmount?: boolean
-  openedAt?: boolean
-  closedAt?: boolean
-  openedById?: boolean
-  openedBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  name?: boolean
+  active?: boolean
+  createdAt?: boolean
+  userId?: boolean
+  user?: boolean | Prisma.CashRegister$userArgs<ExtArgs>
 }, ExtArgs["result"]["cashRegister"]>
 
 export type CashRegisterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  status?: boolean
-  openingAmount?: boolean
-  closingAmount?: boolean
-  openedAt?: boolean
-  closedAt?: boolean
-  openedById?: boolean
-  openedBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  name?: boolean
+  active?: boolean
+  createdAt?: boolean
+  userId?: boolean
+  user?: boolean | Prisma.CashRegister$userArgs<ExtArgs>
 }, ExtArgs["result"]["cashRegister"]>
 
 export type CashRegisterSelectScalar = {
   id?: boolean
-  status?: boolean
-  openingAmount?: boolean
-  closingAmount?: boolean
-  openedAt?: boolean
-  closedAt?: boolean
-  openedById?: boolean
+  name?: boolean
+  active?: boolean
+  createdAt?: boolean
+  userId?: boolean
 }
 
-export type CashRegisterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "status" | "openingAmount" | "closingAmount" | "openedAt" | "closedAt" | "openedById", ExtArgs["result"]["cashRegister"]>
+export type CashRegisterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "active" | "createdAt" | "userId", ExtArgs["result"]["cashRegister"]>
 export type CashRegisterInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  movements?: boolean | Prisma.CashRegister$movementsArgs<ExtArgs>
-  openedBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  sessions?: boolean | Prisma.CashRegister$sessionsArgs<ExtArgs>
+  user?: boolean | Prisma.CashRegister$userArgs<ExtArgs>
   _count?: boolean | Prisma.CashRegisterCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CashRegisterIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  openedBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.CashRegister$userArgs<ExtArgs>
 }
 export type CashRegisterIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  openedBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.CashRegister$userArgs<ExtArgs>
 }
 
 export type $CashRegisterPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CashRegister"
   objects: {
-    movements: Prisma.$CashMovementPayload<ExtArgs>[]
-    openedBy: Prisma.$UserPayload<ExtArgs>
+    sessions: Prisma.$CashSessionPayload<ExtArgs>[]
+    user: Prisma.$UserPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    status: $Enums.CashRegisterStatus
-    openingAmount: runtime.Decimal
-    closingAmount: runtime.Decimal
-    openedAt: Date
-    closedAt: Date | null
-    openedById: string
+    name: string
+    active: boolean
+    createdAt: Date
+    userId: string | null
   }, ExtArgs["result"]["cashRegister"]>
   composites: {}
 }
@@ -1133,8 +1003,8 @@ readonly fields: CashRegisterFieldRefs;
  */
 export interface Prisma__CashRegisterClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  movements<T extends Prisma.CashRegister$movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashRegister$movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  openedBy<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  sessions<T extends Prisma.CashRegister$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashRegister$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  user<T extends Prisma.CashRegister$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashRegister$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1165,12 +1035,10 @@ export interface Prisma__CashRegisterClient<T, Null = never, ExtArgs extends run
  */
 export interface CashRegisterFieldRefs {
   readonly id: Prisma.FieldRef<"CashRegister", 'String'>
-  readonly status: Prisma.FieldRef<"CashRegister", 'CashRegisterStatus'>
-  readonly openingAmount: Prisma.FieldRef<"CashRegister", 'Decimal'>
-  readonly closingAmount: Prisma.FieldRef<"CashRegister", 'Decimal'>
-  readonly openedAt: Prisma.FieldRef<"CashRegister", 'DateTime'>
-  readonly closedAt: Prisma.FieldRef<"CashRegister", 'DateTime'>
-  readonly openedById: Prisma.FieldRef<"CashRegister", 'String'>
+  readonly name: Prisma.FieldRef<"CashRegister", 'String'>
+  readonly active: Prisma.FieldRef<"CashRegister", 'Boolean'>
+  readonly createdAt: Prisma.FieldRef<"CashRegister", 'DateTime'>
+  readonly userId: Prisma.FieldRef<"CashRegister", 'String'>
 }
     
 
@@ -1567,27 +1435,46 @@ export type CashRegisterDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
 }
 
 /**
- * CashRegister.movements
+ * CashRegister.sessions
  */
-export type CashRegister$movementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type CashRegister$sessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the CashMovement
+   * Select specific fields to fetch from the CashSession
    */
-  select?: Prisma.CashMovementSelect<ExtArgs> | null
+  select?: Prisma.CashSessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the CashMovement
+   * Omit specific fields from the CashSession
    */
-  omit?: Prisma.CashMovementOmit<ExtArgs> | null
+  omit?: Prisma.CashSessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CashMovementInclude<ExtArgs> | null
-  where?: Prisma.CashMovementWhereInput
-  orderBy?: Prisma.CashMovementOrderByWithRelationInput | Prisma.CashMovementOrderByWithRelationInput[]
-  cursor?: Prisma.CashMovementWhereUniqueInput
+  include?: Prisma.CashSessionInclude<ExtArgs> | null
+  where?: Prisma.CashSessionWhereInput
+  orderBy?: Prisma.CashSessionOrderByWithRelationInput | Prisma.CashSessionOrderByWithRelationInput[]
+  cursor?: Prisma.CashSessionWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.CashMovementScalarFieldEnum | Prisma.CashMovementScalarFieldEnum[]
+  distinct?: Prisma.CashSessionScalarFieldEnum | Prisma.CashSessionScalarFieldEnum[]
+}
+
+/**
+ * CashRegister.user
+ */
+export type CashRegister$userArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the User
+   */
+  select?: Prisma.UserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the User
+   */
+  omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  where?: Prisma.UserWhereInput
 }
 
 /**

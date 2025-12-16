@@ -9,6 +9,15 @@
 * 🟢 You can import this file directly.
 */
 
+export const DrawerOpenReason = {
+  SALE: 'SALE',
+  MANUAL: 'MANUAL',
+  ERROR: 'ERROR'
+} as const
+
+export type DrawerOpenReason = (typeof DrawerOpenReason)[keyof typeof DrawerOpenReason]
+
+
 export const UserRole = {
   ADMIN: 'ADMIN',
   MANAGER: 'MANAGER',
@@ -83,3 +92,12 @@ export const InventoryMovementType = {
 } as const
 
 export type InventoryMovementType = (typeof InventoryMovementType)[keyof typeof InventoryMovementType]
+
+
+export const SaleStatus = {
+  PENDING: 'PENDING',
+  COMPLETED: 'COMPLETED',
+  CANCELED: 'CANCELED'
+} as const
+
+export type SaleStatus = (typeof SaleStatus)[keyof typeof SaleStatus]

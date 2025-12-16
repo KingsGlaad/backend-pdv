@@ -36,7 +36,7 @@ export type CashMovementSumAggregateOutputType = {
 
 export type CashMovementMinAggregateOutputType = {
   id: string | null
-  cashRegisterId: string | null
+  cashSessionId: string | null
   type: $Enums.CashMovementType | null
   method: $Enums.PaymentMethod | null
   amount: runtime.Decimal | null
@@ -46,7 +46,7 @@ export type CashMovementMinAggregateOutputType = {
 
 export type CashMovementMaxAggregateOutputType = {
   id: string | null
-  cashRegisterId: string | null
+  cashSessionId: string | null
   type: $Enums.CashMovementType | null
   method: $Enums.PaymentMethod | null
   amount: runtime.Decimal | null
@@ -56,7 +56,7 @@ export type CashMovementMaxAggregateOutputType = {
 
 export type CashMovementCountAggregateOutputType = {
   id: number
-  cashRegisterId: number
+  cashSessionId: number
   type: number
   method: number
   amount: number
@@ -76,7 +76,7 @@ export type CashMovementSumAggregateInputType = {
 
 export type CashMovementMinAggregateInputType = {
   id?: true
-  cashRegisterId?: true
+  cashSessionId?: true
   type?: true
   method?: true
   amount?: true
@@ -86,7 +86,7 @@ export type CashMovementMinAggregateInputType = {
 
 export type CashMovementMaxAggregateInputType = {
   id?: true
-  cashRegisterId?: true
+  cashSessionId?: true
   type?: true
   method?: true
   amount?: true
@@ -96,7 +96,7 @@ export type CashMovementMaxAggregateInputType = {
 
 export type CashMovementCountAggregateInputType = {
   id?: true
-  cashRegisterId?: true
+  cashSessionId?: true
   type?: true
   method?: true
   amount?: true
@@ -193,7 +193,7 @@ export type CashMovementGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 
 export type CashMovementGroupByOutputType = {
   id: string
-  cashRegisterId: string
+  cashSessionId: string
   type: $Enums.CashMovementType
   method: $Enums.PaymentMethod | null
   amount: runtime.Decimal
@@ -226,24 +226,24 @@ export type CashMovementWhereInput = {
   OR?: Prisma.CashMovementWhereInput[]
   NOT?: Prisma.CashMovementWhereInput | Prisma.CashMovementWhereInput[]
   id?: Prisma.StringFilter<"CashMovement"> | string
-  cashRegisterId?: Prisma.StringFilter<"CashMovement"> | string
+  cashSessionId?: Prisma.StringFilter<"CashMovement"> | string
   type?: Prisma.EnumCashMovementTypeFilter<"CashMovement"> | $Enums.CashMovementType
   method?: Prisma.EnumPaymentMethodNullableFilter<"CashMovement"> | $Enums.PaymentMethod | null
   amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   referenceId?: Prisma.StringNullableFilter<"CashMovement"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
-  cashRegister?: Prisma.XOR<Prisma.CashRegisterScalarRelationFilter, Prisma.CashRegisterWhereInput>
+  cashSession?: Prisma.XOR<Prisma.CashSessionScalarRelationFilter, Prisma.CashSessionWhereInput>
 }
 
 export type CashMovementOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
+  cashSessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   method?: Prisma.SortOrderInput | Prisma.SortOrder
   amount?: Prisma.SortOrder
   referenceId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  cashRegister?: Prisma.CashRegisterOrderByWithRelationInput
+  cashSession?: Prisma.CashSessionOrderByWithRelationInput
 }
 
 export type CashMovementWhereUniqueInput = Prisma.AtLeast<{
@@ -251,18 +251,18 @@ export type CashMovementWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.CashMovementWhereInput | Prisma.CashMovementWhereInput[]
   OR?: Prisma.CashMovementWhereInput[]
   NOT?: Prisma.CashMovementWhereInput | Prisma.CashMovementWhereInput[]
-  cashRegisterId?: Prisma.StringFilter<"CashMovement"> | string
+  cashSessionId?: Prisma.StringFilter<"CashMovement"> | string
   type?: Prisma.EnumCashMovementTypeFilter<"CashMovement"> | $Enums.CashMovementType
   method?: Prisma.EnumPaymentMethodNullableFilter<"CashMovement"> | $Enums.PaymentMethod | null
   amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   referenceId?: Prisma.StringNullableFilter<"CashMovement"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
-  cashRegister?: Prisma.XOR<Prisma.CashRegisterScalarRelationFilter, Prisma.CashRegisterWhereInput>
+  cashSession?: Prisma.XOR<Prisma.CashSessionScalarRelationFilter, Prisma.CashSessionWhereInput>
 }, "id">
 
 export type CashMovementOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
+  cashSessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   method?: Prisma.SortOrderInput | Prisma.SortOrder
   amount?: Prisma.SortOrder
@@ -280,7 +280,7 @@ export type CashMovementScalarWhereWithAggregatesInput = {
   OR?: Prisma.CashMovementScalarWhereWithAggregatesInput[]
   NOT?: Prisma.CashMovementScalarWhereWithAggregatesInput | Prisma.CashMovementScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"CashMovement"> | string
-  cashRegisterId?: Prisma.StringWithAggregatesFilter<"CashMovement"> | string
+  cashSessionId?: Prisma.StringWithAggregatesFilter<"CashMovement"> | string
   type?: Prisma.EnumCashMovementTypeWithAggregatesFilter<"CashMovement"> | $Enums.CashMovementType
   method?: Prisma.EnumPaymentMethodNullableWithAggregatesFilter<"CashMovement"> | $Enums.PaymentMethod | null
   amount?: Prisma.DecimalWithAggregatesFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -295,12 +295,12 @@ export type CashMovementCreateInput = {
   amount: runtime.Decimal | runtime.DecimalJsLike | number | string
   referenceId?: string | null
   createdAt?: Date | string
-  cashRegister: Prisma.CashRegisterCreateNestedOneWithoutMovementsInput
+  cashSession: Prisma.CashSessionCreateNestedOneWithoutMovementsInput
 }
 
 export type CashMovementUncheckedCreateInput = {
   id?: string
-  cashRegisterId: string
+  cashSessionId: string
   type: $Enums.CashMovementType
   method?: $Enums.PaymentMethod | null
   amount: runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -315,12 +315,12 @@ export type CashMovementUpdateInput = {
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   referenceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  cashRegister?: Prisma.CashRegisterUpdateOneRequiredWithoutMovementsNestedInput
+  cashSession?: Prisma.CashSessionUpdateOneRequiredWithoutMovementsNestedInput
 }
 
 export type CashMovementUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
+  cashSessionId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   method?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -330,7 +330,7 @@ export type CashMovementUncheckedUpdateInput = {
 
 export type CashMovementCreateManyInput = {
   id?: string
-  cashRegisterId: string
+  cashSessionId: string
   type: $Enums.CashMovementType
   method?: $Enums.PaymentMethod | null
   amount: runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -349,7 +349,7 @@ export type CashMovementUpdateManyMutationInput = {
 
 export type CashMovementUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
+  cashSessionId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   method?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -369,7 +369,7 @@ export type CashMovementOrderByRelationAggregateInput = {
 
 export type CashMovementCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
+  cashSessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   method?: Prisma.SortOrder
   amount?: Prisma.SortOrder
@@ -383,7 +383,7 @@ export type CashMovementAvgOrderByAggregateInput = {
 
 export type CashMovementMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
+  cashSessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   method?: Prisma.SortOrder
   amount?: Prisma.SortOrder
@@ -393,7 +393,7 @@ export type CashMovementMaxOrderByAggregateInput = {
 
 export type CashMovementMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
+  cashSessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   method?: Prisma.SortOrder
   amount?: Prisma.SortOrder
@@ -405,45 +405,45 @@ export type CashMovementSumOrderByAggregateInput = {
   amount?: Prisma.SortOrder
 }
 
-export type CashMovementCreateNestedManyWithoutCashRegisterInput = {
-  create?: Prisma.XOR<Prisma.CashMovementCreateWithoutCashRegisterInput, Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput> | Prisma.CashMovementCreateWithoutCashRegisterInput[] | Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput[]
-  connectOrCreate?: Prisma.CashMovementCreateOrConnectWithoutCashRegisterInput | Prisma.CashMovementCreateOrConnectWithoutCashRegisterInput[]
-  createMany?: Prisma.CashMovementCreateManyCashRegisterInputEnvelope
+export type CashMovementCreateNestedManyWithoutCashSessionInput = {
+  create?: Prisma.XOR<Prisma.CashMovementCreateWithoutCashSessionInput, Prisma.CashMovementUncheckedCreateWithoutCashSessionInput> | Prisma.CashMovementCreateWithoutCashSessionInput[] | Prisma.CashMovementUncheckedCreateWithoutCashSessionInput[]
+  connectOrCreate?: Prisma.CashMovementCreateOrConnectWithoutCashSessionInput | Prisma.CashMovementCreateOrConnectWithoutCashSessionInput[]
+  createMany?: Prisma.CashMovementCreateManyCashSessionInputEnvelope
   connect?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
 }
 
-export type CashMovementUncheckedCreateNestedManyWithoutCashRegisterInput = {
-  create?: Prisma.XOR<Prisma.CashMovementCreateWithoutCashRegisterInput, Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput> | Prisma.CashMovementCreateWithoutCashRegisterInput[] | Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput[]
-  connectOrCreate?: Prisma.CashMovementCreateOrConnectWithoutCashRegisterInput | Prisma.CashMovementCreateOrConnectWithoutCashRegisterInput[]
-  createMany?: Prisma.CashMovementCreateManyCashRegisterInputEnvelope
+export type CashMovementUncheckedCreateNestedManyWithoutCashSessionInput = {
+  create?: Prisma.XOR<Prisma.CashMovementCreateWithoutCashSessionInput, Prisma.CashMovementUncheckedCreateWithoutCashSessionInput> | Prisma.CashMovementCreateWithoutCashSessionInput[] | Prisma.CashMovementUncheckedCreateWithoutCashSessionInput[]
+  connectOrCreate?: Prisma.CashMovementCreateOrConnectWithoutCashSessionInput | Prisma.CashMovementCreateOrConnectWithoutCashSessionInput[]
+  createMany?: Prisma.CashMovementCreateManyCashSessionInputEnvelope
   connect?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
 }
 
-export type CashMovementUpdateManyWithoutCashRegisterNestedInput = {
-  create?: Prisma.XOR<Prisma.CashMovementCreateWithoutCashRegisterInput, Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput> | Prisma.CashMovementCreateWithoutCashRegisterInput[] | Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput[]
-  connectOrCreate?: Prisma.CashMovementCreateOrConnectWithoutCashRegisterInput | Prisma.CashMovementCreateOrConnectWithoutCashRegisterInput[]
-  upsert?: Prisma.CashMovementUpsertWithWhereUniqueWithoutCashRegisterInput | Prisma.CashMovementUpsertWithWhereUniqueWithoutCashRegisterInput[]
-  createMany?: Prisma.CashMovementCreateManyCashRegisterInputEnvelope
+export type CashMovementUpdateManyWithoutCashSessionNestedInput = {
+  create?: Prisma.XOR<Prisma.CashMovementCreateWithoutCashSessionInput, Prisma.CashMovementUncheckedCreateWithoutCashSessionInput> | Prisma.CashMovementCreateWithoutCashSessionInput[] | Prisma.CashMovementUncheckedCreateWithoutCashSessionInput[]
+  connectOrCreate?: Prisma.CashMovementCreateOrConnectWithoutCashSessionInput | Prisma.CashMovementCreateOrConnectWithoutCashSessionInput[]
+  upsert?: Prisma.CashMovementUpsertWithWhereUniqueWithoutCashSessionInput | Prisma.CashMovementUpsertWithWhereUniqueWithoutCashSessionInput[]
+  createMany?: Prisma.CashMovementCreateManyCashSessionInputEnvelope
   set?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
   disconnect?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
   delete?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
   connect?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
-  update?: Prisma.CashMovementUpdateWithWhereUniqueWithoutCashRegisterInput | Prisma.CashMovementUpdateWithWhereUniqueWithoutCashRegisterInput[]
-  updateMany?: Prisma.CashMovementUpdateManyWithWhereWithoutCashRegisterInput | Prisma.CashMovementUpdateManyWithWhereWithoutCashRegisterInput[]
+  update?: Prisma.CashMovementUpdateWithWhereUniqueWithoutCashSessionInput | Prisma.CashMovementUpdateWithWhereUniqueWithoutCashSessionInput[]
+  updateMany?: Prisma.CashMovementUpdateManyWithWhereWithoutCashSessionInput | Prisma.CashMovementUpdateManyWithWhereWithoutCashSessionInput[]
   deleteMany?: Prisma.CashMovementScalarWhereInput | Prisma.CashMovementScalarWhereInput[]
 }
 
-export type CashMovementUncheckedUpdateManyWithoutCashRegisterNestedInput = {
-  create?: Prisma.XOR<Prisma.CashMovementCreateWithoutCashRegisterInput, Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput> | Prisma.CashMovementCreateWithoutCashRegisterInput[] | Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput[]
-  connectOrCreate?: Prisma.CashMovementCreateOrConnectWithoutCashRegisterInput | Prisma.CashMovementCreateOrConnectWithoutCashRegisterInput[]
-  upsert?: Prisma.CashMovementUpsertWithWhereUniqueWithoutCashRegisterInput | Prisma.CashMovementUpsertWithWhereUniqueWithoutCashRegisterInput[]
-  createMany?: Prisma.CashMovementCreateManyCashRegisterInputEnvelope
+export type CashMovementUncheckedUpdateManyWithoutCashSessionNestedInput = {
+  create?: Prisma.XOR<Prisma.CashMovementCreateWithoutCashSessionInput, Prisma.CashMovementUncheckedCreateWithoutCashSessionInput> | Prisma.CashMovementCreateWithoutCashSessionInput[] | Prisma.CashMovementUncheckedCreateWithoutCashSessionInput[]
+  connectOrCreate?: Prisma.CashMovementCreateOrConnectWithoutCashSessionInput | Prisma.CashMovementCreateOrConnectWithoutCashSessionInput[]
+  upsert?: Prisma.CashMovementUpsertWithWhereUniqueWithoutCashSessionInput | Prisma.CashMovementUpsertWithWhereUniqueWithoutCashSessionInput[]
+  createMany?: Prisma.CashMovementCreateManyCashSessionInputEnvelope
   set?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
   disconnect?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
   delete?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
   connect?: Prisma.CashMovementWhereUniqueInput | Prisma.CashMovementWhereUniqueInput[]
-  update?: Prisma.CashMovementUpdateWithWhereUniqueWithoutCashRegisterInput | Prisma.CashMovementUpdateWithWhereUniqueWithoutCashRegisterInput[]
-  updateMany?: Prisma.CashMovementUpdateManyWithWhereWithoutCashRegisterInput | Prisma.CashMovementUpdateManyWithWhereWithoutCashRegisterInput[]
+  update?: Prisma.CashMovementUpdateWithWhereUniqueWithoutCashSessionInput | Prisma.CashMovementUpdateWithWhereUniqueWithoutCashSessionInput[]
+  updateMany?: Prisma.CashMovementUpdateManyWithWhereWithoutCashSessionInput | Prisma.CashMovementUpdateManyWithWhereWithoutCashSessionInput[]
   deleteMany?: Prisma.CashMovementScalarWhereInput | Prisma.CashMovementScalarWhereInput[]
 }
 
@@ -455,7 +455,7 @@ export type NullableEnumPaymentMethodFieldUpdateOperationsInput = {
   set?: $Enums.PaymentMethod | null
 }
 
-export type CashMovementCreateWithoutCashRegisterInput = {
+export type CashMovementCreateWithoutCashSessionInput = {
   id?: string
   type: $Enums.CashMovementType
   method?: $Enums.PaymentMethod | null
@@ -464,7 +464,7 @@ export type CashMovementCreateWithoutCashRegisterInput = {
   createdAt?: Date | string
 }
 
-export type CashMovementUncheckedCreateWithoutCashRegisterInput = {
+export type CashMovementUncheckedCreateWithoutCashSessionInput = {
   id?: string
   type: $Enums.CashMovementType
   method?: $Enums.PaymentMethod | null
@@ -473,30 +473,30 @@ export type CashMovementUncheckedCreateWithoutCashRegisterInput = {
   createdAt?: Date | string
 }
 
-export type CashMovementCreateOrConnectWithoutCashRegisterInput = {
+export type CashMovementCreateOrConnectWithoutCashSessionInput = {
   where: Prisma.CashMovementWhereUniqueInput
-  create: Prisma.XOR<Prisma.CashMovementCreateWithoutCashRegisterInput, Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput>
+  create: Prisma.XOR<Prisma.CashMovementCreateWithoutCashSessionInput, Prisma.CashMovementUncheckedCreateWithoutCashSessionInput>
 }
 
-export type CashMovementCreateManyCashRegisterInputEnvelope = {
-  data: Prisma.CashMovementCreateManyCashRegisterInput | Prisma.CashMovementCreateManyCashRegisterInput[]
+export type CashMovementCreateManyCashSessionInputEnvelope = {
+  data: Prisma.CashMovementCreateManyCashSessionInput | Prisma.CashMovementCreateManyCashSessionInput[]
   skipDuplicates?: boolean
 }
 
-export type CashMovementUpsertWithWhereUniqueWithoutCashRegisterInput = {
+export type CashMovementUpsertWithWhereUniqueWithoutCashSessionInput = {
   where: Prisma.CashMovementWhereUniqueInput
-  update: Prisma.XOR<Prisma.CashMovementUpdateWithoutCashRegisterInput, Prisma.CashMovementUncheckedUpdateWithoutCashRegisterInput>
-  create: Prisma.XOR<Prisma.CashMovementCreateWithoutCashRegisterInput, Prisma.CashMovementUncheckedCreateWithoutCashRegisterInput>
+  update: Prisma.XOR<Prisma.CashMovementUpdateWithoutCashSessionInput, Prisma.CashMovementUncheckedUpdateWithoutCashSessionInput>
+  create: Prisma.XOR<Prisma.CashMovementCreateWithoutCashSessionInput, Prisma.CashMovementUncheckedCreateWithoutCashSessionInput>
 }
 
-export type CashMovementUpdateWithWhereUniqueWithoutCashRegisterInput = {
+export type CashMovementUpdateWithWhereUniqueWithoutCashSessionInput = {
   where: Prisma.CashMovementWhereUniqueInput
-  data: Prisma.XOR<Prisma.CashMovementUpdateWithoutCashRegisterInput, Prisma.CashMovementUncheckedUpdateWithoutCashRegisterInput>
+  data: Prisma.XOR<Prisma.CashMovementUpdateWithoutCashSessionInput, Prisma.CashMovementUncheckedUpdateWithoutCashSessionInput>
 }
 
-export type CashMovementUpdateManyWithWhereWithoutCashRegisterInput = {
+export type CashMovementUpdateManyWithWhereWithoutCashSessionInput = {
   where: Prisma.CashMovementScalarWhereInput
-  data: Prisma.XOR<Prisma.CashMovementUpdateManyMutationInput, Prisma.CashMovementUncheckedUpdateManyWithoutCashRegisterInput>
+  data: Prisma.XOR<Prisma.CashMovementUpdateManyMutationInput, Prisma.CashMovementUncheckedUpdateManyWithoutCashSessionInput>
 }
 
 export type CashMovementScalarWhereInput = {
@@ -504,7 +504,7 @@ export type CashMovementScalarWhereInput = {
   OR?: Prisma.CashMovementScalarWhereInput[]
   NOT?: Prisma.CashMovementScalarWhereInput | Prisma.CashMovementScalarWhereInput[]
   id?: Prisma.StringFilter<"CashMovement"> | string
-  cashRegisterId?: Prisma.StringFilter<"CashMovement"> | string
+  cashSessionId?: Prisma.StringFilter<"CashMovement"> | string
   type?: Prisma.EnumCashMovementTypeFilter<"CashMovement"> | $Enums.CashMovementType
   method?: Prisma.EnumPaymentMethodNullableFilter<"CashMovement"> | $Enums.PaymentMethod | null
   amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -512,7 +512,7 @@ export type CashMovementScalarWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
 }
 
-export type CashMovementCreateManyCashRegisterInput = {
+export type CashMovementCreateManyCashSessionInput = {
   id?: string
   type: $Enums.CashMovementType
   method?: $Enums.PaymentMethod | null
@@ -521,7 +521,7 @@ export type CashMovementCreateManyCashRegisterInput = {
   createdAt?: Date | string
 }
 
-export type CashMovementUpdateWithoutCashRegisterInput = {
+export type CashMovementUpdateWithoutCashSessionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   method?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
@@ -530,7 +530,7 @@ export type CashMovementUpdateWithoutCashRegisterInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CashMovementUncheckedUpdateWithoutCashRegisterInput = {
+export type CashMovementUncheckedUpdateWithoutCashSessionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   method?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
@@ -539,7 +539,7 @@ export type CashMovementUncheckedUpdateWithoutCashRegisterInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CashMovementUncheckedUpdateManyWithoutCashRegisterInput = {
+export type CashMovementUncheckedUpdateManyWithoutCashSessionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   method?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
@@ -552,40 +552,40 @@ export type CashMovementUncheckedUpdateManyWithoutCashRegisterInput = {
 
 export type CashMovementSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashRegisterId?: boolean
+  cashSessionId?: boolean
   type?: boolean
   method?: boolean
   amount?: boolean
   referenceId?: boolean
   createdAt?: boolean
-  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashMovement"]>
 
 export type CashMovementSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashRegisterId?: boolean
+  cashSessionId?: boolean
   type?: boolean
   method?: boolean
   amount?: boolean
   referenceId?: boolean
   createdAt?: boolean
-  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashMovement"]>
 
 export type CashMovementSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashRegisterId?: boolean
+  cashSessionId?: boolean
   type?: boolean
   method?: boolean
   amount?: boolean
   referenceId?: boolean
   createdAt?: boolean
-  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashMovement"]>
 
 export type CashMovementSelectScalar = {
   id?: boolean
-  cashRegisterId?: boolean
+  cashSessionId?: boolean
   type?: boolean
   method?: boolean
   amount?: boolean
@@ -593,25 +593,25 @@ export type CashMovementSelectScalar = {
   createdAt?: boolean
 }
 
-export type CashMovementOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "cashRegisterId" | "type" | "method" | "amount" | "referenceId" | "createdAt", ExtArgs["result"]["cashMovement"]>
+export type CashMovementOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "cashSessionId" | "type" | "method" | "amount" | "referenceId" | "createdAt", ExtArgs["result"]["cashMovement"]>
 export type CashMovementInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
 }
 export type CashMovementIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
 }
 export type CashMovementIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
 }
 
 export type $CashMovementPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CashMovement"
   objects: {
-    cashRegister: Prisma.$CashRegisterPayload<ExtArgs>
+    cashSession: Prisma.$CashSessionPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    cashRegisterId: string
+    cashSessionId: string
     type: $Enums.CashMovementType
     method: $Enums.PaymentMethod | null
     amount: runtime.Decimal
@@ -1011,7 +1011,7 @@ readonly fields: CashMovementFieldRefs;
  */
 export interface Prisma__CashMovementClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  cashRegister<T extends Prisma.CashRegisterDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashRegisterDefaultArgs<ExtArgs>>): Prisma.Prisma__CashRegisterClient<runtime.Types.Result.GetResult<Prisma.$CashRegisterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  cashSession<T extends Prisma.CashSessionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashSessionDefaultArgs<ExtArgs>>): Prisma.Prisma__CashSessionClient<runtime.Types.Result.GetResult<Prisma.$CashSessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1042,7 +1042,7 @@ export interface Prisma__CashMovementClient<T, Null = never, ExtArgs extends run
  */
 export interface CashMovementFieldRefs {
   readonly id: Prisma.FieldRef<"CashMovement", 'String'>
-  readonly cashRegisterId: Prisma.FieldRef<"CashMovement", 'String'>
+  readonly cashSessionId: Prisma.FieldRef<"CashMovement", 'String'>
   readonly type: Prisma.FieldRef<"CashMovement", 'CashMovementType'>
   readonly method: Prisma.FieldRef<"CashMovement", 'PaymentMethod'>
   readonly amount: Prisma.FieldRef<"CashMovement", 'Decimal'>

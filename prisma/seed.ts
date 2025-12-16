@@ -12,30 +12,53 @@ const prisma = new PrismaClient({ adapter });
 async function main() {
   console.log('🌱 Iniciando seed...');
 
-  const adminEmail = 'admin@pdv.com';
+  const passwordHash = await bcrypt.hash('123456', 10);
 
-  const adminExists = await prisma.user.findUnique({
-    where: { email: adminEmail },
-  });
-
-  if (adminExists) {
-    console.log('⚠️ Admin já existe, seed ignorada');
-    return;
-  }
-
-  const passwordHash = await bcrypt.hash('admin123', 10);
-
-  await prisma.user.create({
-    data: {
+  const users = [
+    {
       name: 'Administrador',
-      email: adminEmail,
-      password: passwordHash,
+      email: 'admin@pdv.com',
       role: UserRole.ADMIN,
-      active: true,
     },
-  });
+    {
+      name: 'Gerente',
+      email: 'gerente@pdv.com',
+      role: UserRole.MANAGER,
+    },
+    {
+      name: 'Caixa',
+      email: 'caixa@pdv.com',
+      role: UserRole.CASHIER,
+    },
+    {
+      name: 'Garçom',
+      email: 'garcom@pdv.com',
+      role: UserRole.WAITER,
+    },
+  ];
 
-  console.log('✅ Admin criado com sucesso');
+  for (const user of users) {
+    const exists = await prisma.user.findUnique({
+      where: { email: user.email },
+    });
+
+    if (exists) {
+      console.log(`⚠️ Usuário ${user.role} já existe: ${user.email}`);
+      continue;
+    }
+
+    await prisma.user.create({
+      data: {
+        name: user.name,
+        email: user.email,
+        password: passwordHash,
+        role: user.role,
+        active: true,
+      },
+    });
+
+    console.log(`✅ Usuário ${user.role} criado: ${user.email}`);
+  }
 }
 
 main()

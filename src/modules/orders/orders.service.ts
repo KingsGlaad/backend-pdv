@@ -98,7 +98,7 @@ export class OrdersService {
 
       // 6. Busca caixa aberto
       const cashRegister = await tx.cashRegister.findFirst({
-        where: { status: 'OPEN' },
+        where: { active: true },
       });
 
       if (!cashRegister) {
@@ -109,7 +109,7 @@ export class OrdersService {
       for (const payment of payments) {
         await tx.cashMovement.create({
           data: {
-            cashRegisterId: cashRegister.id,
+            cashSessionId: cashRegister.id,
             type: 'SALE',
             method: payment.method,
             amount: payment.amount,

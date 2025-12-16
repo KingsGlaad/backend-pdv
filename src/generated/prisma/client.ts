@@ -73,10 +73,20 @@ export type Payment = Prisma.PaymentModel
  */
 export type CashRegister = Prisma.CashRegisterModel
 /**
+ * Model CashSession
+ * 
+ */
+export type CashSession = Prisma.CashSessionModel
+/**
  * Model CashMovement
  * 
  */
 export type CashMovement = Prisma.CashMovementModel
+/**
+ * Model CashDrawerLog
+ * 
+ */
+export type CashDrawerLog = Prisma.CashDrawerLogModel
 /**
  * Model InventoryItem
  * 

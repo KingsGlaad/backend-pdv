@@ -11,7 +11,7 @@ import { Roles } from '../../common/decorators/roles.decorator';
 export class UsersController {
   constructor(private service: UsersService) {}
 
-  @Post()
+  @Post('create')
   @Roles('ADMIN', 'MANAGER')
   async create(@Body() body: unknown) {
     const dto = CreateUserSchema.parse(body);

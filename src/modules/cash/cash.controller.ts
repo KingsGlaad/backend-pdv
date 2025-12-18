@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post, Request, UseGuards } from '@nestjs/common'
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { CashSessionService } from './cash-session.service';
 import { CashMovementService } from './cash-movement.service';
+import { CashDrawerService } from './cash-drawer.service';
 import { OpenSessionDto } from './dto/open-session.dto';
 import { CloseSessionDto } from './dto/close-session.dto';
 import { CreateMovementDto } from './dto/create-movement.dto';
@@ -12,11 +13,16 @@ export class CashController {
   constructor(
     private readonly sessionService: CashSessionService,
     private readonly movementService: CashMovementService,
+    private readonly drawerService: CashDrawerService,
   ) {}
+
+  @Get('registers')
+  async getRegisters() {
+    return this.drawerService.findAllWithStatus();
+  }
 
   @Get('status')
   async getStatus(@Request() req) {
-    // Retorna a sessão ativa do usuário logado (se houver)
     const session = await this.sessionService.getActiveSession(req.user.id);
     return {
       isOpen: !!session,

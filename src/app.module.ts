@@ -33,7 +33,14 @@ JwtModule.register({
     CashModule,
     ProductModule,
   ],
-  providers: [UsersService, CashDrawerService, CashMovementService, CashSessionService, InventoryService, ProductService],
+  providers: [
+    UsersService,
+    CashDrawerService,
+    CashMovementService,
+    CashSessionService,
+    InventoryService,
+    ProductService,
+  ],
   controllers: [UsersController, CashController, ProductController],
 })
 export class AppModule {}

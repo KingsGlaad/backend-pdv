@@ -85,4 +85,31 @@ export class SalesService {
       averageTicket,
     };
   }
+
+  async getSalesChart(startDate?: string, endDate?: string) {
+    const end = endDate ? new Date(endDate) : new Date();
+    const start = startDate ? new Date(startDate) : new Date(new Date().setDate(end.getDate() - 7)); // Default to 7 days
+
+    // Ensure start/end cover full days
+    start.setHours(0, 0, 0, 0);
+    end.setHours(23, 59, 59, 999);
+
+    const data = await this.prisma.$queryRaw<{ date: string; total: unknown }[]>`
+      SELECT
+        TO_CHAR("createdAt", 'YYYY-MM-DD') as date,
+        SUM("finalAmount") as total
+      FROM "Sale"
+      WHERE "status" = 'COMPLETED'
+      AND "createdAt" >= ${start}
+      AND "createdAt" <= ${end}
+      GROUP BY TO_CHAR("createdAt", 'YYYY-MM-DD')
+      ORDER BY date ASC
+    `;
+
+    // Parse decimals to numbers for JSON serialization
+    return data.map((item) => ({
+      date: item.date,
+      total: Number(item.total),
+    }));
+  }
 }

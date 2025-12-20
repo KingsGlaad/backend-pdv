@@ -15,4 +15,9 @@ export class SalesController {
   async getStats(@Query('startDate') startDate?: string, @Query('endDate') endDate?: string) {
     return this.salesService.getStats(startDate, endDate);
   }
+
+  @Get('chart')
+  async getChart(@Query('startDate') startDate?: string, @Query('endDate') endDate?: string) {
+    return this.salesService.getSalesChart(startDate, endDate);
+  }
 }

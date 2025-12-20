@@ -216,6 +216,9 @@ export type UserWhereInput = {
   deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   ordersOpened?: Prisma.OrderListRelationFilter
   cashSessions?: Prisma.CashSessionListRelationFilter
+  drawerLogs?: Prisma.CashDrawerLogListRelationFilter
+  sales?: Prisma.SaleListRelationFilter
+  inventoryMovirements?: Prisma.InventoryMovementListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -230,6 +233,9 @@ export type UserOrderByWithRelationInput = {
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   ordersOpened?: Prisma.OrderOrderByRelationAggregateInput
   cashSessions?: Prisma.CashSessionOrderByRelationAggregateInput
+  drawerLogs?: Prisma.CashDrawerLogOrderByRelationAggregateInput
+  sales?: Prisma.SaleOrderByRelationAggregateInput
+  inventoryMovirements?: Prisma.InventoryMovementOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -247,6 +253,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   ordersOpened?: Prisma.OrderListRelationFilter
   cashSessions?: Prisma.CashSessionListRelationFilter
+  drawerLogs?: Prisma.CashDrawerLogListRelationFilter
+  sales?: Prisma.SaleListRelationFilter
+  inventoryMovirements?: Prisma.InventoryMovementListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -284,13 +293,16 @@ export type UserCreateInput = {
   name: string
   email: string
   password: string
-  role: $Enums.UserRole
+  role?: $Enums.UserRole
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
-  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
+  drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -298,13 +310,16 @@ export type UserUncheckedCreateInput = {
   name: string
   email: string
   password: string
-  role: $Enums.UserRole
+  role?: $Enums.UserRole
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
-  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -318,7 +333,10 @@ export type UserUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
-  cashSessions?: Prisma.CashSessionUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -332,7 +350,10 @@ export type UserUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
-  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -340,7 +361,7 @@ export type UserCreateManyInput = {
   name: string
   email: string
   password: string
-  role: $Enums.UserRole
+  role?: $Enums.UserRole
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -412,6 +433,11 @@ export type UserScalarRelationFilter = {
   isNot?: Prisma.UserWhereInput
 }
 
+export type UserNullableScalarRelationFilter = {
+  is?: Prisma.UserWhereInput | null
+  isNot?: Prisma.UserWhereInput | null
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -446,6 +472,22 @@ export type UserUpdateOneRequiredWithoutOrdersOpenedNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutOrdersOpenedInput, Prisma.UserUpdateWithoutOrdersOpenedInput>, Prisma.UserUncheckedUpdateWithoutOrdersOpenedInput>
 }
 
+export type UserCreateNestedOneWithoutSalesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutSalesInput, Prisma.UserUncheckedCreateWithoutSalesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSalesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutSalesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutSalesInput, Prisma.UserUncheckedCreateWithoutSalesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSalesInput
+  upsert?: Prisma.UserUpsertWithoutSalesInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSalesInput, Prisma.UserUpdateWithoutSalesInput>, Prisma.UserUncheckedUpdateWithoutSalesInput>
+}
+
 export type UserCreateNestedOneWithoutCashSessionsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutCashSessionsInput, Prisma.UserUncheckedCreateWithoutCashSessionsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutCashSessionsInput
@@ -460,17 +502,48 @@ export type UserUpdateOneRequiredWithoutCashSessionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutCashSessionsInput, Prisma.UserUpdateWithoutCashSessionsInput>, Prisma.UserUncheckedUpdateWithoutCashSessionsInput>
 }
 
+export type UserCreateNestedOneWithoutDrawerLogsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDrawerLogsInput, Prisma.UserUncheckedCreateWithoutDrawerLogsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDrawerLogsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutDrawerLogsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDrawerLogsInput, Prisma.UserUncheckedCreateWithoutDrawerLogsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDrawerLogsInput
+  upsert?: Prisma.UserUpsertWithoutDrawerLogsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutDrawerLogsInput, Prisma.UserUpdateWithoutDrawerLogsInput>, Prisma.UserUncheckedUpdateWithoutDrawerLogsInput>
+}
+
+export type UserCreateNestedOneWithoutInventoryMovirementsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutInventoryMovirementsInput, Prisma.UserUncheckedCreateWithoutInventoryMovirementsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutInventoryMovirementsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutInventoryMovirementsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutInventoryMovirementsInput, Prisma.UserUncheckedCreateWithoutInventoryMovirementsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutInventoryMovirementsInput
+  upsert?: Prisma.UserUpsertWithoutInventoryMovirementsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutInventoryMovirementsInput, Prisma.UserUpdateWithoutInventoryMovirementsInput>, Prisma.UserUncheckedUpdateWithoutInventoryMovirementsInput>
+}
+
 export type UserCreateWithoutOrdersOpenedInput = {
   id?: string
   name: string
   email: string
   password: string
-  role: $Enums.UserRole
+  role?: $Enums.UserRole
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
+  drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutOrdersOpenedInput = {
@@ -478,12 +551,15 @@ export type UserUncheckedCreateWithoutOrdersOpenedInput = {
   name: string
   email: string
   password: string
-  role: $Enums.UserRole
+  role?: $Enums.UserRole
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutOrdersOpenedInput = {
@@ -512,7 +588,10 @@ export type UserUpdateWithoutOrdersOpenedInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  cashSessions?: Prisma.CashSessionUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutOrdersOpenedInput = {
@@ -525,7 +604,90 @@ export type UserUncheckedUpdateWithoutOrdersOpenedInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutSalesInput = {
+  id?: string
+  name: string
+  email: string
+  password: string
+  role?: $Enums.UserRole
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
+  drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutSalesInput = {
+  id?: string
+  name: string
+  email: string
+  password: string
+  role?: $Enums.UserRole
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutSalesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutSalesInput, Prisma.UserUncheckedCreateWithoutSalesInput>
+}
+
+export type UserUpsertWithoutSalesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutSalesInput, Prisma.UserUncheckedUpdateWithoutSalesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutSalesInput, Prisma.UserUncheckedCreateWithoutSalesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutSalesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutSalesInput, Prisma.UserUncheckedUpdateWithoutSalesInput>
+}
+
+export type UserUpdateWithoutSalesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutSalesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutCashSessionsInput = {
@@ -533,12 +695,15 @@ export type UserCreateWithoutCashSessionsInput = {
   name: string
   email: string
   password: string
-  role: $Enums.UserRole
+  role?: $Enums.UserRole
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
+  drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutCashSessionsInput = {
@@ -546,12 +711,15 @@ export type UserUncheckedCreateWithoutCashSessionsInput = {
   name: string
   email: string
   password: string
-  role: $Enums.UserRole
+  role?: $Enums.UserRole
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutCashSessionsInput = {
@@ -581,6 +749,9 @@ export type UserUpdateWithoutCashSessionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCashSessionsInput = {
@@ -594,6 +765,169 @@ export type UserUncheckedUpdateWithoutCashSessionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutDrawerLogsInput = {
+  id?: string
+  name: string
+  email: string
+  password: string
+  role?: $Enums.UserRole
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutDrawerLogsInput = {
+  id?: string
+  name: string
+  email: string
+  password: string
+  role?: $Enums.UserRole
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutDrawerLogsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutDrawerLogsInput, Prisma.UserUncheckedCreateWithoutDrawerLogsInput>
+}
+
+export type UserUpsertWithoutDrawerLogsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutDrawerLogsInput, Prisma.UserUncheckedUpdateWithoutDrawerLogsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutDrawerLogsInput, Prisma.UserUncheckedCreateWithoutDrawerLogsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutDrawerLogsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutDrawerLogsInput, Prisma.UserUncheckedUpdateWithoutDrawerLogsInput>
+}
+
+export type UserUpdateWithoutDrawerLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutDrawerLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
+  inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutInventoryMovirementsInput = {
+  id?: string
+  name: string
+  email: string
+  password: string
+  role?: $Enums.UserRole
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
+  drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutInventoryMovirementsInput = {
+  id?: string
+  name: string
+  email: string
+  password: string
+  role?: $Enums.UserRole
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutInventoryMovirementsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutInventoryMovirementsInput, Prisma.UserUncheckedCreateWithoutInventoryMovirementsInput>
+}
+
+export type UserUpsertWithoutInventoryMovirementsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutInventoryMovirementsInput, Prisma.UserUncheckedUpdateWithoutInventoryMovirementsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutInventoryMovirementsInput, Prisma.UserUncheckedCreateWithoutInventoryMovirementsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutInventoryMovirementsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutInventoryMovirementsInput, Prisma.UserUncheckedUpdateWithoutInventoryMovirementsInput>
+}
+
+export type UserUpdateWithoutInventoryMovirementsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutInventoryMovirementsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
+  drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -604,11 +938,17 @@ export type UserUncheckedUpdateWithoutCashSessionsInput = {
 export type UserCountOutputType = {
   ordersOpened: number
   cashSessions: number
+  drawerLogs: number
+  sales: number
+  inventoryMovirements: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   ordersOpened?: boolean | UserCountOutputTypeCountOrdersOpenedArgs
   cashSessions?: boolean | UserCountOutputTypeCountCashSessionsArgs
+  drawerLogs?: boolean | UserCountOutputTypeCountDrawerLogsArgs
+  sales?: boolean | UserCountOutputTypeCountSalesArgs
+  inventoryMovirements?: boolean | UserCountOutputTypeCountInventoryMovirementsArgs
 }
 
 /**
@@ -635,6 +975,27 @@ export type UserCountOutputTypeCountCashSessionsArgs<ExtArgs extends runtime.Typ
   where?: Prisma.CashSessionWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountDrawerLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CashDrawerLogWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountSalesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SaleWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountInventoryMovirementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InventoryMovementWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -648,6 +1009,9 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   deletedAt?: boolean
   ordersOpened?: boolean | Prisma.User$ordersOpenedArgs<ExtArgs>
   cashSessions?: boolean | Prisma.User$cashSessionsArgs<ExtArgs>
+  drawerLogs?: boolean | Prisma.User$drawerLogsArgs<ExtArgs>
+  sales?: boolean | Prisma.User$salesArgs<ExtArgs>
+  inventoryMovirements?: boolean | Prisma.User$inventoryMovirementsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -691,6 +1055,9 @@ export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   ordersOpened?: boolean | Prisma.User$ordersOpenedArgs<ExtArgs>
   cashSessions?: boolean | Prisma.User$cashSessionsArgs<ExtArgs>
+  drawerLogs?: boolean | Prisma.User$drawerLogsArgs<ExtArgs>
+  sales?: boolean | Prisma.User$salesArgs<ExtArgs>
+  inventoryMovirements?: boolean | Prisma.User$inventoryMovirementsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -701,6 +1068,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     ordersOpened: Prisma.$OrderPayload<ExtArgs>[]
     cashSessions: Prisma.$CashSessionPayload<ExtArgs>[]
+    drawerLogs: Prisma.$CashDrawerLogPayload<ExtArgs>[]
+    sales: Prisma.$SalePayload<ExtArgs>[]
+    inventoryMovirements: Prisma.$InventoryMovementPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1108,6 +1478,9 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   ordersOpened<T extends Prisma.User$ordersOpenedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$ordersOpenedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   cashSessions<T extends Prisma.User$cashSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$cashSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  drawerLogs<T extends Prisma.User$drawerLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$drawerLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashDrawerLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  sales<T extends Prisma.User$salesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$salesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  inventoryMovirements<T extends Prisma.User$inventoryMovirementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$inventoryMovirementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1579,6 +1952,78 @@ export type User$cashSessionsArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.CashSessionScalarFieldEnum | Prisma.CashSessionScalarFieldEnum[]
+}
+
+/**
+ * User.drawerLogs
+ */
+export type User$drawerLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CashDrawerLog
+   */
+  select?: Prisma.CashDrawerLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CashDrawerLog
+   */
+  omit?: Prisma.CashDrawerLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CashDrawerLogInclude<ExtArgs> | null
+  where?: Prisma.CashDrawerLogWhereInput
+  orderBy?: Prisma.CashDrawerLogOrderByWithRelationInput | Prisma.CashDrawerLogOrderByWithRelationInput[]
+  cursor?: Prisma.CashDrawerLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CashDrawerLogScalarFieldEnum | Prisma.CashDrawerLogScalarFieldEnum[]
+}
+
+/**
+ * User.sales
+ */
+export type User$salesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Sale
+   */
+  select?: Prisma.SaleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Sale
+   */
+  omit?: Prisma.SaleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SaleInclude<ExtArgs> | null
+  where?: Prisma.SaleWhereInput
+  orderBy?: Prisma.SaleOrderByWithRelationInput | Prisma.SaleOrderByWithRelationInput[]
+  cursor?: Prisma.SaleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SaleScalarFieldEnum | Prisma.SaleScalarFieldEnum[]
+}
+
+/**
+ * User.inventoryMovirements
+ */
+export type User$inventoryMovirementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the InventoryMovement
+   */
+  select?: Prisma.InventoryMovementSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the InventoryMovement
+   */
+  omit?: Prisma.InventoryMovementOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InventoryMovementInclude<ExtArgs> | null
+  where?: Prisma.InventoryMovementWhereInput
+  orderBy?: Prisma.InventoryMovementOrderByWithRelationInput | Prisma.InventoryMovementOrderByWithRelationInput[]
+  cursor?: Prisma.InventoryMovementWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InventoryMovementScalarFieldEnum | Prisma.InventoryMovementScalarFieldEnum[]
 }
 
 /**

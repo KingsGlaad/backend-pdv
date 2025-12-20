@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class CashDrawerService {
@@ -8,7 +8,7 @@ export class CashDrawerService {
   async findAllWithStatus() {
     // 1. Buscar todos os caixas e suas sessões ativas
     const registers = await this.prisma.cashRegister.findMany({
-      where: { active: true },
+      where: { isActive: true },
       include: {
         sessions: {
           where: { closedAt: null }, // Apenas sessões abertas
@@ -21,7 +21,7 @@ export class CashDrawerService {
 
     // 2. Extrair IDs únicos de usuários das sessões ativas
     const userIds = registers
-      .map((reg) => reg.sessions[0]?.openedById)
+      .map((reg) => reg.sessions[0]?.userId)
       .filter((id): id is string => !!id); // Remove null/undefined
 
     // 3. Buscar nomes dos usuários em lote (apenas uma consulta)
@@ -40,14 +40,14 @@ export class CashDrawerService {
     // 4. Montar DTO de resposta
     return registers.map((reg) => {
       const activeSession = reg.sessions[0];
-      const operatorName = activeSession ? userMap.get(activeSession.openedById) : null;
+      const operatorName = activeSession ? userMap.get(activeSession.userId) : null;
 
       return {
         id: reg.id,
         name: reg.name,
         isOpen: !!activeSession,
         currentSessionId: activeSession?.id || null,
-        currentOperatorId: activeSession?.openedById || null,
+        currentOperatorId: activeSession?.userId || null,
         currentOperatorName: operatorName || null,
         openedAt: activeSession?.openedAt || null,
       };

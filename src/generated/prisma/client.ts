@@ -97,8 +97,3 @@ export type InventoryItem = Prisma.InventoryItemModel
  * 
  */
 export type InventoryMovement = Prisma.InventoryMovementModel
-/**
- * Model ProductRecipe
- * 
- */
-export type ProductRecipe = Prisma.ProductRecipeModel

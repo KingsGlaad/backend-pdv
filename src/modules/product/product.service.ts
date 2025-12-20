@@ -24,8 +24,16 @@ export class ProductService {
       },
     });
   }
-  async getProducts() {
+  async getProducts(search?: string) {
     return this.prisma.product.findMany({
+      where: search
+        ? {
+            OR: [
+              { name: { contains: search, mode: 'insensitive' } },
+              { code: { contains: search } },
+            ],
+          }
+        : undefined,
       include: {
         orderItems: true,
       },
@@ -48,6 +56,20 @@ export class ProductService {
   async findByCode(code: string) {
     const product = await this.prisma.product.findUnique({
       where: { code },
+    });
+
+    if (!product) {
+      throw new NotFoundException('Produto não encontrado.');
+    }
+
+    return {
+      ...product,
+      /*stock: product.inventoryItems?.[0]?.quantity || 0,*/
+    };
+  }
+  async findByName(name: string) {
+    const product = await this.prisma.product.findMany({
+      where: { name },
     });
 
     if (!product) {

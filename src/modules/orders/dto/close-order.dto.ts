@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const CloseOrderSchema = z.object({
   payments: z.array(
     z.object({
-      method: z.enum(['CASH', 'PIX', 'CARD', 'OTHER']),
+      method: z.string(),
       amount: z.number().positive(),
       reference: z.string().optional(),
     }),

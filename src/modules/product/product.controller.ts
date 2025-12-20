@@ -1,5 +1,15 @@
 import { JwtAuthGuard } from '@common/guards/jwt-auth.guard';
-import { Controller, Post, UseGuards, Body, Get, Patch, Delete, Param } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  UseGuards,
+  Body,
+  Get,
+  Patch,
+  Delete,
+  Param,
+  Query,
+} from '@nestjs/common';
 import { ProductService } from './product.service';
 import { ZodValidationPipe } from 'nestjs-zod';
 import { CreateProductDto } from './dto/add-product.dto';
@@ -18,8 +28,8 @@ export class ProductController {
   }
 
   @Get()
-  async getProducts() {
-    return this.service.getProducts();
+  async getProducts(@Query('search') search?: string) {
+    return this.service.getProducts(search);
   }
   @Get('code/:code')
   findByCode(@Param('code') code: string) {

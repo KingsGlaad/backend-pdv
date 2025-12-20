@@ -395,8 +395,7 @@ export const ModelName = {
   CashMovement: 'CashMovement',
   CashDrawerLog: 'CashDrawerLog',
   InventoryItem: 'InventoryItem',
-  InventoryMovement: 'InventoryMovement',
-  ProductRecipe: 'ProductRecipe'
+  InventoryMovement: 'InventoryMovement'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -412,7 +411,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "product" | "order" | "orderItem" | "sale" | "payment" | "cashRegister" | "cashSession" | "cashMovement" | "cashDrawerLog" | "inventoryItem" | "inventoryMovement" | "productRecipe"
+    modelProps: "user" | "product" | "order" | "orderItem" | "sale" | "payment" | "cashRegister" | "cashSession" | "cashMovement" | "cashDrawerLog" | "inventoryItem" | "inventoryMovement"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1304,80 +1303,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    ProductRecipe: {
-      payload: Prisma.$ProductRecipePayload<ExtArgs>
-      fields: Prisma.ProductRecipeFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.ProductRecipeFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.ProductRecipeFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>
-        }
-        findFirst: {
-          args: Prisma.ProductRecipeFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.ProductRecipeFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>
-        }
-        findMany: {
-          args: Prisma.ProductRecipeFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>[]
-        }
-        create: {
-          args: Prisma.ProductRecipeCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>
-        }
-        createMany: {
-          args: Prisma.ProductRecipeCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.ProductRecipeCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>[]
-        }
-        delete: {
-          args: Prisma.ProductRecipeDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>
-        }
-        update: {
-          args: Prisma.ProductRecipeUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>
-        }
-        deleteMany: {
-          args: Prisma.ProductRecipeDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.ProductRecipeUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.ProductRecipeUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>[]
-        }
-        upsert: {
-          args: Prisma.ProductRecipeUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductRecipePayload>
-        }
-        aggregate: {
-          args: Prisma.ProductRecipeAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateProductRecipe>
-        }
-        groupBy: {
-          args: Prisma.ProductRecipeGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ProductRecipeGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.ProductRecipeCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ProductRecipeCountAggregateOutputType> | number
-        }
-      }
-    }
   }
 } & {
   other: {
@@ -1456,7 +1381,8 @@ export const OrderScalarFieldEnum = {
   openedAt: 'openedAt',
   closedAt: 'closedAt',
   createdAt: 'createdAt',
-  openedById: 'openedById'
+  openedById: 'openedById',
+  saleId: 'saleId'
 } as const
 
 export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
@@ -1464,13 +1390,11 @@ export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof Or
 
 export const OrderItemScalarFieldEnum = {
   id: 'id',
-  orderId: 'orderId',
+  saleId: 'saleId',
   productId: 'productId',
   quantity: 'quantity',
-  unitPrice: 'unitPrice',
-  status: 'status',
-  createdAt: 'createdAt',
-  canceledAt: 'canceledAt'
+  price: 'price',
+  orderId: 'orderId'
 } as const
 
 export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof typeof OrderItemScalarFieldEnum]
@@ -1478,12 +1402,16 @@ export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof t
 
 export const SaleScalarFieldEnum = {
   id: 'id',
-  orderId: 'orderId',
-  totalAmount: 'totalAmount',
+  code: 'code',
+  total: 'total',
   discount: 'discount',
   finalAmount: 'finalAmount',
+  paymentMethod: 'paymentMethod',
   status: 'status',
-  createdAt: 'createdAt'
+  customerCpf: 'customerCpf',
+  createdAt: 'createdAt',
+  userId: 'userId',
+  cashSessionId: 'cashSessionId'
 } as const
 
 export type SaleScalarFieldEnum = (typeof SaleScalarFieldEnum)[keyof typeof SaleScalarFieldEnum]
@@ -1506,7 +1434,7 @@ export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeo
 export const CashRegisterScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  active: 'active',
+  isActive: 'isActive',
   createdAt: 'createdAt'
 } as const
 
@@ -1516,12 +1444,14 @@ export type CashRegisterScalarFieldEnum = (typeof CashRegisterScalarFieldEnum)[k
 export const CashSessionScalarFieldEnum = {
   id: 'id',
   cashRegisterId: 'cashRegisterId',
-  openedById: 'openedById',
-  openingAmount: 'openingAmount',
-  closingAmount: 'closingAmount',
-  status: 'status',
+  userId: 'userId',
   openedAt: 'openedAt',
-  closedAt: 'closedAt'
+  closedAt: 'closedAt',
+  initialBalance: 'initialBalance',
+  finalBalance: 'finalBalance',
+  systemBalance: 'systemBalance',
+  difference: 'difference',
+  status: 'status'
 } as const
 
 export type CashSessionScalarFieldEnum = (typeof CashSessionScalarFieldEnum)[keyof typeof CashSessionScalarFieldEnum]
@@ -1529,11 +1459,10 @@ export type CashSessionScalarFieldEnum = (typeof CashSessionScalarFieldEnum)[key
 
 export const CashMovementScalarFieldEnum = {
   id: 'id',
-  cashSessionId: 'cashSessionId',
+  sessionId: 'sessionId',
   type: 'type',
-  method: 'method',
   amount: 'amount',
-  referenceId: 'referenceId',
+  reason: 'reason',
   createdAt: 'createdAt'
 } as const
 
@@ -1542,8 +1471,9 @@ export type CashMovementScalarFieldEnum = (typeof CashMovementScalarFieldEnum)[k
 
 export const CashDrawerLogScalarFieldEnum = {
   id: 'id',
-  cashSessionId: 'cashSessionId',
-  reason: 'reason',
+  cashRegisterId: 'cashRegisterId',
+  userId: 'userId',
+  action: 'action',
   description: 'description',
   createdAt: 'createdAt'
 } as const
@@ -1553,17 +1483,10 @@ export type CashDrawerLogScalarFieldEnum = (typeof CashDrawerLogScalarFieldEnum)
 
 export const InventoryItemScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  unit: 'unit',
-  active: 'active',
+  productId: 'productId',
   quantity: 'quantity',
   minStock: 'minStock',
-  maxStock: 'maxStock',
-  price: 'price',
-  category: 'category',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
+  updatedAt: 'updatedAt'
 } as const
 
 export type InventoryItemScalarFieldEnum = (typeof InventoryItemScalarFieldEnum)[keyof typeof InventoryItemScalarFieldEnum]
@@ -1575,20 +1498,11 @@ export const InventoryMovementScalarFieldEnum = {
   type: 'type',
   quantity: 'quantity',
   reason: 'reason',
+  userId: 'userId',
   createdAt: 'createdAt'
 } as const
 
 export type InventoryMovementScalarFieldEnum = (typeof InventoryMovementScalarFieldEnum)[keyof typeof InventoryMovementScalarFieldEnum]
-
-
-export const ProductRecipeScalarFieldEnum = {
-  id: 'id',
-  productId: 'productId',
-  inventoryItemId: 'inventoryItemId',
-  quantityUsed: 'quantityUsed'
-} as const
-
-export type ProductRecipeScalarFieldEnum = (typeof ProductRecipeScalarFieldEnum)[keyof typeof ProductRecipeScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1713,20 +1627,6 @@ export type ListEnumOrderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$
 
 
 /**
- * Reference to a field of type 'OrderItemStatus'
- */
-export type EnumOrderItemStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderItemStatus'>
-    
-
-
-/**
- * Reference to a field of type 'OrderItemStatus[]'
- */
-export type ListEnumOrderItemStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderItemStatus[]'>
-    
-
-
-/**
  * Reference to a field of type 'SaleStatus'
  */
 export type EnumSaleStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SaleStatus'>
@@ -1769,20 +1669,6 @@ export type ListEnumPaymentStatusFieldRefInput<$PrismaModel> = FieldRefInputType
 
 
 /**
- * Reference to a field of type 'CashRegisterStatus'
- */
-export type EnumCashRegisterStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CashRegisterStatus'>
-    
-
-
-/**
- * Reference to a field of type 'CashRegisterStatus[]'
- */
-export type ListEnumCashRegisterStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CashRegisterStatus[]'>
-    
-
-
-/**
  * Reference to a field of type 'CashMovementType'
  */
 export type EnumCashMovementTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CashMovementType'>
@@ -1793,34 +1679,6 @@ export type EnumCashMovementTypeFieldRefInput<$PrismaModel> = FieldRefInputType<
  * Reference to a field of type 'CashMovementType[]'
  */
 export type ListEnumCashMovementTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CashMovementType[]'>
-    
-
-
-/**
- * Reference to a field of type 'DrawerOpenReason'
- */
-export type EnumDrawerOpenReasonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DrawerOpenReason'>
-    
-
-
-/**
- * Reference to a field of type 'DrawerOpenReason[]'
- */
-export type ListEnumDrawerOpenReasonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DrawerOpenReason[]'>
-    
-
-
-/**
- * Reference to a field of type 'InventoryMovementType'
- */
-export type EnumInventoryMovementTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryMovementType'>
-    
-
-
-/**
- * Reference to a field of type 'InventoryMovementType[]'
- */
-export type ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryMovementType[]'>
     
 
 
@@ -1944,7 +1802,6 @@ export type GlobalOmitConfig = {
   cashDrawerLog?: Prisma.CashDrawerLogOmit
   inventoryItem?: Prisma.InventoryItemOmit
   inventoryMovement?: Prisma.InventoryMovementOmit
-  productRecipe?: Prisma.ProductRecipeOmit
 }
 
 /* Types for Logging */

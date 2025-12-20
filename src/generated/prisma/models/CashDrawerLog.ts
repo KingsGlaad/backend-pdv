@@ -26,24 +26,27 @@ export type AggregateCashDrawerLog = {
 
 export type CashDrawerLogMinAggregateOutputType = {
   id: string | null
-  cashSessionId: string | null
-  reason: $Enums.DrawerOpenReason | null
+  cashRegisterId: string | null
+  userId: string | null
+  action: string | null
   description: string | null
   createdAt: Date | null
 }
 
 export type CashDrawerLogMaxAggregateOutputType = {
   id: string | null
-  cashSessionId: string | null
-  reason: $Enums.DrawerOpenReason | null
+  cashRegisterId: string | null
+  userId: string | null
+  action: string | null
   description: string | null
   createdAt: Date | null
 }
 
 export type CashDrawerLogCountAggregateOutputType = {
   id: number
-  cashSessionId: number
-  reason: number
+  cashRegisterId: number
+  userId: number
+  action: number
   description: number
   createdAt: number
   _all: number
@@ -52,24 +55,27 @@ export type CashDrawerLogCountAggregateOutputType = {
 
 export type CashDrawerLogMinAggregateInputType = {
   id?: true
-  cashSessionId?: true
-  reason?: true
+  cashRegisterId?: true
+  userId?: true
+  action?: true
   description?: true
   createdAt?: true
 }
 
 export type CashDrawerLogMaxAggregateInputType = {
   id?: true
-  cashSessionId?: true
-  reason?: true
+  cashRegisterId?: true
+  userId?: true
+  action?: true
   description?: true
   createdAt?: true
 }
 
 export type CashDrawerLogCountAggregateInputType = {
   id?: true
-  cashSessionId?: true
-  reason?: true
+  cashRegisterId?: true
+  userId?: true
+  action?: true
   description?: true
   createdAt?: true
   _all?: true
@@ -149,8 +155,9 @@ export type CashDrawerLogGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 
 export type CashDrawerLogGroupByOutputType = {
   id: string
-  cashSessionId: string
-  reason: $Enums.DrawerOpenReason
+  cashRegisterId: string
+  userId: string
+  action: string
   description: string | null
   createdAt: Date
   _count: CashDrawerLogCountAggregateOutputType | null
@@ -178,20 +185,24 @@ export type CashDrawerLogWhereInput = {
   OR?: Prisma.CashDrawerLogWhereInput[]
   NOT?: Prisma.CashDrawerLogWhereInput | Prisma.CashDrawerLogWhereInput[]
   id?: Prisma.StringFilter<"CashDrawerLog"> | string
-  cashSessionId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  reason?: Prisma.EnumDrawerOpenReasonFilter<"CashDrawerLog"> | $Enums.DrawerOpenReason
+  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  action?: Prisma.StringFilter<"CashDrawerLog"> | string
   description?: Prisma.StringNullableFilter<"CashDrawerLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CashDrawerLog"> | Date | string
-  cashSession?: Prisma.XOR<Prisma.CashSessionScalarRelationFilter, Prisma.CashSessionWhereInput>
+  cashRegister?: Prisma.XOR<Prisma.CashRegisterScalarRelationFilter, Prisma.CashRegisterWhereInput>
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type CashDrawerLogOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  cashSessionId?: Prisma.SortOrder
-  reason?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  action?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  cashSession?: Prisma.CashSessionOrderByWithRelationInput
+  cashRegister?: Prisma.CashRegisterOrderByWithRelationInput
+  user?: Prisma.UserOrderByWithRelationInput
 }
 
 export type CashDrawerLogWhereUniqueInput = Prisma.AtLeast<{
@@ -199,17 +210,20 @@ export type CashDrawerLogWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.CashDrawerLogWhereInput | Prisma.CashDrawerLogWhereInput[]
   OR?: Prisma.CashDrawerLogWhereInput[]
   NOT?: Prisma.CashDrawerLogWhereInput | Prisma.CashDrawerLogWhereInput[]
-  cashSessionId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  reason?: Prisma.EnumDrawerOpenReasonFilter<"CashDrawerLog"> | $Enums.DrawerOpenReason
+  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  action?: Prisma.StringFilter<"CashDrawerLog"> | string
   description?: Prisma.StringNullableFilter<"CashDrawerLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CashDrawerLog"> | Date | string
-  cashSession?: Prisma.XOR<Prisma.CashSessionScalarRelationFilter, Prisma.CashSessionWhereInput>
+  cashRegister?: Prisma.XOR<Prisma.CashRegisterScalarRelationFilter, Prisma.CashRegisterWhereInput>
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type CashDrawerLogOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  cashSessionId?: Prisma.SortOrder
-  reason?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  action?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.CashDrawerLogCountOrderByAggregateInput
@@ -222,63 +236,70 @@ export type CashDrawerLogScalarWhereWithAggregatesInput = {
   OR?: Prisma.CashDrawerLogScalarWhereWithAggregatesInput[]
   NOT?: Prisma.CashDrawerLogScalarWhereWithAggregatesInput | Prisma.CashDrawerLogScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
-  cashSessionId?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
-  reason?: Prisma.EnumDrawerOpenReasonWithAggregatesFilter<"CashDrawerLog"> | $Enums.DrawerOpenReason
+  cashRegisterId?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
+  userId?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
+  action?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"CashDrawerLog"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"CashDrawerLog"> | Date | string
 }
 
 export type CashDrawerLogCreateInput = {
   id?: string
-  reason: $Enums.DrawerOpenReason
+  action: string
   description?: string | null
   createdAt?: Date | string
-  cashSession: Prisma.CashSessionCreateNestedOneWithoutDrawerLogsInput
+  cashRegister: Prisma.CashRegisterCreateNestedOneWithoutLogsInput
+  user: Prisma.UserCreateNestedOneWithoutDrawerLogsInput
 }
 
 export type CashDrawerLogUncheckedCreateInput = {
   id?: string
-  cashSessionId: string
-  reason: $Enums.DrawerOpenReason
+  cashRegisterId: string
+  userId: string
+  action: string
   description?: string | null
   createdAt?: Date | string
 }
 
 export type CashDrawerLogUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  reason?: Prisma.EnumDrawerOpenReasonFieldUpdateOperationsInput | $Enums.DrawerOpenReason
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  cashSession?: Prisma.CashSessionUpdateOneRequiredWithoutDrawerLogsNestedInput
+  cashRegister?: Prisma.CashRegisterUpdateOneRequiredWithoutLogsNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutDrawerLogsNestedInput
 }
 
 export type CashDrawerLogUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  cashSessionId?: Prisma.StringFieldUpdateOperationsInput | string
-  reason?: Prisma.EnumDrawerOpenReasonFieldUpdateOperationsInput | $Enums.DrawerOpenReason
+  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CashDrawerLogCreateManyInput = {
   id?: string
-  cashSessionId: string
-  reason: $Enums.DrawerOpenReason
+  cashRegisterId: string
+  userId: string
+  action: string
   description?: string | null
   createdAt?: Date | string
 }
 
 export type CashDrawerLogUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  reason?: Prisma.EnumDrawerOpenReasonFieldUpdateOperationsInput | $Enums.DrawerOpenReason
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CashDrawerLogUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  cashSessionId?: Prisma.StringFieldUpdateOperationsInput | string
-  reason?: Prisma.EnumDrawerOpenReasonFieldUpdateOperationsInput | $Enums.DrawerOpenReason
+  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -295,112 +316,155 @@ export type CashDrawerLogOrderByRelationAggregateInput = {
 
 export type CashDrawerLogCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashSessionId?: Prisma.SortOrder
-  reason?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  action?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type CashDrawerLogMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashSessionId?: Prisma.SortOrder
-  reason?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  action?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type CashDrawerLogMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashSessionId?: Prisma.SortOrder
-  reason?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  action?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
-export type CashDrawerLogCreateNestedManyWithoutCashSessionInput = {
-  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashSessionInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput> | Prisma.CashDrawerLogCreateWithoutCashSessionInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput[]
-  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutCashSessionInput | Prisma.CashDrawerLogCreateOrConnectWithoutCashSessionInput[]
-  createMany?: Prisma.CashDrawerLogCreateManyCashSessionInputEnvelope
+export type CashDrawerLogCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutUserInput, Prisma.CashDrawerLogUncheckedCreateWithoutUserInput> | Prisma.CashDrawerLogCreateWithoutUserInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutUserInput | Prisma.CashDrawerLogCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.CashDrawerLogCreateManyUserInputEnvelope
   connect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
 }
 
-export type CashDrawerLogUncheckedCreateNestedManyWithoutCashSessionInput = {
-  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashSessionInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput> | Prisma.CashDrawerLogCreateWithoutCashSessionInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput[]
-  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutCashSessionInput | Prisma.CashDrawerLogCreateOrConnectWithoutCashSessionInput[]
-  createMany?: Prisma.CashDrawerLogCreateManyCashSessionInputEnvelope
+export type CashDrawerLogUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutUserInput, Prisma.CashDrawerLogUncheckedCreateWithoutUserInput> | Prisma.CashDrawerLogCreateWithoutUserInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutUserInput | Prisma.CashDrawerLogCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.CashDrawerLogCreateManyUserInputEnvelope
   connect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
 }
 
-export type CashDrawerLogUpdateManyWithoutCashSessionNestedInput = {
-  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashSessionInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput> | Prisma.CashDrawerLogCreateWithoutCashSessionInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput[]
-  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutCashSessionInput | Prisma.CashDrawerLogCreateOrConnectWithoutCashSessionInput[]
-  upsert?: Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutCashSessionInput | Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutCashSessionInput[]
-  createMany?: Prisma.CashDrawerLogCreateManyCashSessionInputEnvelope
+export type CashDrawerLogUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutUserInput, Prisma.CashDrawerLogUncheckedCreateWithoutUserInput> | Prisma.CashDrawerLogCreateWithoutUserInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutUserInput | Prisma.CashDrawerLogCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutUserInput | Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.CashDrawerLogCreateManyUserInputEnvelope
   set?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
   disconnect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
   delete?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
   connect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
-  update?: Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutCashSessionInput | Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutCashSessionInput[]
-  updateMany?: Prisma.CashDrawerLogUpdateManyWithWhereWithoutCashSessionInput | Prisma.CashDrawerLogUpdateManyWithWhereWithoutCashSessionInput[]
+  update?: Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutUserInput | Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.CashDrawerLogUpdateManyWithWhereWithoutUserInput | Prisma.CashDrawerLogUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.CashDrawerLogScalarWhereInput | Prisma.CashDrawerLogScalarWhereInput[]
 }
 
-export type CashDrawerLogUncheckedUpdateManyWithoutCashSessionNestedInput = {
-  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashSessionInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput> | Prisma.CashDrawerLogCreateWithoutCashSessionInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput[]
-  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutCashSessionInput | Prisma.CashDrawerLogCreateOrConnectWithoutCashSessionInput[]
-  upsert?: Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutCashSessionInput | Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutCashSessionInput[]
-  createMany?: Prisma.CashDrawerLogCreateManyCashSessionInputEnvelope
+export type CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutUserInput, Prisma.CashDrawerLogUncheckedCreateWithoutUserInput> | Prisma.CashDrawerLogCreateWithoutUserInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutUserInput | Prisma.CashDrawerLogCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutUserInput | Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.CashDrawerLogCreateManyUserInputEnvelope
   set?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
   disconnect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
   delete?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
   connect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
-  update?: Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutCashSessionInput | Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutCashSessionInput[]
-  updateMany?: Prisma.CashDrawerLogUpdateManyWithWhereWithoutCashSessionInput | Prisma.CashDrawerLogUpdateManyWithWhereWithoutCashSessionInput[]
+  update?: Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutUserInput | Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.CashDrawerLogUpdateManyWithWhereWithoutUserInput | Prisma.CashDrawerLogUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.CashDrawerLogScalarWhereInput | Prisma.CashDrawerLogScalarWhereInput[]
 }
 
-export type EnumDrawerOpenReasonFieldUpdateOperationsInput = {
-  set?: $Enums.DrawerOpenReason
+export type CashDrawerLogCreateNestedManyWithoutCashRegisterInput = {
+  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashRegisterInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput> | Prisma.CashDrawerLogCreateWithoutCashRegisterInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput[]
+  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutCashRegisterInput | Prisma.CashDrawerLogCreateOrConnectWithoutCashRegisterInput[]
+  createMany?: Prisma.CashDrawerLogCreateManyCashRegisterInputEnvelope
+  connect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
 }
 
-export type CashDrawerLogCreateWithoutCashSessionInput = {
+export type CashDrawerLogUncheckedCreateNestedManyWithoutCashRegisterInput = {
+  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashRegisterInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput> | Prisma.CashDrawerLogCreateWithoutCashRegisterInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput[]
+  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutCashRegisterInput | Prisma.CashDrawerLogCreateOrConnectWithoutCashRegisterInput[]
+  createMany?: Prisma.CashDrawerLogCreateManyCashRegisterInputEnvelope
+  connect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+}
+
+export type CashDrawerLogUpdateManyWithoutCashRegisterNestedInput = {
+  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashRegisterInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput> | Prisma.CashDrawerLogCreateWithoutCashRegisterInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput[]
+  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutCashRegisterInput | Prisma.CashDrawerLogCreateOrConnectWithoutCashRegisterInput[]
+  upsert?: Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutCashRegisterInput | Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutCashRegisterInput[]
+  createMany?: Prisma.CashDrawerLogCreateManyCashRegisterInputEnvelope
+  set?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+  disconnect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+  delete?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+  connect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+  update?: Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutCashRegisterInput | Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutCashRegisterInput[]
+  updateMany?: Prisma.CashDrawerLogUpdateManyWithWhereWithoutCashRegisterInput | Prisma.CashDrawerLogUpdateManyWithWhereWithoutCashRegisterInput[]
+  deleteMany?: Prisma.CashDrawerLogScalarWhereInput | Prisma.CashDrawerLogScalarWhereInput[]
+}
+
+export type CashDrawerLogUncheckedUpdateManyWithoutCashRegisterNestedInput = {
+  create?: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashRegisterInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput> | Prisma.CashDrawerLogCreateWithoutCashRegisterInput[] | Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput[]
+  connectOrCreate?: Prisma.CashDrawerLogCreateOrConnectWithoutCashRegisterInput | Prisma.CashDrawerLogCreateOrConnectWithoutCashRegisterInput[]
+  upsert?: Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutCashRegisterInput | Prisma.CashDrawerLogUpsertWithWhereUniqueWithoutCashRegisterInput[]
+  createMany?: Prisma.CashDrawerLogCreateManyCashRegisterInputEnvelope
+  set?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+  disconnect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+  delete?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+  connect?: Prisma.CashDrawerLogWhereUniqueInput | Prisma.CashDrawerLogWhereUniqueInput[]
+  update?: Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutCashRegisterInput | Prisma.CashDrawerLogUpdateWithWhereUniqueWithoutCashRegisterInput[]
+  updateMany?: Prisma.CashDrawerLogUpdateManyWithWhereWithoutCashRegisterInput | Prisma.CashDrawerLogUpdateManyWithWhereWithoutCashRegisterInput[]
+  deleteMany?: Prisma.CashDrawerLogScalarWhereInput | Prisma.CashDrawerLogScalarWhereInput[]
+}
+
+export type CashDrawerLogCreateWithoutUserInput = {
   id?: string
-  reason: $Enums.DrawerOpenReason
+  action: string
+  description?: string | null
+  createdAt?: Date | string
+  cashRegister: Prisma.CashRegisterCreateNestedOneWithoutLogsInput
+}
+
+export type CashDrawerLogUncheckedCreateWithoutUserInput = {
+  id?: string
+  cashRegisterId: string
+  action: string
   description?: string | null
   createdAt?: Date | string
 }
 
-export type CashDrawerLogUncheckedCreateWithoutCashSessionInput = {
-  id?: string
-  reason: $Enums.DrawerOpenReason
-  description?: string | null
-  createdAt?: Date | string
-}
-
-export type CashDrawerLogCreateOrConnectWithoutCashSessionInput = {
+export type CashDrawerLogCreateOrConnectWithoutUserInput = {
   where: Prisma.CashDrawerLogWhereUniqueInput
-  create: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashSessionInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput>
+  create: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutUserInput, Prisma.CashDrawerLogUncheckedCreateWithoutUserInput>
 }
 
-export type CashDrawerLogCreateManyCashSessionInputEnvelope = {
-  data: Prisma.CashDrawerLogCreateManyCashSessionInput | Prisma.CashDrawerLogCreateManyCashSessionInput[]
+export type CashDrawerLogCreateManyUserInputEnvelope = {
+  data: Prisma.CashDrawerLogCreateManyUserInput | Prisma.CashDrawerLogCreateManyUserInput[]
   skipDuplicates?: boolean
 }
 
-export type CashDrawerLogUpsertWithWhereUniqueWithoutCashSessionInput = {
+export type CashDrawerLogUpsertWithWhereUniqueWithoutUserInput = {
   where: Prisma.CashDrawerLogWhereUniqueInput
-  update: Prisma.XOR<Prisma.CashDrawerLogUpdateWithoutCashSessionInput, Prisma.CashDrawerLogUncheckedUpdateWithoutCashSessionInput>
-  create: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashSessionInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashSessionInput>
+  update: Prisma.XOR<Prisma.CashDrawerLogUpdateWithoutUserInput, Prisma.CashDrawerLogUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutUserInput, Prisma.CashDrawerLogUncheckedCreateWithoutUserInput>
 }
 
-export type CashDrawerLogUpdateWithWhereUniqueWithoutCashSessionInput = {
+export type CashDrawerLogUpdateWithWhereUniqueWithoutUserInput = {
   where: Prisma.CashDrawerLogWhereUniqueInput
-  data: Prisma.XOR<Prisma.CashDrawerLogUpdateWithoutCashSessionInput, Prisma.CashDrawerLogUncheckedUpdateWithoutCashSessionInput>
+  data: Prisma.XOR<Prisma.CashDrawerLogUpdateWithoutUserInput, Prisma.CashDrawerLogUncheckedUpdateWithoutUserInput>
 }
 
-export type CashDrawerLogUpdateManyWithWhereWithoutCashSessionInput = {
+export type CashDrawerLogUpdateManyWithWhereWithoutUserInput = {
   where: Prisma.CashDrawerLogScalarWhereInput
-  data: Prisma.XOR<Prisma.CashDrawerLogUpdateManyMutationInput, Prisma.CashDrawerLogUncheckedUpdateManyWithoutCashSessionInput>
+  data: Prisma.XOR<Prisma.CashDrawerLogUpdateManyMutationInput, Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserInput>
 }
 
 export type CashDrawerLogScalarWhereInput = {
@@ -408,36 +472,115 @@ export type CashDrawerLogScalarWhereInput = {
   OR?: Prisma.CashDrawerLogScalarWhereInput[]
   NOT?: Prisma.CashDrawerLogScalarWhereInput | Prisma.CashDrawerLogScalarWhereInput[]
   id?: Prisma.StringFilter<"CashDrawerLog"> | string
-  cashSessionId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  reason?: Prisma.EnumDrawerOpenReasonFilter<"CashDrawerLog"> | $Enums.DrawerOpenReason
+  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  action?: Prisma.StringFilter<"CashDrawerLog"> | string
   description?: Prisma.StringNullableFilter<"CashDrawerLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CashDrawerLog"> | Date | string
 }
 
-export type CashDrawerLogCreateManyCashSessionInput = {
+export type CashDrawerLogCreateWithoutCashRegisterInput = {
   id?: string
-  reason: $Enums.DrawerOpenReason
+  action: string
+  description?: string | null
+  createdAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutDrawerLogsInput
+}
+
+export type CashDrawerLogUncheckedCreateWithoutCashRegisterInput = {
+  id?: string
+  userId: string
+  action: string
   description?: string | null
   createdAt?: Date | string
 }
 
-export type CashDrawerLogUpdateWithoutCashSessionInput = {
+export type CashDrawerLogCreateOrConnectWithoutCashRegisterInput = {
+  where: Prisma.CashDrawerLogWhereUniqueInput
+  create: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashRegisterInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput>
+}
+
+export type CashDrawerLogCreateManyCashRegisterInputEnvelope = {
+  data: Prisma.CashDrawerLogCreateManyCashRegisterInput | Prisma.CashDrawerLogCreateManyCashRegisterInput[]
+  skipDuplicates?: boolean
+}
+
+export type CashDrawerLogUpsertWithWhereUniqueWithoutCashRegisterInput = {
+  where: Prisma.CashDrawerLogWhereUniqueInput
+  update: Prisma.XOR<Prisma.CashDrawerLogUpdateWithoutCashRegisterInput, Prisma.CashDrawerLogUncheckedUpdateWithoutCashRegisterInput>
+  create: Prisma.XOR<Prisma.CashDrawerLogCreateWithoutCashRegisterInput, Prisma.CashDrawerLogUncheckedCreateWithoutCashRegisterInput>
+}
+
+export type CashDrawerLogUpdateWithWhereUniqueWithoutCashRegisterInput = {
+  where: Prisma.CashDrawerLogWhereUniqueInput
+  data: Prisma.XOR<Prisma.CashDrawerLogUpdateWithoutCashRegisterInput, Prisma.CashDrawerLogUncheckedUpdateWithoutCashRegisterInput>
+}
+
+export type CashDrawerLogUpdateManyWithWhereWithoutCashRegisterInput = {
+  where: Prisma.CashDrawerLogScalarWhereInput
+  data: Prisma.XOR<Prisma.CashDrawerLogUpdateManyMutationInput, Prisma.CashDrawerLogUncheckedUpdateManyWithoutCashRegisterInput>
+}
+
+export type CashDrawerLogCreateManyUserInput = {
+  id?: string
+  cashRegisterId: string
+  action: string
+  description?: string | null
+  createdAt?: Date | string
+}
+
+export type CashDrawerLogUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  reason?: Prisma.EnumDrawerOpenReasonFieldUpdateOperationsInput | $Enums.DrawerOpenReason
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cashRegister?: Prisma.CashRegisterUpdateOneRequiredWithoutLogsNestedInput
+}
+
+export type CashDrawerLogUncheckedUpdateWithoutUserInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CashDrawerLogUncheckedUpdateWithoutCashSessionInput = {
+export type CashDrawerLogUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  reason?: Prisma.EnumDrawerOpenReasonFieldUpdateOperationsInput | $Enums.DrawerOpenReason
+  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CashDrawerLogUncheckedUpdateManyWithoutCashSessionInput = {
+export type CashDrawerLogCreateManyCashRegisterInput = {
+  id?: string
+  userId: string
+  action: string
+  description?: string | null
+  createdAt?: Date | string
+}
+
+export type CashDrawerLogUpdateWithoutCashRegisterInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  reason?: Prisma.EnumDrawerOpenReasonFieldUpdateOperationsInput | $Enums.DrawerOpenReason
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutDrawerLogsNestedInput
+}
+
+export type CashDrawerLogUncheckedUpdateWithoutCashRegisterInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type CashDrawerLogUncheckedUpdateManyWithoutCashRegisterInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -446,59 +589,71 @@ export type CashDrawerLogUncheckedUpdateManyWithoutCashSessionInput = {
 
 export type CashDrawerLogSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashSessionId?: boolean
-  reason?: boolean
+  cashRegisterId?: boolean
+  userId?: boolean
+  action?: boolean
   description?: boolean
   createdAt?: boolean
-  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
+  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashDrawerLog"]>
 
 export type CashDrawerLogSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashSessionId?: boolean
-  reason?: boolean
+  cashRegisterId?: boolean
+  userId?: boolean
+  action?: boolean
   description?: boolean
   createdAt?: boolean
-  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
+  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashDrawerLog"]>
 
 export type CashDrawerLogSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashSessionId?: boolean
-  reason?: boolean
+  cashRegisterId?: boolean
+  userId?: boolean
+  action?: boolean
   description?: boolean
   createdAt?: boolean
-  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
+  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashDrawerLog"]>
 
 export type CashDrawerLogSelectScalar = {
   id?: boolean
-  cashSessionId?: boolean
-  reason?: boolean
+  cashRegisterId?: boolean
+  userId?: boolean
+  action?: boolean
   description?: boolean
   createdAt?: boolean
 }
 
-export type CashDrawerLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "cashSessionId" | "reason" | "description" | "createdAt", ExtArgs["result"]["cashDrawerLog"]>
+export type CashDrawerLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "cashRegisterId" | "userId" | "action" | "description" | "createdAt", ExtArgs["result"]["cashDrawerLog"]>
 export type CashDrawerLogInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
+  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type CashDrawerLogIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
+  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type CashDrawerLogIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cashSession?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
+  cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $CashDrawerLogPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CashDrawerLog"
   objects: {
-    cashSession: Prisma.$CashSessionPayload<ExtArgs>
+    cashRegister: Prisma.$CashRegisterPayload<ExtArgs>
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    cashSessionId: string
-    reason: $Enums.DrawerOpenReason
+    cashRegisterId: string
+    userId: string
+    action: string
     description: string | null
     createdAt: Date
   }, ExtArgs["result"]["cashDrawerLog"]>
@@ -895,7 +1050,8 @@ readonly fields: CashDrawerLogFieldRefs;
  */
 export interface Prisma__CashDrawerLogClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  cashSession<T extends Prisma.CashSessionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashSessionDefaultArgs<ExtArgs>>): Prisma.Prisma__CashSessionClient<runtime.Types.Result.GetResult<Prisma.$CashSessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  cashRegister<T extends Prisma.CashRegisterDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashRegisterDefaultArgs<ExtArgs>>): Prisma.Prisma__CashRegisterClient<runtime.Types.Result.GetResult<Prisma.$CashRegisterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -926,8 +1082,9 @@ export interface Prisma__CashDrawerLogClient<T, Null = never, ExtArgs extends ru
  */
 export interface CashDrawerLogFieldRefs {
   readonly id: Prisma.FieldRef<"CashDrawerLog", 'String'>
-  readonly cashSessionId: Prisma.FieldRef<"CashDrawerLog", 'String'>
-  readonly reason: Prisma.FieldRef<"CashDrawerLog", 'DrawerOpenReason'>
+  readonly cashRegisterId: Prisma.FieldRef<"CashDrawerLog", 'String'>
+  readonly userId: Prisma.FieldRef<"CashDrawerLog", 'String'>
+  readonly action: Prisma.FieldRef<"CashDrawerLog", 'String'>
   readonly description: Prisma.FieldRef<"CashDrawerLog", 'String'>
   readonly createdAt: Prisma.FieldRef<"CashDrawerLog", 'DateTime'>
 }

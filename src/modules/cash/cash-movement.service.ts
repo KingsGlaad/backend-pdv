@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { CreateMovementDto, MovementType } from './dto/create-movement.dto';
+import { CashMovementType } from '../../generated/prisma/enums';
 
 @Injectable()
 export class CashMovementService {
@@ -24,17 +25,17 @@ export class CashMovementService {
     if (dto.type === MovementType.WITHDRAW) {
       const aggregates = await this.prisma.cashMovement.groupBy({
         by: ['type'],
-        where: { cashSessionId: dto.sessionId },
+        where: { sessionId: dto.sessionId },
         _sum: { amount: true },
       });
 
-      let currentBalance = Number(session.openingAmount);
+      let currentBalance = Number(session.initialBalance);
 
       for (const agg of aggregates) {
         const val = Number(agg._sum.amount || 0);
-        if (agg.type === MovementType.SALE || agg.type === MovementType.SUPPLY)
+        if (agg.type === CashMovementType.SALE || agg.type === CashMovementType.SUPPLY)
           currentBalance += val;
-        else if (agg.type === MovementType.WITHDRAW) currentBalance -= val;
+        else if (agg.type === CashMovementType.WITHDRAW) currentBalance -= val;
       }
 
       if (Number(dto.amount) > currentBalance) {
@@ -47,7 +48,7 @@ export class CashMovementService {
     // 3. Cria a movimentação
     return this.prisma.cashMovement.create({
       data: {
-        cashSessionId: dto.sessionId,
+        sessionId: dto.sessionId,
         type: dto.type as any,
         amount: dto.amount,
         // userId: userId, // Se quiser rastrear quem fez a sangria especificamente

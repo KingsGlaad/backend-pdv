@@ -80,12 +80,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.1.0
- * Query Engine version: ab635e6b9d606fa5c8fb8b1a7f909c3c3c1c98ba
+ * Prisma Client JS version: 7.2.0
+ * Query Engine version: 0c8ef2ce45c83248ab3df073180d5eda9e8be7a3
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.1.0",
-  engine: "ab635e6b9d606fa5c8fb8b1a7f909c3c3c1c98ba"
+  client: "7.2.0",
+  engine: "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3"
 }
 
 /**
@@ -395,7 +395,8 @@ export const ModelName = {
   CashMovement: 'CashMovement',
   CashDrawerLog: 'CashDrawerLog',
   InventoryItem: 'InventoryItem',
-  InventoryMovement: 'InventoryMovement'
+  InventoryMovement: 'InventoryMovement',
+  Config: 'Config'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -411,7 +412,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "product" | "order" | "orderItem" | "sale" | "payment" | "cashRegister" | "cashSession" | "cashMovement" | "cashDrawerLog" | "inventoryItem" | "inventoryMovement"
+    modelProps: "user" | "product" | "order" | "orderItem" | "sale" | "payment" | "cashRegister" | "cashSession" | "cashMovement" | "cashDrawerLog" | "inventoryItem" | "inventoryMovement" | "config"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1303,6 +1304,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Config: {
+      payload: Prisma.$ConfigPayload<ExtArgs>
+      fields: Prisma.ConfigFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ConfigFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ConfigFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>
+        }
+        findFirst: {
+          args: Prisma.ConfigFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ConfigFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>
+        }
+        findMany: {
+          args: Prisma.ConfigFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>[]
+        }
+        create: {
+          args: Prisma.ConfigCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>
+        }
+        createMany: {
+          args: Prisma.ConfigCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ConfigCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>[]
+        }
+        delete: {
+          args: Prisma.ConfigDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>
+        }
+        update: {
+          args: Prisma.ConfigUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>
+        }
+        deleteMany: {
+          args: Prisma.ConfigDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ConfigUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ConfigUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>[]
+        }
+        upsert: {
+          args: Prisma.ConfigUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfigPayload>
+        }
+        aggregate: {
+          args: Prisma.ConfigAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateConfig>
+        }
+        groupBy: {
+          args: Prisma.ConfigGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConfigGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ConfigCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConfigCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1364,6 +1439,7 @@ export const ProductScalarFieldEnum = {
   price: 'price',
   description: 'description',
   category: 'category',
+  imageUrl: 'imageUrl',
   active: 'active',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -1503,6 +1579,19 @@ export const InventoryMovementScalarFieldEnum = {
 } as const
 
 export type InventoryMovementScalarFieldEnum = (typeof InventoryMovementScalarFieldEnum)[keyof typeof InventoryMovementScalarFieldEnum]
+
+
+export const ConfigScalarFieldEnum = {
+  id: 'id',
+  appName: 'appName',
+  logoUrl: 'logoUrl',
+  theme: 'theme',
+  currency: 'currency',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ConfigScalarFieldEnum = (typeof ConfigScalarFieldEnum)[keyof typeof ConfigScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1802,6 +1891,7 @@ export type GlobalOmitConfig = {
   cashDrawerLog?: Prisma.CashDrawerLogOmit
   inventoryItem?: Prisma.InventoryItemOmit
   inventoryMovement?: Prisma.InventoryMovementOmit
+  config?: Prisma.ConfigOmit
 }
 
 /* Types for Logging */

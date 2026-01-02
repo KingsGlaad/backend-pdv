@@ -8,6 +8,7 @@ export const CreateProductSchema = BaseProductSchema.extend({
   price: z.number().min(0, 'O preço não pode ser negativo'),
   category: z.string().optional(),
   description: z.string().optional(),
+  imageUrl: z.string().optional(),
 });
 
 export class CreateProductDto extends createZodDto(CreateProductSchema) {}

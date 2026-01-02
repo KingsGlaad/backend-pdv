@@ -28,8 +28,12 @@ export class ProductController {
   }
 
   @Get()
-  async getProducts(@Query('search') search?: string) {
-    return this.service.getProducts(search);
+  async getProducts(
+    @Query('search') search?: string,
+    @Query('page') page = '1',
+    @Query('limit') limit = '10',
+  ) {
+    return this.service.getProducts(search, Number(page), Number(limit));
   }
   @Get('code/:code')
   findByCode(@Param('code') code: string) {

@@ -33,6 +33,7 @@ model Product {
   price       Decimal   @db.Decimal(12, 2)
   description String?
   category    String?
+  imageUrl    String?
   active      Boolean   @default(true)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
@@ -65,7 +66,7 @@ model Order {
 model OrderItem {
   id        String  @id @default(uuid())
   saleId    String?
-  sale      Sale?    @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  sale      Sale?   @relation(fields: [saleId], references: [id], onDelete: Cascade)
   productId String
   product   Product @relation(fields: [productId], references: [id])
   quantity  Int
@@ -75,15 +76,15 @@ model OrderItem {
 }
 
 model Sale {
-  id            String   @id @default(uuid())
-  code          String   @unique @default(cuid()) // Código legível da venda
-  total         Decimal  @db.Decimal(10, 2)
-  discount      Decimal? @db.Decimal(10, 2)
-  finalAmount   Decimal  @db.Decimal(10, 2)
+  id            String     @id @default(uuid())
+  code          String     @unique @default(cuid()) // Código legível da venda
+  total         Decimal    @db.Decimal(10, 2)
+  discount      Decimal?   @db.Decimal(10, 2)
+  finalAmount   Decimal    @db.Decimal(10, 2)
   paymentMethod String // money, credit, debit, pix
-  status        SaleStatus   @default(COMPLETED) // COMPLETED, CANCELED
+  status        SaleStatus @default(COMPLETED) // COMPLETED, CANCELED
   customerCpf   String?
-  createdAt     DateTime @default(now())
+  createdAt     DateTime   @default(now())
 
   userId String?
   user   User?   @relation(fields: [userId], references: [id])
@@ -152,9 +153,9 @@ model CashMovement {
   session   CashSession @relation(fields: [sessionId], references: [id])
 
   type      CashMovementType // SUPPLY (Suprimento), BLEED (Sangria)
-  amount    Decimal   @db.Decimal(10, 2)
+  amount    Decimal          @db.Decimal(10, 2)
   reason    String?
-  createdAt DateTime  @default(now())
+  createdAt DateTime         @default(now())
   payments  Payment[]
 }
 
@@ -192,6 +193,16 @@ model InventoryMovement {
   userId          String
   user            User          @relation(fields: [userId], references: [id])
   createdAt       DateTime      @default(now())
+}
+
+model Config {
+  id        String   @id @default(uuid())
+  appName   String   @default("PDV App")
+  logoUrl   String?
+  theme     String   @default("system") // light, dark, system
+  currency  String   @default("BRL")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum UserRole {

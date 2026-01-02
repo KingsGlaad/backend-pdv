@@ -97,3 +97,8 @@ export type InventoryItem = Prisma.InventoryItemModel
  * 
  */
 export type InventoryMovement = Prisma.InventoryMovementModel
+/**
+ * Model Config
+ * 
+ */
+export type Config = Prisma.ConfigModel

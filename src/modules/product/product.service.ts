@@ -21,23 +21,48 @@ export class ProductService {
         price: dto.price,
         category: dto.category || null,
         description: dto.description || null,
+        imageUrl: dto.imageUrl || null,
       },
     });
   }
-  async getProducts(search?: string) {
-    return this.prisma.product.findMany({
-      where: search
-        ? {
-            OR: [
-              { name: { contains: search, mode: 'insensitive' } },
-              { code: { contains: search } },
-            ],
-          }
-        : undefined,
-      include: {
-        orderItems: true,
+  async getProducts(search?: string, page = 1, limit = 10) {
+    const sanitizedSearch = search?.trim();
+    const skip = (page - 1) * limit;
+
+    const where = sanitizedSearch
+      ? {
+          OR: [
+            { name: { contains: sanitizedSearch, mode: 'insensitive' as const } },
+            { code: { contains: sanitizedSearch } },
+          ],
+        }
+      : undefined;
+
+    const [total, products] = await Promise.all([
+      this.prisma.product.count({ where }),
+      this.prisma.product.findMany({
+        where,
+        include: {
+          orderItems: true,
+        },
+        orderBy: {
+          name: 'asc',
+        },
+        skip,
+        take: limit,
+      }),
+    ]);
+
+    const lastPage = Math.ceil(total / limit);
+
+    return {
+      data: products,
+      meta: {
+        total,
+        page,
+        lastPage,
       },
-    });
+    };
   }
   async findOne(id: string) {
     const product = await this.prisma.product.findUnique({

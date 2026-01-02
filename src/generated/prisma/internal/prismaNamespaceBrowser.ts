@@ -62,7 +62,8 @@ export const ModelName = {
   CashMovement: 'CashMovement',
   CashDrawerLog: 'CashDrawerLog',
   InventoryItem: 'InventoryItem',
-  InventoryMovement: 'InventoryMovement'
+  InventoryMovement: 'InventoryMovement',
+  Config: 'Config'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -103,6 +104,7 @@ export const ProductScalarFieldEnum = {
   price: 'price',
   description: 'description',
   category: 'category',
+  imageUrl: 'imageUrl',
   active: 'active',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -242,6 +244,19 @@ export const InventoryMovementScalarFieldEnum = {
 } as const
 
 export type InventoryMovementScalarFieldEnum = (typeof InventoryMovementScalarFieldEnum)[keyof typeof InventoryMovementScalarFieldEnum]
+
+
+export const ConfigScalarFieldEnum = {
+  id: 'id',
+  appName: 'appName',
+  logoUrl: 'logoUrl',
+  theme: 'theme',
+  currency: 'currency',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ConfigScalarFieldEnum = (typeof ConfigScalarFieldEnum)[keyof typeof ConfigScalarFieldEnum]
 
 
 export const SortOrder = {

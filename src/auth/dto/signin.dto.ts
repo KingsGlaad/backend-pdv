@@ -1,4 +1,5 @@
 // src/modules/auth/dto/signin.dto.ts
+import { createZodDto } from 'nestjs-zod';
 import { z } from 'zod';
 
 export const SignInSchema = z.object({
@@ -6,4 +7,4 @@ export const SignInSchema = z.object({
   password: z.string().min(6),
 });
 
-export type SignInDto = z.infer<typeof SignInSchema>;
+export class SignInDto extends createZodDto(SignInSchema) {}

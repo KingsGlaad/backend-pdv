@@ -396,7 +396,8 @@ export const ModelName = {
   CashDrawerLog: 'CashDrawerLog',
   InventoryItem: 'InventoryItem',
   InventoryMovement: 'InventoryMovement',
-  Config: 'Config'
+  Config: 'Config',
+  PrinterConfig: 'PrinterConfig'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -412,7 +413,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "product" | "order" | "orderItem" | "sale" | "payment" | "cashRegister" | "cashSession" | "cashMovement" | "cashDrawerLog" | "inventoryItem" | "inventoryMovement" | "config"
+    modelProps: "user" | "product" | "order" | "orderItem" | "sale" | "payment" | "cashRegister" | "cashSession" | "cashMovement" | "cashDrawerLog" | "inventoryItem" | "inventoryMovement" | "config" | "printerConfig"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1378,6 +1379,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PrinterConfig: {
+      payload: Prisma.$PrinterConfigPayload<ExtArgs>
+      fields: Prisma.PrinterConfigFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PrinterConfigFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PrinterConfigFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>
+        }
+        findFirst: {
+          args: Prisma.PrinterConfigFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PrinterConfigFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>
+        }
+        findMany: {
+          args: Prisma.PrinterConfigFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>[]
+        }
+        create: {
+          args: Prisma.PrinterConfigCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>
+        }
+        createMany: {
+          args: Prisma.PrinterConfigCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PrinterConfigCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>[]
+        }
+        delete: {
+          args: Prisma.PrinterConfigDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>
+        }
+        update: {
+          args: Prisma.PrinterConfigUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>
+        }
+        deleteMany: {
+          args: Prisma.PrinterConfigDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PrinterConfigUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PrinterConfigUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>[]
+        }
+        upsert: {
+          args: Prisma.PrinterConfigUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrinterConfigPayload>
+        }
+        aggregate: {
+          args: Prisma.PrinterConfigAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePrinterConfig>
+        }
+        groupBy: {
+          args: Prisma.PrinterConfigGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PrinterConfigGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PrinterConfigCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PrinterConfigCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1587,11 +1662,34 @@ export const ConfigScalarFieldEnum = {
   logoUrl: 'logoUrl',
   theme: 'theme',
   currency: 'currency',
+  companyName: 'companyName',
+  tradingName: 'tradingName',
+  cnpj: 'cnpj',
+  stateRegistration: 'stateRegistration',
+  phone: 'phone',
+  email: 'email',
+  address: 'address',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type ConfigScalarFieldEnum = (typeof ConfigScalarFieldEnum)[keyof typeof ConfigScalarFieldEnum]
+
+
+export const PrinterConfigScalarFieldEnum = {
+  id: 'id',
+  terminalId: 'terminalId',
+  name: 'name',
+  printerName: 'printerName',
+  printerType: 'printerType',
+  connection: 'connection',
+  width: 'width',
+  enabled: 'enabled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PrinterConfigScalarFieldEnum = (typeof PrinterConfigScalarFieldEnum)[keyof typeof PrinterConfigScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1892,6 +1990,7 @@ export type GlobalOmitConfig = {
   inventoryItem?: Prisma.InventoryItemOmit
   inventoryMovement?: Prisma.InventoryMovementOmit
   config?: Prisma.ConfigOmit
+  printerConfig?: Prisma.PrinterConfigOmit
 }
 
 /* Types for Logging */

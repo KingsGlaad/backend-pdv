@@ -196,13 +196,35 @@ model InventoryMovement {
 }
 
 model Config {
-  id        String   @id @default(uuid())
-  appName   String   @default("PDV App")
-  logoUrl   String?
-  theme     String   @default("system") // light, dark, system
-  currency  String   @default("BRL")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id       String  @id @default(uuid())
+  appName  String  @default("PDV App")
+  logoUrl  String?
+  theme    String  @default("system")
+  currency String  @default("BRL")
+
+  // Company Info
+  companyName       String?
+  tradingName       String?
+  cnpj              String?
+  stateRegistration String?
+  phone             String?
+  email             String?
+  address           String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model PrinterConfig {
+  id          String   @id @default(uuid())
+  terminalId  String   @unique
+  name        String? // Friendly name
+  printerName String // System printer name
+  printerType String // 'THERMAL', 'A4'
+  connection  String // 'USB', 'NETWORK', 'WINDOWS_DRIVER'
+  width       Int      @default(80)
+  enabled     Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 enum UserRole {

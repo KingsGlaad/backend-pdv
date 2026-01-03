@@ -16,6 +16,7 @@ export const CreateDirectSaleSchema = z.object({
   ),
   discount: z.number().min(0).optional(),
   commandNumber: z.number().int().positive().optional(),
+  terminalId: z.string().optional(),
 });
 
 export type CreateDirectSaleDto = z.infer<typeof CreateDirectSaleSchema>;

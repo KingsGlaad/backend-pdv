@@ -63,7 +63,8 @@ export const ModelName = {
   CashDrawerLog: 'CashDrawerLog',
   InventoryItem: 'InventoryItem',
   InventoryMovement: 'InventoryMovement',
-  Config: 'Config'
+  Config: 'Config',
+  PrinterConfig: 'PrinterConfig'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -252,11 +253,34 @@ export const ConfigScalarFieldEnum = {
   logoUrl: 'logoUrl',
   theme: 'theme',
   currency: 'currency',
+  companyName: 'companyName',
+  tradingName: 'tradingName',
+  cnpj: 'cnpj',
+  stateRegistration: 'stateRegistration',
+  phone: 'phone',
+  email: 'email',
+  address: 'address',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type ConfigScalarFieldEnum = (typeof ConfigScalarFieldEnum)[keyof typeof ConfigScalarFieldEnum]
+
+
+export const PrinterConfigScalarFieldEnum = {
+  id: 'id',
+  terminalId: 'terminalId',
+  name: 'name',
+  printerName: 'printerName',
+  printerType: 'printerType',
+  connection: 'connection',
+  width: 'width',
+  enabled: 'enabled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PrinterConfigScalarFieldEnum = (typeof PrinterConfigScalarFieldEnum)[keyof typeof PrinterConfigScalarFieldEnum]
 
 
 export const SortOrder = {

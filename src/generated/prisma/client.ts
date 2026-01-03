@@ -102,3 +102,8 @@ export type InventoryMovement = Prisma.InventoryMovementModel
  * 
  */
 export type Config = Prisma.ConfigModel
+/**
+ * Model PrinterConfig
+ * 
+ */
+export type PrinterConfig = Prisma.PrinterConfigModel

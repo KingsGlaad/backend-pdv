@@ -4,10 +4,16 @@ import { CloseOrderDto } from './dto/close-order.dto';
 import { PaymentMethod } from '../../generated/prisma/enums';
 import { CashMovement } from 'src/generated/prisma/client';
 import { CreateDirectSaleDto } from './dto/create-direct-sale.dto';
+import { PrintingService } from '../settings/printing.service';
+import { SettingsService } from '../settings/settings.service';
 
 @Injectable()
 export class OrdersService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private printingService: PrintingService,
+    private settingsService: SettingsService,
+  ) {}
 
   async openOrder(userId: string, table?: string, number?: number) {
     let nextNumber = number;
@@ -18,7 +24,6 @@ export class OrdersService {
       });
       nextNumber = lastOrder ? lastOrder.number + 1 : 1;
     } else {
-      // Check if order with this number exists and is OPEN
       const existingOrder = await this.prisma.order.findFirst({
         where: { number: nextNumber, status: 'OPEN' },
       });
@@ -56,7 +61,7 @@ export class OrdersService {
   }
 
   async createDirectSale(userId: string, dto: CreateDirectSaleDto) {
-    return this.prisma.$transaction(async (tx) => {
+    const result = await this.prisma.$transaction(async (tx) => {
       const activeSession = await tx.cashSession.findFirst({
         where: {
           status: 'OPEN',
@@ -70,6 +75,7 @@ export class OrdersService {
 
       let total = 0;
       const saleItemsData: any[] = [];
+      const printItems: any[] = [];
 
       for (const item of dto.items) {
         const product = await tx.product.findUnique({
@@ -87,6 +93,12 @@ export class OrdersService {
           quantity: item.quantity,
           price: product.price,
         });
+
+        printItems.push({
+          product: { code: product.code, name: product.name },
+          quantity: item.quantity,
+          price: product.price,
+        });
       }
 
       const discount = dto.discount ?? 0;
@@ -96,31 +108,19 @@ export class OrdersService {
         throw new BadRequestException('Valor final inválido');
       }
 
-      // 3. Create Sale
-      // Logic for Command Linking
       let orderId: string | null = null;
       if (dto.commandNumber) {
-        // Create or Find Order to link
-        // Since "Direct Sale" implies atomic, valid strategy is:
-        // Try to create a new Order with this number.
-        // If one exists (OPEN), we might want to close it or reuse it?
-        // "Treat everything as Direct Sale" -> simplifies to: Just create a record in Order table
-        // so we know this sale refers to Command X.
-
-        // Let's first check if there is an OPEN order with this number
         const openOrder = await tx.order.findFirst({
           where: { number: dto.commandNumber, status: 'OPEN' },
         });
 
         if (openOrder) {
           orderId = openOrder.id;
-          // Close it
           await tx.order.update({
             where: { id: orderId },
             data: { status: 'CLOSED', closedAt: new Date() },
           });
         } else {
-          // Create a new CLOSED order for record
           const newOrder = await tx.order.create({
             data: {
               number: dto.commandNumber,
@@ -142,15 +142,16 @@ export class OrdersService {
           status: 'COMPLETED',
           userId: userId,
           cashSessionId: activeSession.id,
-          // Link to Order if commandNumber is present
           orders: orderId ? { connect: { id: orderId } } : undefined,
           items: {
             create: saleItemsData,
           },
         },
+        include: {
+          user: true,
+        },
       });
 
-      // 4. Process Payments
       const payments: any[] = [];
       let totalPaid = 0;
 
@@ -204,13 +205,24 @@ export class OrdersService {
       }
 
       return {
-        saleId: sale.id,
-        total,
-        finalAmount,
-        totalPaid,
-        change: totalPaid - finalAmount,
+        result: {
+          saleId: sale.id,
+          total,
+          finalAmount,
+          totalPaid,
+          change: totalPaid - finalAmount,
+        },
+        saleObj: sale,
+        items: printItems,
+        payments: payments,
       };
     });
+
+    if (dto.terminalId) {
+      this.handlePrinting(dto.terminalId, result.saleObj, result.items, result.payments);
+    }
+
+    return result.result;
   }
 
   async addItem(orderId: string, quantity: number, productId: string) {
@@ -222,7 +234,6 @@ export class OrdersService {
       throw new BadRequestException('Produto não encontrado');
     }
 
-    // Check if order exists and is OPEN
     const order = await this.prisma.order.findUnique({
       where: { id: orderId },
     });
@@ -242,12 +253,11 @@ export class OrdersService {
   }
 
   async closeOrder(orderId: string, dto: CloseOrderDto) {
-    return this.prisma.$transaction(async (tx) => {
-      // 1. Busca comanda
+    const result = await this.prisma.$transaction(async (tx) => {
       const order = await tx.order.findUnique({
         where: { id: orderId },
         include: {
-          items: true,
+          items: { include: { product: true } },
         },
       });
       if (!order) {
@@ -262,7 +272,6 @@ export class OrdersService {
         throw new BadRequestException('Comanda sem itens');
       }
 
-      // 2. Calcula total
       const total = order.items.reduce((sum, item) => {
         return sum + Number(item.price) * item.quantity;
       }, 0);
@@ -273,7 +282,6 @@ export class OrdersService {
       if (finalAmount < 0) {
         throw new BadRequestException('Valor final inválido');
       }
-      // 3. Fecha comanda
       await tx.order.update({
         where: { id: orderId },
         data: {
@@ -282,7 +290,6 @@ export class OrdersService {
         },
       });
 
-      // 4. Cria venda
       const sale = await tx.sale.create({
         data: {
           orders: { connect: { id: orderId } },
@@ -292,6 +299,7 @@ export class OrdersService {
           paymentMethod: 'MIXED',
           status: 'COMPLETED',
         },
+        include: { user: true },
       });
 
       const activeSession = await tx.cashSession.findFirst({
@@ -359,12 +367,35 @@ export class OrdersService {
       }
 
       return {
-        saleId: sale.id,
-        total,
-        finalAmount,
-        totalPaid,
-        change: totalPaid - finalAmount,
+        result: {
+          saleId: sale.id,
+          total,
+          finalAmount,
+          totalPaid,
+          change: totalPaid - finalAmount,
+        },
+        saleObj: sale,
+        items: order.items,
+        payments: payments,
       };
     });
+
+    if (dto.terminalId) {
+      void this.handlePrinting(dto.terminalId, result.saleObj, result.items, result.payments);
+    }
+
+    return result.result;
+  }
+
+  private async handlePrinting(terminalId: string, sale: any, items: any[], payments: any[]) {
+    try {
+      const config = await this.settingsService.getPrinterConfig(terminalId);
+      if (config && config.enabled && config.printerName) {
+        const width = config.width === 58 ? 32 : config.width === 80 ? 48 : 40;
+        await this.printingService.printReceipt(config.printerName, width, sale, items, payments);
+      }
+    } catch (e) {
+      console.error('Failed to process printing', e);
+    }
   }
 }

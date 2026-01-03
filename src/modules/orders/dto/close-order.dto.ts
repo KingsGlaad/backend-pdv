@@ -9,6 +9,7 @@ export const CloseOrderSchema = z.object({
     }),
   ),
   discount: z.number().min(0).optional(),
+  terminalId: z.string().optional(),
 });
 
 export type CloseOrderDto = z.infer<typeof CloseOrderSchema>;

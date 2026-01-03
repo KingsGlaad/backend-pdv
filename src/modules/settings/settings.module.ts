@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { PrismaModule } from 'src/prisma/prisma.module';
-import { SettingsService } from './settings.service';
 import { SettingsController } from './settings.controller';
+import { SettingsService } from './settings.service';
+import { PrismaService } from '../../prisma/prisma.service';
+import { PrintingService } from './printing.service';
 
 @Module({
-  imports: [PrismaModule],
-  providers: [SettingsService],
-  exports: [SettingsService],
   controllers: [SettingsController],
+  providers: [SettingsService, PrismaService, PrintingService],
+  exports: [SettingsService, PrintingService],
 })
 export class SettingsModule {}

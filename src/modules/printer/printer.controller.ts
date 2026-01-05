@@ -8,10 +8,6 @@ export class PrinterController {
 
   @Post('print')
   async print(@Body() data: { ip: string }) {
-    // Legacy support or test endpoint
-    // await this.printerService.printRequest('network', data.ip);
-    // The previous code had printTest but it wasn't in the service interface shown, assuming printRequest or similar.
-    // Let's check the service content again. Service has 'printRequest'.
     await this.printerService.printRequest('network', data.ip);
     return { message: 'Comando enviado ao emulador' };
   }

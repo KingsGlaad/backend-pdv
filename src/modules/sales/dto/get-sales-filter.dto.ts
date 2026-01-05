@@ -1,32 +1,13 @@
-import { IsOptional, IsString, IsInt, Min, IsDateString } from 'class-validator';
-import { Type } from 'class-transformer';
+import { createZodDto } from 'nestjs-zod';
+import z from 'zod';
 
-export class GetSalesFilterDto {
-  @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  @Min(1)
-  page?: number = 1;
+export const getSalesFilterDto = z.object({
+  page: z.number().min(1).default(1),
+  limit: z.number().min(1).default(10),
+  search: z.string().optional(),
+  startDate: z.string().optional(),
+  endDate: z.string().optional(),
+  userId: z.string().optional(),
+});
 
-  @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  @Min(1)
-  limit?: number = 10;
-
-  @IsOptional()
-  @IsString()
-  search?: string;
-
-  @IsOptional()
-  @IsDateString()
-  startDate?: string;
-
-  @IsOptional()
-  @IsDateString()
-  endDate?: string;
-
-  @IsOptional()
-  @IsString()
-  userId?: string;
-}
+export class GetSalesFilterDto extends createZodDto(getSalesFilterDto) {}

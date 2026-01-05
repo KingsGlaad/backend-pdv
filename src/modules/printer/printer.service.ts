@@ -277,16 +277,8 @@ export class PrinterService {
       printerConfig.printerName,
       printerConfig.width || 80,
       sale,
-      sale.items.map((i) => ({
-        name: i.product.name,
-        quantity: i.quantity,
-        price: Number(i.price),
-        total: Number(i.price) * i.quantity,
-      })),
-      sale.payments.map((p) => ({
-        method: p.method,
-        amount: Number(p.amount),
-      })),
+      sale.items,
+      sale.payments,
     );
   }
 

@@ -51,7 +51,40 @@ export class CashMovementService {
         sessionId: dto.sessionId,
         type: dto.type as any,
         amount: dto.amount,
+        reason: dto.reason,
         // userId: userId, // Se quiser rastrear quem fez a sangria especificamente
+      },
+    });
+  }
+
+  async findAll(filters: { startDate?: string; endDate?: string }) {
+    const where: any = {};
+
+    if (filters.startDate || filters.endDate) {
+      where.createdAt = {};
+      if (filters.startDate) {
+        where.createdAt.gte = new Date(filters.startDate);
+      }
+      if (filters.endDate) {
+        // Ajuste para pegar o final do dia se necessário, ou assumir que o frontend manda timestamp correto
+        const end = new Date(filters.endDate);
+        end.setHours(23, 59, 59, 999);
+        where.createdAt.lte = end;
+      }
+    }
+
+    return this.prisma.cashMovement.findMany({
+      where,
+      include: {
+        session: {
+          include: {
+            user: true,
+            cashRegister: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: 'desc',
       },
     });
   }

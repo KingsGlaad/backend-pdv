@@ -37,31 +37,31 @@ export type InventoryMovementSumAggregateOutputType = {
 export type InventoryMovementMinAggregateOutputType = {
   id: string | null
   inventoryItemId: string | null
-  type: string | null
   quantity: number | null
   reason: string | null
-  userId: string | null
   createdAt: Date | null
+  userId: string | null
+  type: string | null
 }
 
 export type InventoryMovementMaxAggregateOutputType = {
   id: string | null
   inventoryItemId: string | null
-  type: string | null
   quantity: number | null
   reason: string | null
-  userId: string | null
   createdAt: Date | null
+  userId: string | null
+  type: string | null
 }
 
 export type InventoryMovementCountAggregateOutputType = {
   id: number
   inventoryItemId: number
-  type: number
   quantity: number
   reason: number
-  userId: number
   createdAt: number
+  userId: number
+  type: number
   _all: number
 }
 
@@ -77,31 +77,31 @@ export type InventoryMovementSumAggregateInputType = {
 export type InventoryMovementMinAggregateInputType = {
   id?: true
   inventoryItemId?: true
-  type?: true
   quantity?: true
   reason?: true
-  userId?: true
   createdAt?: true
+  userId?: true
+  type?: true
 }
 
 export type InventoryMovementMaxAggregateInputType = {
   id?: true
   inventoryItemId?: true
-  type?: true
   quantity?: true
   reason?: true
-  userId?: true
   createdAt?: true
+  userId?: true
+  type?: true
 }
 
 export type InventoryMovementCountAggregateInputType = {
   id?: true
   inventoryItemId?: true
-  type?: true
   quantity?: true
   reason?: true
-  userId?: true
   createdAt?: true
+  userId?: true
+  type?: true
   _all?: true
 }
 
@@ -194,11 +194,11 @@ export type InventoryMovementGroupByArgs<ExtArgs extends runtime.Types.Extension
 export type InventoryMovementGroupByOutputType = {
   id: string
   inventoryItemId: string
-  type: string
   quantity: number
   reason: string | null
-  userId: string
   createdAt: Date
+  userId: string
+  type: string
   _count: InventoryMovementCountAggregateOutputType | null
   _avg: InventoryMovementAvgAggregateOutputType | null
   _sum: InventoryMovementSumAggregateOutputType | null
@@ -227,11 +227,11 @@ export type InventoryMovementWhereInput = {
   NOT?: Prisma.InventoryMovementWhereInput | Prisma.InventoryMovementWhereInput[]
   id?: Prisma.StringFilter<"InventoryMovement"> | string
   inventoryItemId?: Prisma.StringFilter<"InventoryMovement"> | string
-  type?: Prisma.StringFilter<"InventoryMovement"> | string
   quantity?: Prisma.IntFilter<"InventoryMovement"> | number
   reason?: Prisma.StringNullableFilter<"InventoryMovement"> | string | null
-  userId?: Prisma.StringFilter<"InventoryMovement"> | string
   createdAt?: Prisma.DateTimeFilter<"InventoryMovement"> | Date | string
+  userId?: Prisma.StringFilter<"InventoryMovement"> | string
+  type?: Prisma.StringFilter<"InventoryMovement"> | string
   inventoryItem?: Prisma.XOR<Prisma.InventoryItemScalarRelationFilter, Prisma.InventoryItemWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
@@ -239,11 +239,11 @@ export type InventoryMovementWhereInput = {
 export type InventoryMovementOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   inventoryItemId?: Prisma.SortOrder
-  type?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   reason?: Prisma.SortOrderInput | Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  type?: Prisma.SortOrder
   inventoryItem?: Prisma.InventoryItemOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
 }
@@ -254,11 +254,11 @@ export type InventoryMovementWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.InventoryMovementWhereInput[]
   NOT?: Prisma.InventoryMovementWhereInput | Prisma.InventoryMovementWhereInput[]
   inventoryItemId?: Prisma.StringFilter<"InventoryMovement"> | string
-  type?: Prisma.StringFilter<"InventoryMovement"> | string
   quantity?: Prisma.IntFilter<"InventoryMovement"> | number
   reason?: Prisma.StringNullableFilter<"InventoryMovement"> | string | null
-  userId?: Prisma.StringFilter<"InventoryMovement"> | string
   createdAt?: Prisma.DateTimeFilter<"InventoryMovement"> | Date | string
+  userId?: Prisma.StringFilter<"InventoryMovement"> | string
+  type?: Prisma.StringFilter<"InventoryMovement"> | string
   inventoryItem?: Prisma.XOR<Prisma.InventoryItemScalarRelationFilter, Prisma.InventoryItemWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
@@ -266,11 +266,11 @@ export type InventoryMovementWhereUniqueInput = Prisma.AtLeast<{
 export type InventoryMovementOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   inventoryItemId?: Prisma.SortOrder
-  type?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   reason?: Prisma.SortOrderInput | Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  type?: Prisma.SortOrder
   _count?: Prisma.InventoryMovementCountOrderByAggregateInput
   _avg?: Prisma.InventoryMovementAvgOrderByAggregateInput
   _max?: Prisma.InventoryMovementMaxOrderByAggregateInput
@@ -284,19 +284,19 @@ export type InventoryMovementScalarWhereWithAggregatesInput = {
   NOT?: Prisma.InventoryMovementScalarWhereWithAggregatesInput | Prisma.InventoryMovementScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"InventoryMovement"> | string
   inventoryItemId?: Prisma.StringWithAggregatesFilter<"InventoryMovement"> | string
-  type?: Prisma.StringWithAggregatesFilter<"InventoryMovement"> | string
   quantity?: Prisma.IntWithAggregatesFilter<"InventoryMovement"> | number
   reason?: Prisma.StringNullableWithAggregatesFilter<"InventoryMovement"> | string | null
-  userId?: Prisma.StringWithAggregatesFilter<"InventoryMovement"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"InventoryMovement"> | Date | string
+  userId?: Prisma.StringWithAggregatesFilter<"InventoryMovement"> | string
+  type?: Prisma.StringWithAggregatesFilter<"InventoryMovement"> | string
 }
 
 export type InventoryMovementCreateInput = {
   id?: string
-  type: string
   quantity: number
   reason?: string | null
   createdAt?: Date | string
+  type: string
   inventoryItem: Prisma.InventoryItemCreateNestedOneWithoutMovementsInput
   user: Prisma.UserCreateNestedOneWithoutInventoryMovirementsInput
 }
@@ -304,19 +304,19 @@ export type InventoryMovementCreateInput = {
 export type InventoryMovementUncheckedCreateInput = {
   id?: string
   inventoryItemId: string
-  type: string
   quantity: number
   reason?: string | null
-  userId: string
   createdAt?: Date | string
+  userId: string
+  type: string
 }
 
 export type InventoryMovementUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   inventoryItem?: Prisma.InventoryItemUpdateOneRequiredWithoutMovementsNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutInventoryMovirementsNestedInput
 }
@@ -324,39 +324,39 @@ export type InventoryMovementUpdateInput = {
 export type InventoryMovementUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   inventoryItemId?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type InventoryMovementCreateManyInput = {
   id?: string
   inventoryItemId: string
-  type: string
   quantity: number
   reason?: string | null
-  userId: string
   createdAt?: Date | string
+  userId: string
+  type: string
 }
 
 export type InventoryMovementUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type InventoryMovementUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   inventoryItemId?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type InventoryMovementListRelationFilter = {
@@ -372,11 +372,11 @@ export type InventoryMovementOrderByRelationAggregateInput = {
 export type InventoryMovementCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   inventoryItemId?: Prisma.SortOrder
-  type?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   reason?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  type?: Prisma.SortOrder
 }
 
 export type InventoryMovementAvgOrderByAggregateInput = {
@@ -386,21 +386,21 @@ export type InventoryMovementAvgOrderByAggregateInput = {
 export type InventoryMovementMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   inventoryItemId?: Prisma.SortOrder
-  type?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   reason?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  type?: Prisma.SortOrder
 }
 
 export type InventoryMovementMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   inventoryItemId?: Prisma.SortOrder
-  type?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   reason?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  type?: Prisma.SortOrder
 }
 
 export type InventoryMovementSumOrderByAggregateInput = {
@@ -493,20 +493,20 @@ export type InventoryMovementUncheckedUpdateManyWithoutInventoryItemNestedInput 
 
 export type InventoryMovementCreateWithoutUserInput = {
   id?: string
-  type: string
   quantity: number
   reason?: string | null
   createdAt?: Date | string
+  type: string
   inventoryItem: Prisma.InventoryItemCreateNestedOneWithoutMovementsInput
 }
 
 export type InventoryMovementUncheckedCreateWithoutUserInput = {
   id?: string
   inventoryItemId: string
-  type: string
   quantity: number
   reason?: string | null
   createdAt?: Date | string
+  type: string
 }
 
 export type InventoryMovementCreateOrConnectWithoutUserInput = {
@@ -541,29 +541,29 @@ export type InventoryMovementScalarWhereInput = {
   NOT?: Prisma.InventoryMovementScalarWhereInput | Prisma.InventoryMovementScalarWhereInput[]
   id?: Prisma.StringFilter<"InventoryMovement"> | string
   inventoryItemId?: Prisma.StringFilter<"InventoryMovement"> | string
-  type?: Prisma.StringFilter<"InventoryMovement"> | string
   quantity?: Prisma.IntFilter<"InventoryMovement"> | number
   reason?: Prisma.StringNullableFilter<"InventoryMovement"> | string | null
-  userId?: Prisma.StringFilter<"InventoryMovement"> | string
   createdAt?: Prisma.DateTimeFilter<"InventoryMovement"> | Date | string
+  userId?: Prisma.StringFilter<"InventoryMovement"> | string
+  type?: Prisma.StringFilter<"InventoryMovement"> | string
 }
 
 export type InventoryMovementCreateWithoutInventoryItemInput = {
   id?: string
-  type: string
   quantity: number
   reason?: string | null
   createdAt?: Date | string
+  type: string
   user: Prisma.UserCreateNestedOneWithoutInventoryMovirementsInput
 }
 
 export type InventoryMovementUncheckedCreateWithoutInventoryItemInput = {
   id?: string
-  type: string
   quantity: number
   reason?: string | null
-  userId: string
   createdAt?: Date | string
+  userId: string
+  type: string
 }
 
 export type InventoryMovementCreateOrConnectWithoutInventoryItemInput = {
@@ -595,73 +595,73 @@ export type InventoryMovementUpdateManyWithWhereWithoutInventoryItemInput = {
 export type InventoryMovementCreateManyUserInput = {
   id?: string
   inventoryItemId: string
-  type: string
   quantity: number
   reason?: string | null
   createdAt?: Date | string
+  type: string
 }
 
 export type InventoryMovementUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   inventoryItem?: Prisma.InventoryItemUpdateOneRequiredWithoutMovementsNestedInput
 }
 
 export type InventoryMovementUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   inventoryItemId?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type InventoryMovementUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   inventoryItemId?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type InventoryMovementCreateManyInventoryItemInput = {
   id?: string
-  type: string
   quantity: number
   reason?: string | null
-  userId: string
   createdAt?: Date | string
+  userId: string
+  type: string
 }
 
 export type InventoryMovementUpdateWithoutInventoryItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   user?: Prisma.UserUpdateOneRequiredWithoutInventoryMovirementsNestedInput
 }
 
 export type InventoryMovementUncheckedUpdateWithoutInventoryItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type InventoryMovementUncheckedUpdateManyWithoutInventoryItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -669,11 +669,11 @@ export type InventoryMovementUncheckedUpdateManyWithoutInventoryItemInput = {
 export type InventoryMovementSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   inventoryItemId?: boolean
-  type?: boolean
   quantity?: boolean
   reason?: boolean
-  userId?: boolean
   createdAt?: boolean
+  userId?: boolean
+  type?: boolean
   inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryMovement"]>
@@ -681,11 +681,11 @@ export type InventoryMovementSelect<ExtArgs extends runtime.Types.Extensions.Int
 export type InventoryMovementSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   inventoryItemId?: boolean
-  type?: boolean
   quantity?: boolean
   reason?: boolean
-  userId?: boolean
   createdAt?: boolean
+  userId?: boolean
+  type?: boolean
   inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryMovement"]>
@@ -693,11 +693,11 @@ export type InventoryMovementSelectCreateManyAndReturn<ExtArgs extends runtime.T
 export type InventoryMovementSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   inventoryItemId?: boolean
-  type?: boolean
   quantity?: boolean
   reason?: boolean
-  userId?: boolean
   createdAt?: boolean
+  userId?: boolean
+  type?: boolean
   inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryMovement"]>
@@ -705,14 +705,14 @@ export type InventoryMovementSelectUpdateManyAndReturn<ExtArgs extends runtime.T
 export type InventoryMovementSelectScalar = {
   id?: boolean
   inventoryItemId?: boolean
-  type?: boolean
   quantity?: boolean
   reason?: boolean
-  userId?: boolean
   createdAt?: boolean
+  userId?: boolean
+  type?: boolean
 }
 
-export type InventoryMovementOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "inventoryItemId" | "type" | "quantity" | "reason" | "userId" | "createdAt", ExtArgs["result"]["inventoryMovement"]>
+export type InventoryMovementOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "inventoryItemId" | "quantity" | "reason" | "createdAt" | "userId" | "type", ExtArgs["result"]["inventoryMovement"]>
 export type InventoryMovementInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   inventoryItem?: boolean | Prisma.InventoryItemDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -735,11 +735,11 @@ export type $InventoryMovementPayload<ExtArgs extends runtime.Types.Extensions.I
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     inventoryItemId: string
-    type: string
     quantity: number
     reason: string | null
-    userId: string
     createdAt: Date
+    userId: string
+    type: string
   }, ExtArgs["result"]["inventoryMovement"]>
   composites: {}
 }
@@ -1167,11 +1167,11 @@ export interface Prisma__InventoryMovementClient<T, Null = never, ExtArgs extend
 export interface InventoryMovementFieldRefs {
   readonly id: Prisma.FieldRef<"InventoryMovement", 'String'>
   readonly inventoryItemId: Prisma.FieldRef<"InventoryMovement", 'String'>
-  readonly type: Prisma.FieldRef<"InventoryMovement", 'String'>
   readonly quantity: Prisma.FieldRef<"InventoryMovement", 'Int'>
   readonly reason: Prisma.FieldRef<"InventoryMovement", 'String'>
-  readonly userId: Prisma.FieldRef<"InventoryMovement", 'String'>
   readonly createdAt: Prisma.FieldRef<"InventoryMovement", 'DateTime'>
+  readonly userId: Prisma.FieldRef<"InventoryMovement", 'String'>
+  readonly type: Prisma.FieldRef<"InventoryMovement", 'String'>
 }
     
 

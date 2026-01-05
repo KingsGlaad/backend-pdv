@@ -27,22 +27,22 @@ export type AggregateCashRegister = {
 export type CashRegisterMinAggregateOutputType = {
   id: string | null
   name: string | null
-  isActive: boolean | null
   createdAt: Date | null
+  isActive: boolean | null
 }
 
 export type CashRegisterMaxAggregateOutputType = {
   id: string | null
   name: string | null
-  isActive: boolean | null
   createdAt: Date | null
+  isActive: boolean | null
 }
 
 export type CashRegisterCountAggregateOutputType = {
   id: number
   name: number
-  isActive: number
   createdAt: number
+  isActive: number
   _all: number
 }
 
@@ -50,22 +50,22 @@ export type CashRegisterCountAggregateOutputType = {
 export type CashRegisterMinAggregateInputType = {
   id?: true
   name?: true
-  isActive?: true
   createdAt?: true
+  isActive?: true
 }
 
 export type CashRegisterMaxAggregateInputType = {
   id?: true
   name?: true
-  isActive?: true
   createdAt?: true
+  isActive?: true
 }
 
 export type CashRegisterCountAggregateInputType = {
   id?: true
   name?: true
-  isActive?: true
   createdAt?: true
+  isActive?: true
   _all?: true
 }
 
@@ -144,8 +144,8 @@ export type CashRegisterGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type CashRegisterGroupByOutputType = {
   id: string
   name: string
-  isActive: boolean
   createdAt: Date
+  isActive: boolean
   _count: CashRegisterCountAggregateOutputType | null
   _min: CashRegisterMinAggregateOutputType | null
   _max: CashRegisterMaxAggregateOutputType | null
@@ -172,19 +172,19 @@ export type CashRegisterWhereInput = {
   NOT?: Prisma.CashRegisterWhereInput | Prisma.CashRegisterWhereInput[]
   id?: Prisma.StringFilter<"CashRegister"> | string
   name?: Prisma.StringFilter<"CashRegister"> | string
-  isActive?: Prisma.BoolFilter<"CashRegister"> | boolean
   createdAt?: Prisma.DateTimeFilter<"CashRegister"> | Date | string
-  sessions?: Prisma.CashSessionListRelationFilter
+  isActive?: Prisma.BoolFilter<"CashRegister"> | boolean
   logs?: Prisma.CashDrawerLogListRelationFilter
+  sessions?: Prisma.CashSessionListRelationFilter
 }
 
 export type CashRegisterOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  sessions?: Prisma.CashSessionOrderByRelationAggregateInput
+  isActive?: Prisma.SortOrder
   logs?: Prisma.CashDrawerLogOrderByRelationAggregateInput
+  sessions?: Prisma.CashSessionOrderByRelationAggregateInput
 }
 
 export type CashRegisterWhereUniqueInput = Prisma.AtLeast<{
@@ -193,17 +193,17 @@ export type CashRegisterWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.CashRegisterWhereInput | Prisma.CashRegisterWhereInput[]
   OR?: Prisma.CashRegisterWhereInput[]
   NOT?: Prisma.CashRegisterWhereInput | Prisma.CashRegisterWhereInput[]
-  isActive?: Prisma.BoolFilter<"CashRegister"> | boolean
   createdAt?: Prisma.DateTimeFilter<"CashRegister"> | Date | string
-  sessions?: Prisma.CashSessionListRelationFilter
+  isActive?: Prisma.BoolFilter<"CashRegister"> | boolean
   logs?: Prisma.CashDrawerLogListRelationFilter
+  sessions?: Prisma.CashSessionListRelationFilter
 }, "id" | "name">
 
 export type CashRegisterOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   _count?: Prisma.CashRegisterCountOrderByAggregateInput
   _max?: Prisma.CashRegisterMaxOrderByAggregateInput
   _min?: Prisma.CashRegisterMinOrderByAggregateInput
@@ -215,86 +215,86 @@ export type CashRegisterScalarWhereWithAggregatesInput = {
   NOT?: Prisma.CashRegisterScalarWhereWithAggregatesInput | Prisma.CashRegisterScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"CashRegister"> | string
   name?: Prisma.StringWithAggregatesFilter<"CashRegister"> | string
-  isActive?: Prisma.BoolWithAggregatesFilter<"CashRegister"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"CashRegister"> | Date | string
+  isActive?: Prisma.BoolWithAggregatesFilter<"CashRegister"> | boolean
 }
 
 export type CashRegisterCreateInput = {
   id?: string
   name: string
-  isActive?: boolean
   createdAt?: Date | string
-  sessions?: Prisma.CashSessionCreateNestedManyWithoutCashRegisterInput
+  isActive?: boolean
   logs?: Prisma.CashDrawerLogCreateNestedManyWithoutCashRegisterInput
+  sessions?: Prisma.CashSessionCreateNestedManyWithoutCashRegisterInput
 }
 
 export type CashRegisterUncheckedCreateInput = {
   id?: string
   name: string
-  isActive?: boolean
   createdAt?: Date | string
-  sessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutCashRegisterInput
+  isActive?: boolean
   logs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutCashRegisterInput
+  sessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutCashRegisterInput
 }
 
 export type CashRegisterUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sessions?: Prisma.CashSessionUpdateManyWithoutCashRegisterNestedInput
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logs?: Prisma.CashDrawerLogUpdateManyWithoutCashRegisterNestedInput
+  sessions?: Prisma.CashSessionUpdateManyWithoutCashRegisterNestedInput
 }
 
 export type CashRegisterUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sessions?: Prisma.CashSessionUncheckedUpdateManyWithoutCashRegisterNestedInput
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutCashRegisterNestedInput
+  sessions?: Prisma.CashSessionUncheckedUpdateManyWithoutCashRegisterNestedInput
 }
 
 export type CashRegisterCreateManyInput = {
   id?: string
   name: string
-  isActive?: boolean
   createdAt?: Date | string
+  isActive?: boolean
 }
 
 export type CashRegisterUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type CashRegisterUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type CashRegisterCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
 }
 
 export type CashRegisterMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
 }
 
 export type CashRegisterMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
 }
 
 export type CashRegisterScalarRelationFilter = {
@@ -333,16 +333,16 @@ export type CashRegisterUpdateOneRequiredWithoutLogsNestedInput = {
 export type CashRegisterCreateWithoutSessionsInput = {
   id?: string
   name: string
-  isActive?: boolean
   createdAt?: Date | string
+  isActive?: boolean
   logs?: Prisma.CashDrawerLogCreateNestedManyWithoutCashRegisterInput
 }
 
 export type CashRegisterUncheckedCreateWithoutSessionsInput = {
   id?: string
   name: string
-  isActive?: boolean
   createdAt?: Date | string
+  isActive?: boolean
   logs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutCashRegisterInput
 }
 
@@ -365,32 +365,32 @@ export type CashRegisterUpdateToOneWithWhereWithoutSessionsInput = {
 export type CashRegisterUpdateWithoutSessionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logs?: Prisma.CashDrawerLogUpdateManyWithoutCashRegisterNestedInput
 }
 
 export type CashRegisterUncheckedUpdateWithoutSessionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutCashRegisterNestedInput
 }
 
 export type CashRegisterCreateWithoutLogsInput = {
   id?: string
   name: string
-  isActive?: boolean
   createdAt?: Date | string
+  isActive?: boolean
   sessions?: Prisma.CashSessionCreateNestedManyWithoutCashRegisterInput
 }
 
 export type CashRegisterUncheckedCreateWithoutLogsInput = {
   id?: string
   name: string
-  isActive?: boolean
   createdAt?: Date | string
+  isActive?: boolean
   sessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutCashRegisterInput
 }
 
@@ -413,16 +413,16 @@ export type CashRegisterUpdateToOneWithWhereWithoutLogsInput = {
 export type CashRegisterUpdateWithoutLogsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   sessions?: Prisma.CashSessionUpdateManyWithoutCashRegisterNestedInput
 }
 
 export type CashRegisterUncheckedUpdateWithoutLogsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   sessions?: Prisma.CashSessionUncheckedUpdateManyWithoutCashRegisterNestedInput
 }
 
@@ -432,13 +432,13 @@ export type CashRegisterUncheckedUpdateWithoutLogsInput = {
  */
 
 export type CashRegisterCountOutputType = {
-  sessions: number
   logs: number
+  sessions: number
 }
 
 export type CashRegisterCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sessions?: boolean | CashRegisterCountOutputTypeCountSessionsArgs
   logs?: boolean | CashRegisterCountOutputTypeCountLogsArgs
+  sessions?: boolean | CashRegisterCountOutputTypeCountSessionsArgs
 }
 
 /**
@@ -454,53 +454,53 @@ export type CashRegisterCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types
 /**
  * CashRegisterCountOutputType without action
  */
-export type CashRegisterCountOutputTypeCountSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CashSessionWhereInput
+export type CashRegisterCountOutputTypeCountLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CashDrawerLogWhereInput
 }
 
 /**
  * CashRegisterCountOutputType without action
  */
-export type CashRegisterCountOutputTypeCountLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CashDrawerLogWhereInput
+export type CashRegisterCountOutputTypeCountSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CashSessionWhereInput
 }
 
 
 export type CashRegisterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  isActive?: boolean
   createdAt?: boolean
-  sessions?: boolean | Prisma.CashRegister$sessionsArgs<ExtArgs>
+  isActive?: boolean
   logs?: boolean | Prisma.CashRegister$logsArgs<ExtArgs>
+  sessions?: boolean | Prisma.CashRegister$sessionsArgs<ExtArgs>
   _count?: boolean | Prisma.CashRegisterCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashRegister"]>
 
 export type CashRegisterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  isActive?: boolean
   createdAt?: boolean
+  isActive?: boolean
 }, ExtArgs["result"]["cashRegister"]>
 
 export type CashRegisterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  isActive?: boolean
   createdAt?: boolean
+  isActive?: boolean
 }, ExtArgs["result"]["cashRegister"]>
 
 export type CashRegisterSelectScalar = {
   id?: boolean
   name?: boolean
-  isActive?: boolean
   createdAt?: boolean
+  isActive?: boolean
 }
 
-export type CashRegisterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "isActive" | "createdAt", ExtArgs["result"]["cashRegister"]>
+export type CashRegisterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "createdAt" | "isActive", ExtArgs["result"]["cashRegister"]>
 export type CashRegisterInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sessions?: boolean | Prisma.CashRegister$sessionsArgs<ExtArgs>
   logs?: boolean | Prisma.CashRegister$logsArgs<ExtArgs>
+  sessions?: boolean | Prisma.CashRegister$sessionsArgs<ExtArgs>
   _count?: boolean | Prisma.CashRegisterCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CashRegisterIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -509,14 +509,14 @@ export type CashRegisterIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types
 export type $CashRegisterPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CashRegister"
   objects: {
-    sessions: Prisma.$CashSessionPayload<ExtArgs>[]
     logs: Prisma.$CashDrawerLogPayload<ExtArgs>[]
+    sessions: Prisma.$CashSessionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
-    isActive: boolean
     createdAt: Date
+    isActive: boolean
   }, ExtArgs["result"]["cashRegister"]>
   composites: {}
 }
@@ -911,8 +911,8 @@ readonly fields: CashRegisterFieldRefs;
  */
 export interface Prisma__CashRegisterClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  sessions<T extends Prisma.CashRegister$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashRegister$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   logs<T extends Prisma.CashRegister$logsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashRegister$logsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashDrawerLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  sessions<T extends Prisma.CashRegister$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CashRegister$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -944,8 +944,8 @@ export interface Prisma__CashRegisterClient<T, Null = never, ExtArgs extends run
 export interface CashRegisterFieldRefs {
   readonly id: Prisma.FieldRef<"CashRegister", 'String'>
   readonly name: Prisma.FieldRef<"CashRegister", 'String'>
-  readonly isActive: Prisma.FieldRef<"CashRegister", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"CashRegister", 'DateTime'>
+  readonly isActive: Prisma.FieldRef<"CashRegister", 'Boolean'>
 }
     
 
@@ -1334,30 +1334,6 @@ export type CashRegisterDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
 }
 
 /**
- * CashRegister.sessions
- */
-export type CashRegister$sessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the CashSession
-   */
-  select?: Prisma.CashSessionSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the CashSession
-   */
-  omit?: Prisma.CashSessionOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.CashSessionInclude<ExtArgs> | null
-  where?: Prisma.CashSessionWhereInput
-  orderBy?: Prisma.CashSessionOrderByWithRelationInput | Prisma.CashSessionOrderByWithRelationInput[]
-  cursor?: Prisma.CashSessionWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.CashSessionScalarFieldEnum | Prisma.CashSessionScalarFieldEnum[]
-}
-
-/**
  * CashRegister.logs
  */
 export type CashRegister$logsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1379,6 +1355,30 @@ export type CashRegister$logsArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.CashDrawerLogScalarFieldEnum | Prisma.CashDrawerLogScalarFieldEnum[]
+}
+
+/**
+ * CashRegister.sessions
+ */
+export type CashRegister$sessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CashSession
+   */
+  select?: Prisma.CashSessionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CashSession
+   */
+  omit?: Prisma.CashSessionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CashSessionInclude<ExtArgs> | null
+  where?: Prisma.CashSessionWhereInput
+  orderBy?: Prisma.CashSessionOrderByWithRelationInput | Prisma.CashSessionOrderByWithRelationInput[]
+  cursor?: Prisma.CashSessionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CashSessionScalarFieldEnum | Prisma.CashSessionScalarFieldEnum[]
 }
 
 /**

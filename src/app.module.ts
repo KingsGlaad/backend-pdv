@@ -17,6 +17,8 @@ import { ProductController } from './modules/product/product.controller';
 import { ProductModule } from './modules/product/product.module';
 import { SalesModule } from '@modules/sales/sales.module';
 import { SettingsModule } from './modules/settings/settings.module';
+import { PrinterModule } from './modules/printer/printer.module';
+import { EventsModule } from './modules/events/events.module';
 
 JwtModule.register({
   secret: process.env.JWT_SECRET,
@@ -36,6 +38,8 @@ JwtModule.register({
     ProductModule,
     SalesModule,
     SettingsModule,
+    PrinterModule,
+    EventsModule,
   ],
   providers: [
     UsersService,

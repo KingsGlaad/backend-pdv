@@ -1509,16 +1509,16 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 export const ProductScalarFieldEnum = {
   id: 'id',
-  code: 'code',
   name: 'name',
   price: 'price',
-  description: 'description',
   category: 'category',
-  imageUrl: 'imageUrl',
   active: 'active',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
+  deletedAt: 'deletedAt',
+  code: 'code',
+  description: 'description',
+  imageUrl: 'imageUrl'
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
@@ -1531,8 +1531,8 @@ export const OrderScalarFieldEnum = {
   status: 'status',
   openedAt: 'openedAt',
   closedAt: 'closedAt',
-  createdAt: 'createdAt',
   openedById: 'openedById',
+  createdAt: 'createdAt',
   saleId: 'saleId'
 } as const
 
@@ -1541,11 +1541,11 @@ export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof Or
 
 export const OrderItemScalarFieldEnum = {
   id: 'id',
-  saleId: 'saleId',
+  orderId: 'orderId',
   productId: 'productId',
   quantity: 'quantity',
   price: 'price',
-  orderId: 'orderId'
+  saleId: 'saleId'
 } as const
 
 export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof typeof OrderItemScalarFieldEnum]
@@ -1553,16 +1553,16 @@ export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof t
 
 export const SaleScalarFieldEnum = {
   id: 'id',
-  code: 'code',
-  total: 'total',
   discount: 'discount',
-  finalAmount: 'finalAmount',
-  paymentMethod: 'paymentMethod',
-  status: 'status',
-  customerCpf: 'customerCpf',
   createdAt: 'createdAt',
+  cashSessionId: 'cashSessionId',
+  code: 'code',
+  customerCpf: 'customerCpf',
+  paymentMethod: 'paymentMethod',
+  total: 'total',
   userId: 'userId',
-  cashSessionId: 'cashSessionId'
+  finalAmount: 'finalAmount',
+  status: 'status'
 } as const
 
 export type SaleScalarFieldEnum = (typeof SaleScalarFieldEnum)[keyof typeof SaleScalarFieldEnum]
@@ -1585,8 +1585,8 @@ export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeo
 export const CashRegisterScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  isActive: 'isActive',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  isActive: 'isActive'
 } as const
 
 export type CashRegisterScalarFieldEnum = (typeof CashRegisterScalarFieldEnum)[keyof typeof CashRegisterScalarFieldEnum]
@@ -1595,13 +1595,13 @@ export type CashRegisterScalarFieldEnum = (typeof CashRegisterScalarFieldEnum)[k
 export const CashSessionScalarFieldEnum = {
   id: 'id',
   cashRegisterId: 'cashRegisterId',
-  userId: 'userId',
   openedAt: 'openedAt',
   closedAt: 'closedAt',
-  initialBalance: 'initialBalance',
-  finalBalance: 'finalBalance',
-  systemBalance: 'systemBalance',
   difference: 'difference',
+  finalBalance: 'finalBalance',
+  initialBalance: 'initialBalance',
+  systemBalance: 'systemBalance',
+  userId: 'userId',
   status: 'status'
 } as const
 
@@ -1610,11 +1610,11 @@ export type CashSessionScalarFieldEnum = (typeof CashSessionScalarFieldEnum)[key
 
 export const CashMovementScalarFieldEnum = {
   id: 'id',
-  sessionId: 'sessionId',
-  type: 'type',
   amount: 'amount',
+  createdAt: 'createdAt',
   reason: 'reason',
-  createdAt: 'createdAt'
+  sessionId: 'sessionId',
+  type: 'type'
 } as const
 
 export type CashMovementScalarFieldEnum = (typeof CashMovementScalarFieldEnum)[keyof typeof CashMovementScalarFieldEnum]
@@ -1622,11 +1622,11 @@ export type CashMovementScalarFieldEnum = (typeof CashMovementScalarFieldEnum)[k
 
 export const CashDrawerLogScalarFieldEnum = {
   id: 'id',
-  cashRegisterId: 'cashRegisterId',
-  userId: 'userId',
-  action: 'action',
   description: 'description',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  action: 'action',
+  cashRegisterId: 'cashRegisterId',
+  userId: 'userId'
 } as const
 
 export type CashDrawerLogScalarFieldEnum = (typeof CashDrawerLogScalarFieldEnum)[keyof typeof CashDrawerLogScalarFieldEnum]
@@ -1634,10 +1634,10 @@ export type CashDrawerLogScalarFieldEnum = (typeof CashDrawerLogScalarFieldEnum)
 
 export const InventoryItemScalarFieldEnum = {
   id: 'id',
-  productId: 'productId',
-  quantity: 'quantity',
+  updatedAt: 'updatedAt',
   minStock: 'minStock',
-  updatedAt: 'updatedAt'
+  quantity: 'quantity',
+  productId: 'productId'
 } as const
 
 export type InventoryItemScalarFieldEnum = (typeof InventoryItemScalarFieldEnum)[keyof typeof InventoryItemScalarFieldEnum]
@@ -1646,11 +1646,11 @@ export type InventoryItemScalarFieldEnum = (typeof InventoryItemScalarFieldEnum)
 export const InventoryMovementScalarFieldEnum = {
   id: 'id',
   inventoryItemId: 'inventoryItemId',
-  type: 'type',
   quantity: 'quantity',
   reason: 'reason',
+  createdAt: 'createdAt',
   userId: 'userId',
-  createdAt: 'createdAt'
+  type: 'type'
 } as const
 
 export type InventoryMovementScalarFieldEnum = (typeof InventoryMovementScalarFieldEnum)[keyof typeof InventoryMovementScalarFieldEnum]
@@ -1662,15 +1662,15 @@ export const ConfigScalarFieldEnum = {
   logoUrl: 'logoUrl',
   theme: 'theme',
   currency: 'currency',
-  companyName: 'companyName',
-  tradingName: 'tradingName',
-  cnpj: 'cnpj',
-  stateRegistration: 'stateRegistration',
-  phone: 'phone',
-  email: 'email',
-  address: 'address',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  address: 'address',
+  cnpj: 'cnpj',
+  companyName: 'companyName',
+  email: 'email',
+  phone: 'phone',
+  stateRegistration: 'stateRegistration',
+  tradingName: 'tradingName'
 } as const
 
 export type ConfigScalarFieldEnum = (typeof ConfigScalarFieldEnum)[keyof typeof ConfigScalarFieldEnum]

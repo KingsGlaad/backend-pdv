@@ -214,11 +214,11 @@ export type UserWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  ordersOpened?: Prisma.OrderListRelationFilter
-  cashSessions?: Prisma.CashSessionListRelationFilter
   drawerLogs?: Prisma.CashDrawerLogListRelationFilter
-  sales?: Prisma.SaleListRelationFilter
+  cashSessions?: Prisma.CashSessionListRelationFilter
   inventoryMovirements?: Prisma.InventoryMovementListRelationFilter
+  ordersOpened?: Prisma.OrderListRelationFilter
+  sales?: Prisma.SaleListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -231,11 +231,11 @@ export type UserOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  ordersOpened?: Prisma.OrderOrderByRelationAggregateInput
-  cashSessions?: Prisma.CashSessionOrderByRelationAggregateInput
   drawerLogs?: Prisma.CashDrawerLogOrderByRelationAggregateInput
-  sales?: Prisma.SaleOrderByRelationAggregateInput
+  cashSessions?: Prisma.CashSessionOrderByRelationAggregateInput
   inventoryMovirements?: Prisma.InventoryMovementOrderByRelationAggregateInput
+  ordersOpened?: Prisma.OrderOrderByRelationAggregateInput
+  sales?: Prisma.SaleOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -251,11 +251,11 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  ordersOpened?: Prisma.OrderListRelationFilter
-  cashSessions?: Prisma.CashSessionListRelationFilter
   drawerLogs?: Prisma.CashDrawerLogListRelationFilter
-  sales?: Prisma.SaleListRelationFilter
+  cashSessions?: Prisma.CashSessionListRelationFilter
   inventoryMovirements?: Prisma.InventoryMovementListRelationFilter
+  ordersOpened?: Prisma.OrderListRelationFilter
+  sales?: Prisma.SaleListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -298,11 +298,11 @@ export type UserCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
-  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
   drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
-  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -315,11 +315,11 @@ export type UserUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
-  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
-  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -332,11 +332,11 @@ export type UserUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
-  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
   drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
-  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -349,11 +349,11 @@ export type UserUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
-  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
-  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -540,10 +540,10 @@ export type UserCreateWithoutOrdersOpenedInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
   drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
-  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutOrdersOpenedInput = {
@@ -556,10 +556,10 @@ export type UserUncheckedCreateWithoutOrdersOpenedInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
-  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutOrdersOpenedInput = {
@@ -588,10 +588,10 @@ export type UserUpdateWithoutOrdersOpenedInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
   drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
-  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutOrdersOpenedInput = {
@@ -604,10 +604,10 @@ export type UserUncheckedUpdateWithoutOrdersOpenedInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
-  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSalesInput = {
@@ -620,10 +620,10 @@ export type UserCreateWithoutSalesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
-  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
   drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
 }
 
 export type UserUncheckedCreateWithoutSalesInput = {
@@ -636,10 +636,10 @@ export type UserUncheckedCreateWithoutSalesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
-  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
 }
 
 export type UserCreateOrConnectWithoutSalesInput = {
@@ -668,10 +668,10 @@ export type UserUpdateWithoutSalesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
-  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
   drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSalesInput = {
@@ -684,10 +684,10 @@ export type UserUncheckedUpdateWithoutSalesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
-  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
 }
 
 export type UserCreateWithoutCashSessionsInput = {
@@ -700,10 +700,10 @@ export type UserCreateWithoutCashSessionsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
   drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
-  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutCashSessionsInput = {
@@ -716,10 +716,10 @@ export type UserUncheckedCreateWithoutCashSessionsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
-  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutCashSessionsInput = {
@@ -748,10 +748,10 @@ export type UserUpdateWithoutCashSessionsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
   drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
-  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCashSessionsInput = {
@@ -764,10 +764,10 @@ export type UserUncheckedUpdateWithoutCashSessionsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
-  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutDrawerLogsInput = {
@@ -780,10 +780,10 @@ export type UserCreateWithoutDrawerLogsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
   cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
-  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
+  sales?: Prisma.SaleCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutDrawerLogsInput = {
@@ -796,10 +796,10 @@ export type UserUncheckedCreateWithoutDrawerLogsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
   cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
-  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
+  sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutDrawerLogsInput = {
@@ -828,10 +828,10 @@ export type UserUpdateWithoutDrawerLogsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
   cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
-  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
+  sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDrawerLogsInput = {
@@ -844,10 +844,10 @@ export type UserUncheckedUpdateWithoutDrawerLogsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
   cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
-  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
   inventoryMovirements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
+  sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutInventoryMovirementsInput = {
@@ -860,9 +860,9 @@ export type UserCreateWithoutInventoryMovirementsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
-  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
   drawerLogs?: Prisma.CashDrawerLogCreateNestedManyWithoutUserInput
+  cashSessions?: Prisma.CashSessionCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderCreateNestedManyWithoutOpenedByInput
   sales?: Prisma.SaleCreateNestedManyWithoutUserInput
 }
 
@@ -876,9 +876,9 @@ export type UserUncheckedCreateWithoutInventoryMovirementsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
-  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedCreateNestedManyWithoutUserInput
+  cashSessions?: Prisma.CashSessionUncheckedCreateNestedManyWithoutUserInput
+  ordersOpened?: Prisma.OrderUncheckedCreateNestedManyWithoutOpenedByInput
   sales?: Prisma.SaleUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -908,9 +908,9 @@ export type UserUpdateWithoutInventoryMovirementsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
-  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
   drawerLogs?: Prisma.CashDrawerLogUpdateManyWithoutUserNestedInput
+  cashSessions?: Prisma.CashSessionUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUpdateManyWithoutOpenedByNestedInput
   sales?: Prisma.SaleUpdateManyWithoutUserNestedInput
 }
 
@@ -924,9 +924,9 @@ export type UserUncheckedUpdateWithoutInventoryMovirementsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
-  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
   drawerLogs?: Prisma.CashDrawerLogUncheckedUpdateManyWithoutUserNestedInput
+  cashSessions?: Prisma.CashSessionUncheckedUpdateManyWithoutUserNestedInput
+  ordersOpened?: Prisma.OrderUncheckedUpdateManyWithoutOpenedByNestedInput
   sales?: Prisma.SaleUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -936,19 +936,19 @@ export type UserUncheckedUpdateWithoutInventoryMovirementsInput = {
  */
 
 export type UserCountOutputType = {
-  ordersOpened: number
-  cashSessions: number
   drawerLogs: number
-  sales: number
+  cashSessions: number
   inventoryMovirements: number
+  ordersOpened: number
+  sales: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  ordersOpened?: boolean | UserCountOutputTypeCountOrdersOpenedArgs
-  cashSessions?: boolean | UserCountOutputTypeCountCashSessionsArgs
   drawerLogs?: boolean | UserCountOutputTypeCountDrawerLogsArgs
-  sales?: boolean | UserCountOutputTypeCountSalesArgs
+  cashSessions?: boolean | UserCountOutputTypeCountCashSessionsArgs
   inventoryMovirements?: boolean | UserCountOutputTypeCountInventoryMovirementsArgs
+  ordersOpened?: boolean | UserCountOutputTypeCountOrdersOpenedArgs
+  sales?: boolean | UserCountOutputTypeCountSalesArgs
 }
 
 /**
@@ -964,8 +964,8 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountOrdersOpenedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.OrderWhereInput
+export type UserCountOutputTypeCountDrawerLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CashDrawerLogWhereInput
 }
 
 /**
@@ -978,8 +978,15 @@ export type UserCountOutputTypeCountCashSessionsArgs<ExtArgs extends runtime.Typ
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountDrawerLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CashDrawerLogWhereInput
+export type UserCountOutputTypeCountInventoryMovirementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InventoryMovementWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountOrdersOpenedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderWhereInput
 }
 
 /**
@@ -987,13 +994,6 @@ export type UserCountOutputTypeCountDrawerLogsArgs<ExtArgs extends runtime.Types
  */
 export type UserCountOutputTypeCountSalesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.SaleWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountInventoryMovirementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.InventoryMovementWhereInput
 }
 
 
@@ -1007,11 +1007,11 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
-  ordersOpened?: boolean | Prisma.User$ordersOpenedArgs<ExtArgs>
-  cashSessions?: boolean | Prisma.User$cashSessionsArgs<ExtArgs>
   drawerLogs?: boolean | Prisma.User$drawerLogsArgs<ExtArgs>
-  sales?: boolean | Prisma.User$salesArgs<ExtArgs>
+  cashSessions?: boolean | Prisma.User$cashSessionsArgs<ExtArgs>
   inventoryMovirements?: boolean | Prisma.User$inventoryMovirementsArgs<ExtArgs>
+  ordersOpened?: boolean | Prisma.User$ordersOpenedArgs<ExtArgs>
+  sales?: boolean | Prisma.User$salesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1053,11 +1053,11 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "active" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  ordersOpened?: boolean | Prisma.User$ordersOpenedArgs<ExtArgs>
-  cashSessions?: boolean | Prisma.User$cashSessionsArgs<ExtArgs>
   drawerLogs?: boolean | Prisma.User$drawerLogsArgs<ExtArgs>
-  sales?: boolean | Prisma.User$salesArgs<ExtArgs>
+  cashSessions?: boolean | Prisma.User$cashSessionsArgs<ExtArgs>
   inventoryMovirements?: boolean | Prisma.User$inventoryMovirementsArgs<ExtArgs>
+  ordersOpened?: boolean | Prisma.User$ordersOpenedArgs<ExtArgs>
+  sales?: boolean | Prisma.User$salesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1066,11 +1066,11 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    ordersOpened: Prisma.$OrderPayload<ExtArgs>[]
-    cashSessions: Prisma.$CashSessionPayload<ExtArgs>[]
     drawerLogs: Prisma.$CashDrawerLogPayload<ExtArgs>[]
-    sales: Prisma.$SalePayload<ExtArgs>[]
+    cashSessions: Prisma.$CashSessionPayload<ExtArgs>[]
     inventoryMovirements: Prisma.$InventoryMovementPayload<ExtArgs>[]
+    ordersOpened: Prisma.$OrderPayload<ExtArgs>[]
+    sales: Prisma.$SalePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1476,11 +1476,11 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  ordersOpened<T extends Prisma.User$ordersOpenedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$ordersOpenedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  cashSessions<T extends Prisma.User$cashSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$cashSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   drawerLogs<T extends Prisma.User$drawerLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$drawerLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashDrawerLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  sales<T extends Prisma.User$salesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$salesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  cashSessions<T extends Prisma.User$cashSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$cashSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CashSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   inventoryMovirements<T extends Prisma.User$inventoryMovirementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$inventoryMovirementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ordersOpened<T extends Prisma.User$ordersOpenedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$ordersOpenedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  sales<T extends Prisma.User$salesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$salesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1907,27 +1907,27 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.ordersOpened
+ * User.drawerLogs
  */
-export type User$ordersOpenedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$drawerLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Order
+   * Select specific fields to fetch from the CashDrawerLog
    */
-  select?: Prisma.OrderSelect<ExtArgs> | null
+  select?: Prisma.CashDrawerLogSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Order
+   * Omit specific fields from the CashDrawerLog
    */
-  omit?: Prisma.OrderOmit<ExtArgs> | null
+  omit?: Prisma.CashDrawerLogOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrderInclude<ExtArgs> | null
-  where?: Prisma.OrderWhereInput
-  orderBy?: Prisma.OrderOrderByWithRelationInput | Prisma.OrderOrderByWithRelationInput[]
-  cursor?: Prisma.OrderWhereUniqueInput
+  include?: Prisma.CashDrawerLogInclude<ExtArgs> | null
+  where?: Prisma.CashDrawerLogWhereInput
+  orderBy?: Prisma.CashDrawerLogOrderByWithRelationInput | Prisma.CashDrawerLogOrderByWithRelationInput[]
+  cursor?: Prisma.CashDrawerLogWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.OrderScalarFieldEnum | Prisma.OrderScalarFieldEnum[]
+  distinct?: Prisma.CashDrawerLogScalarFieldEnum | Prisma.CashDrawerLogScalarFieldEnum[]
 }
 
 /**
@@ -1955,27 +1955,51 @@ export type User$cashSessionsArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
- * User.drawerLogs
+ * User.inventoryMovirements
  */
-export type User$drawerLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$inventoryMovirementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the CashDrawerLog
+   * Select specific fields to fetch from the InventoryMovement
    */
-  select?: Prisma.CashDrawerLogSelect<ExtArgs> | null
+  select?: Prisma.InventoryMovementSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the CashDrawerLog
+   * Omit specific fields from the InventoryMovement
    */
-  omit?: Prisma.CashDrawerLogOmit<ExtArgs> | null
+  omit?: Prisma.InventoryMovementOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CashDrawerLogInclude<ExtArgs> | null
-  where?: Prisma.CashDrawerLogWhereInput
-  orderBy?: Prisma.CashDrawerLogOrderByWithRelationInput | Prisma.CashDrawerLogOrderByWithRelationInput[]
-  cursor?: Prisma.CashDrawerLogWhereUniqueInput
+  include?: Prisma.InventoryMovementInclude<ExtArgs> | null
+  where?: Prisma.InventoryMovementWhereInput
+  orderBy?: Prisma.InventoryMovementOrderByWithRelationInput | Prisma.InventoryMovementOrderByWithRelationInput[]
+  cursor?: Prisma.InventoryMovementWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.CashDrawerLogScalarFieldEnum | Prisma.CashDrawerLogScalarFieldEnum[]
+  distinct?: Prisma.InventoryMovementScalarFieldEnum | Prisma.InventoryMovementScalarFieldEnum[]
+}
+
+/**
+ * User.ordersOpened
+ */
+export type User$ordersOpenedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Order
+   */
+  select?: Prisma.OrderSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Order
+   */
+  omit?: Prisma.OrderOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderInclude<ExtArgs> | null
+  where?: Prisma.OrderWhereInput
+  orderBy?: Prisma.OrderOrderByWithRelationInput | Prisma.OrderOrderByWithRelationInput[]
+  cursor?: Prisma.OrderWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderScalarFieldEnum | Prisma.OrderScalarFieldEnum[]
 }
 
 /**
@@ -2000,30 +2024,6 @@ export type User$salesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
   take?: number
   skip?: number
   distinct?: Prisma.SaleScalarFieldEnum | Prisma.SaleScalarFieldEnum[]
-}
-
-/**
- * User.inventoryMovirements
- */
-export type User$inventoryMovirementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the InventoryMovement
-   */
-  select?: Prisma.InventoryMovementSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the InventoryMovement
-   */
-  omit?: Prisma.InventoryMovementOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.InventoryMovementInclude<ExtArgs> | null
-  where?: Prisma.InventoryMovementWhereInput
-  orderBy?: Prisma.InventoryMovementOrderByWithRelationInput | Prisma.InventoryMovementOrderByWithRelationInput[]
-  cursor?: Prisma.InventoryMovementWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.InventoryMovementScalarFieldEnum | Prisma.InventoryMovementScalarFieldEnum[]
 }
 
 /**

@@ -27,73 +27,73 @@ export type AggregateInventoryItem = {
 }
 
 export type InventoryItemAvgAggregateOutputType = {
-  quantity: number | null
   minStock: number | null
+  quantity: number | null
 }
 
 export type InventoryItemSumAggregateOutputType = {
-  quantity: number | null
   minStock: number | null
+  quantity: number | null
 }
 
 export type InventoryItemMinAggregateOutputType = {
   id: string | null
-  productId: string | null
-  quantity: number | null
-  minStock: number | null
   updatedAt: Date | null
+  minStock: number | null
+  quantity: number | null
+  productId: string | null
 }
 
 export type InventoryItemMaxAggregateOutputType = {
   id: string | null
-  productId: string | null
-  quantity: number | null
-  minStock: number | null
   updatedAt: Date | null
+  minStock: number | null
+  quantity: number | null
+  productId: string | null
 }
 
 export type InventoryItemCountAggregateOutputType = {
   id: number
-  productId: number
-  quantity: number
-  minStock: number
   updatedAt: number
+  minStock: number
+  quantity: number
+  productId: number
   _all: number
 }
 
 
 export type InventoryItemAvgAggregateInputType = {
-  quantity?: true
   minStock?: true
+  quantity?: true
 }
 
 export type InventoryItemSumAggregateInputType = {
-  quantity?: true
   minStock?: true
+  quantity?: true
 }
 
 export type InventoryItemMinAggregateInputType = {
   id?: true
-  productId?: true
-  quantity?: true
-  minStock?: true
   updatedAt?: true
+  minStock?: true
+  quantity?: true
+  productId?: true
 }
 
 export type InventoryItemMaxAggregateInputType = {
   id?: true
-  productId?: true
-  quantity?: true
-  minStock?: true
   updatedAt?: true
+  minStock?: true
+  quantity?: true
+  productId?: true
 }
 
 export type InventoryItemCountAggregateInputType = {
   id?: true
-  productId?: true
-  quantity?: true
-  minStock?: true
   updatedAt?: true
+  minStock?: true
+  quantity?: true
+  productId?: true
   _all?: true
 }
 
@@ -185,10 +185,10 @@ export type InventoryItemGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 
 export type InventoryItemGroupByOutputType = {
   id: string
-  productId: string
-  quantity: number
-  minStock: number
   updatedAt: Date
+  minStock: number
+  quantity: number
+  productId: string
   _count: InventoryItemCountAggregateOutputType | null
   _avg: InventoryItemAvgAggregateOutputType | null
   _sum: InventoryItemSumAggregateOutputType | null
@@ -216,20 +216,20 @@ export type InventoryItemWhereInput = {
   OR?: Prisma.InventoryItemWhereInput[]
   NOT?: Prisma.InventoryItemWhereInput | Prisma.InventoryItemWhereInput[]
   id?: Prisma.StringFilter<"InventoryItem"> | string
-  productId?: Prisma.StringFilter<"InventoryItem"> | string
-  quantity?: Prisma.IntFilter<"InventoryItem"> | number
-  minStock?: Prisma.IntFilter<"InventoryItem"> | number
   updatedAt?: Prisma.DateTimeFilter<"InventoryItem"> | Date | string
+  minStock?: Prisma.IntFilter<"InventoryItem"> | number
+  quantity?: Prisma.IntFilter<"InventoryItem"> | number
+  productId?: Prisma.StringFilter<"InventoryItem"> | string
   product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.ProductWhereInput>
   movements?: Prisma.InventoryMovementListRelationFilter
 }
 
 export type InventoryItemOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  productId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
-  minStock?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  minStock?: Prisma.SortOrder
+  quantity?: Prisma.SortOrder
+  productId?: Prisma.SortOrder
   product?: Prisma.ProductOrderByWithRelationInput
   movements?: Prisma.InventoryMovementOrderByRelationAggregateInput
 }
@@ -239,20 +239,20 @@ export type InventoryItemWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.InventoryItemWhereInput | Prisma.InventoryItemWhereInput[]
   OR?: Prisma.InventoryItemWhereInput[]
   NOT?: Prisma.InventoryItemWhereInput | Prisma.InventoryItemWhereInput[]
-  productId?: Prisma.StringFilter<"InventoryItem"> | string
-  quantity?: Prisma.IntFilter<"InventoryItem"> | number
-  minStock?: Prisma.IntFilter<"InventoryItem"> | number
   updatedAt?: Prisma.DateTimeFilter<"InventoryItem"> | Date | string
+  minStock?: Prisma.IntFilter<"InventoryItem"> | number
+  quantity?: Prisma.IntFilter<"InventoryItem"> | number
+  productId?: Prisma.StringFilter<"InventoryItem"> | string
   product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.ProductWhereInput>
   movements?: Prisma.InventoryMovementListRelationFilter
 }, "id">
 
 export type InventoryItemOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  productId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
-  minStock?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  minStock?: Prisma.SortOrder
+  quantity?: Prisma.SortOrder
+  productId?: Prisma.SortOrder
   _count?: Prisma.InventoryItemCountOrderByAggregateInput
   _avg?: Prisma.InventoryItemAvgOrderByAggregateInput
   _max?: Prisma.InventoryItemMaxOrderByAggregateInput
@@ -265,69 +265,69 @@ export type InventoryItemScalarWhereWithAggregatesInput = {
   OR?: Prisma.InventoryItemScalarWhereWithAggregatesInput[]
   NOT?: Prisma.InventoryItemScalarWhereWithAggregatesInput | Prisma.InventoryItemScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"InventoryItem"> | string
-  productId?: Prisma.StringWithAggregatesFilter<"InventoryItem"> | string
-  quantity?: Prisma.IntWithAggregatesFilter<"InventoryItem"> | number
-  minStock?: Prisma.IntWithAggregatesFilter<"InventoryItem"> | number
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"InventoryItem"> | Date | string
+  minStock?: Prisma.IntWithAggregatesFilter<"InventoryItem"> | number
+  quantity?: Prisma.IntWithAggregatesFilter<"InventoryItem"> | number
+  productId?: Prisma.StringWithAggregatesFilter<"InventoryItem"> | string
 }
 
 export type InventoryItemCreateInput = {
   id?: string
-  quantity?: number
-  minStock?: number
   updatedAt?: Date | string
+  minStock?: number
+  quantity?: number
   product: Prisma.ProductCreateNestedOneWithoutInventoryItemsInput
   movements?: Prisma.InventoryMovementCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateInput = {
   id?: string
-  productId: string
-  quantity?: number
-  minStock?: number
   updatedAt?: Date | string
+  minStock?: number
+  quantity?: number
+  productId: string
   movements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
   product?: Prisma.ProductUpdateOneRequiredWithoutInventoryItemsNestedInput
   movements?: Prisma.InventoryMovementUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  productId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  productId?: Prisma.StringFieldUpdateOperationsInput | string
   movements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemCreateManyInput = {
   id?: string
-  productId: string
-  quantity?: number
-  minStock?: number
   updatedAt?: Date | string
+  minStock?: number
+  quantity?: number
+  productId: string
 }
 
 export type InventoryItemUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type InventoryItemUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  productId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  productId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type InventoryItemListRelationFilter = {
@@ -342,36 +342,36 @@ export type InventoryItemOrderByRelationAggregateInput = {
 
 export type InventoryItemCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  productId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
-  minStock?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  minStock?: Prisma.SortOrder
+  quantity?: Prisma.SortOrder
+  productId?: Prisma.SortOrder
 }
 
 export type InventoryItemAvgOrderByAggregateInput = {
-  quantity?: Prisma.SortOrder
   minStock?: Prisma.SortOrder
+  quantity?: Prisma.SortOrder
 }
 
 export type InventoryItemMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  productId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
-  minStock?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  minStock?: Prisma.SortOrder
+  quantity?: Prisma.SortOrder
+  productId?: Prisma.SortOrder
 }
 
 export type InventoryItemMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  productId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
-  minStock?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  minStock?: Prisma.SortOrder
+  quantity?: Prisma.SortOrder
+  productId?: Prisma.SortOrder
 }
 
 export type InventoryItemSumOrderByAggregateInput = {
-  quantity?: Prisma.SortOrder
   minStock?: Prisma.SortOrder
+  quantity?: Prisma.SortOrder
 }
 
 export type InventoryItemScalarRelationFilter = {
@@ -437,17 +437,17 @@ export type InventoryItemUpdateOneRequiredWithoutMovementsNestedInput = {
 
 export type InventoryItemCreateWithoutProductInput = {
   id?: string
-  quantity?: number
-  minStock?: number
   updatedAt?: Date | string
+  minStock?: number
+  quantity?: number
   movements?: Prisma.InventoryMovementCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutProductInput = {
   id?: string
-  quantity?: number
-  minStock?: number
   updatedAt?: Date | string
+  minStock?: number
+  quantity?: number
   movements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
@@ -482,26 +482,26 @@ export type InventoryItemScalarWhereInput = {
   OR?: Prisma.InventoryItemScalarWhereInput[]
   NOT?: Prisma.InventoryItemScalarWhereInput | Prisma.InventoryItemScalarWhereInput[]
   id?: Prisma.StringFilter<"InventoryItem"> | string
-  productId?: Prisma.StringFilter<"InventoryItem"> | string
-  quantity?: Prisma.IntFilter<"InventoryItem"> | number
-  minStock?: Prisma.IntFilter<"InventoryItem"> | number
   updatedAt?: Prisma.DateTimeFilter<"InventoryItem"> | Date | string
+  minStock?: Prisma.IntFilter<"InventoryItem"> | number
+  quantity?: Prisma.IntFilter<"InventoryItem"> | number
+  productId?: Prisma.StringFilter<"InventoryItem"> | string
 }
 
 export type InventoryItemCreateWithoutMovementsInput = {
   id?: string
-  quantity?: number
-  minStock?: number
   updatedAt?: Date | string
+  minStock?: number
+  quantity?: number
   product: Prisma.ProductCreateNestedOneWithoutInventoryItemsInput
 }
 
 export type InventoryItemUncheckedCreateWithoutMovementsInput = {
   id?: string
-  productId: string
-  quantity?: number
-  minStock?: number
   updatedAt?: Date | string
+  minStock?: number
+  quantity?: number
+  productId: string
 }
 
 export type InventoryItemCreateOrConnectWithoutMovementsInput = {
@@ -522,48 +522,48 @@ export type InventoryItemUpdateToOneWithWhereWithoutMovementsInput = {
 
 export type InventoryItemUpdateWithoutMovementsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
   product?: Prisma.ProductUpdateOneRequiredWithoutInventoryItemsNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutMovementsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  productId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  productId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type InventoryItemCreateManyProductInput = {
   id?: string
-  quantity?: number
-  minStock?: number
   updatedAt?: Date | string
+  minStock?: number
+  quantity?: number
 }
 
 export type InventoryItemUpdateWithoutProductInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
   movements?: Prisma.InventoryMovementUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutProductInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
   movements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateManyWithoutProductInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  minStock?: Prisma.IntFieldUpdateOperationsInput | number
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  minStock?: Prisma.IntFieldUpdateOperationsInput | number
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -599,10 +599,10 @@ export type InventoryItemCountOutputTypeCountMovementsArgs<ExtArgs extends runti
 
 export type InventoryItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  productId?: boolean
-  quantity?: boolean
-  minStock?: boolean
   updatedAt?: boolean
+  minStock?: boolean
+  quantity?: boolean
+  productId?: boolean
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
   movements?: boolean | Prisma.InventoryItem$movementsArgs<ExtArgs>
   _count?: boolean | Prisma.InventoryItemCountOutputTypeDefaultArgs<ExtArgs>
@@ -610,31 +610,31 @@ export type InventoryItemSelect<ExtArgs extends runtime.Types.Extensions.Interna
 
 export type InventoryItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  productId?: boolean
-  quantity?: boolean
-  minStock?: boolean
   updatedAt?: boolean
+  minStock?: boolean
+  quantity?: boolean
+  productId?: boolean
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryItem"]>
 
 export type InventoryItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  productId?: boolean
-  quantity?: boolean
-  minStock?: boolean
   updatedAt?: boolean
+  minStock?: boolean
+  quantity?: boolean
+  productId?: boolean
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryItem"]>
 
 export type InventoryItemSelectScalar = {
   id?: boolean
-  productId?: boolean
-  quantity?: boolean
-  minStock?: boolean
   updatedAt?: boolean
+  minStock?: boolean
+  quantity?: boolean
+  productId?: boolean
 }
 
-export type InventoryItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "productId" | "quantity" | "minStock" | "updatedAt", ExtArgs["result"]["inventoryItem"]>
+export type InventoryItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "updatedAt" | "minStock" | "quantity" | "productId", ExtArgs["result"]["inventoryItem"]>
 export type InventoryItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
   movements?: boolean | Prisma.InventoryItem$movementsArgs<ExtArgs>
@@ -655,10 +655,10 @@ export type $InventoryItemPayload<ExtArgs extends runtime.Types.Extensions.Inter
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    productId: string
-    quantity: number
-    minStock: number
     updatedAt: Date
+    minStock: number
+    quantity: number
+    productId: string
   }, ExtArgs["result"]["inventoryItem"]>
   composites: {}
 }
@@ -1085,10 +1085,10 @@ export interface Prisma__InventoryItemClient<T, Null = never, ExtArgs extends ru
  */
 export interface InventoryItemFieldRefs {
   readonly id: Prisma.FieldRef<"InventoryItem", 'String'>
-  readonly productId: Prisma.FieldRef<"InventoryItem", 'String'>
-  readonly quantity: Prisma.FieldRef<"InventoryItem", 'Int'>
-  readonly minStock: Prisma.FieldRef<"InventoryItem", 'Int'>
   readonly updatedAt: Prisma.FieldRef<"InventoryItem", 'DateTime'>
+  readonly minStock: Prisma.FieldRef<"InventoryItem", 'Int'>
+  readonly quantity: Prisma.FieldRef<"InventoryItem", 'Int'>
+  readonly productId: Prisma.FieldRef<"InventoryItem", 'String'>
 }
     
 

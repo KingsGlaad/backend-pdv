@@ -22,6 +22,11 @@ export class OrdersController {
     return await this.service.findOpenOrders();
   }
 
+  @Get(':id')
+  async getOne(@Param('id') id: string) {
+    return this.service.findOne(id);
+  }
+
   @Post('direct-sale')
   async createDirectSale(@Request() req, @Body() body: unknown) {
     const dto = CreateDirectSaleSchema.parse(body);

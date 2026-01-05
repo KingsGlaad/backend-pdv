@@ -1,18 +1,20 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import { Injectable, BadRequestException, Inject } from '@nestjs/common';
+import { ClientKafka } from '@nestjs/microservices';
 import { PrismaService } from '../../prisma/prisma.service';
 import { CloseOrderDto } from './dto/close-order.dto';
 import { PaymentMethod } from '../../generated/prisma/enums';
 import { CashMovement } from 'src/generated/prisma/client';
 import { CreateDirectSaleDto } from './dto/create-direct-sale.dto';
-import { PrintingService } from '../settings/printing.service';
-import { SettingsService } from '../settings/settings.service';
+import { PrinterService } from '../printer/printer.service';
+import { EventsGateway } from '../events/events.gateway';
 
 @Injectable()
 export class OrdersService {
   constructor(
     private prisma: PrismaService,
-    private printingService: PrintingService,
-    private settingsService: SettingsService,
+    private printerService: PrinterService,
+    private eventsGateway: EventsGateway,
+    @Inject('KAFKA_SERVICE') private client: ClientKafka,
   ) {}
 
   async openOrder(userId: string, table?: string, number?: number) {
@@ -37,19 +39,34 @@ export class OrdersService {
       if (existingOpen) return existingOpen;
     }
 
-    return this.prisma.order.create({
+    const newOrder = await this.prisma.order.create({
       data: {
         number: nextNumber,
         table,
         openedById: userId,
       },
     });
+    this.client.emit('orders.created', newOrder);
+    return newOrder;
   }
 
   async findOpenOrders() {
     return this.prisma.order.findMany({
       where: { status: 'OPEN' },
       orderBy: { number: 'asc' },
+      include: {
+        items: {
+          include: {
+            product: true,
+          },
+        },
+      },
+    });
+  }
+
+  async findOne(id: string) {
+    return this.prisma.order.findUnique({
+      where: { id },
       include: {
         items: {
           include: {
@@ -133,6 +150,12 @@ export class OrdersService {
         }
       }
 
+      // Prepare items with orderId if available
+      const itemsToCreate = saleItemsData.map((item) => ({
+        ...item,
+        orderId: orderId ?? undefined,
+      }));
+
       const sale = await tx.sale.create({
         data: {
           total,
@@ -144,7 +167,7 @@ export class OrdersService {
           cashSessionId: activeSession.id,
           orders: orderId ? { connect: { id: orderId } } : undefined,
           items: {
-            create: saleItemsData,
+            create: itemsToCreate,
           },
         },
         include: {
@@ -222,6 +245,8 @@ export class OrdersService {
       this.handlePrinting(dto.terminalId, result.saleObj, result.items, result.payments);
     }
 
+    this.eventsGateway.sendToAll('sale.created', result.result);
+
     return result.result;
   }
 
@@ -242,7 +267,7 @@ export class OrdersService {
       throw new BadRequestException('Comanda não encontrada ou fechada');
     }
 
-    return this.prisma.orderItem.create({
+    const item = await this.prisma.orderItem.create({
       data: {
         orderId,
         productId,
@@ -250,6 +275,14 @@ export class OrdersService {
         price: product.price,
       },
     });
+
+    // Fetch updated order to emit
+    const updatedOrder = await this.prisma.order.findUnique({
+      where: { id: orderId },
+      include: { items: { include: { product: true } } },
+    });
+    this.client.emit('orders.updated', updatedOrder);
+    return item;
   }
 
   async closeOrder(orderId: string, dto: CloseOrderDto) {
@@ -384,15 +417,17 @@ export class OrdersService {
       void this.handlePrinting(dto.terminalId, result.saleObj, result.items, result.payments);
     }
 
+    this.eventsGateway.sendToAll('sale.created', result.result);
+
     return result.result;
   }
 
   private async handlePrinting(terminalId: string, sale: any, items: any[], payments: any[]) {
     try {
-      const config = await this.settingsService.getPrinterConfig(terminalId);
+      const config = await this.printerService.getPrinterConfig(terminalId);
       if (config && config.enabled && config.printerName) {
         const width = config.width === 58 ? 32 : config.width === 80 ? 48 : 40;
-        await this.printingService.printReceipt(config.printerName, width, sale, items, payments);
+        await this.printerService.printReceipt(config.printerName, width, sale, items, payments);
       }
     } catch (e) {
       console.error('Failed to process printing', e);

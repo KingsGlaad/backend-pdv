@@ -36,29 +36,29 @@ export type CashMovementSumAggregateOutputType = {
 
 export type CashMovementMinAggregateOutputType = {
   id: string | null
+  amount: runtime.Decimal | null
+  createdAt: Date | null
+  reason: string | null
   sessionId: string | null
   type: $Enums.CashMovementType | null
-  amount: runtime.Decimal | null
-  reason: string | null
-  createdAt: Date | null
 }
 
 export type CashMovementMaxAggregateOutputType = {
   id: string | null
+  amount: runtime.Decimal | null
+  createdAt: Date | null
+  reason: string | null
   sessionId: string | null
   type: $Enums.CashMovementType | null
-  amount: runtime.Decimal | null
-  reason: string | null
-  createdAt: Date | null
 }
 
 export type CashMovementCountAggregateOutputType = {
   id: number
+  amount: number
+  createdAt: number
+  reason: number
   sessionId: number
   type: number
-  amount: number
-  reason: number
-  createdAt: number
   _all: number
 }
 
@@ -73,29 +73,29 @@ export type CashMovementSumAggregateInputType = {
 
 export type CashMovementMinAggregateInputType = {
   id?: true
+  amount?: true
+  createdAt?: true
+  reason?: true
   sessionId?: true
   type?: true
-  amount?: true
-  reason?: true
-  createdAt?: true
 }
 
 export type CashMovementMaxAggregateInputType = {
   id?: true
+  amount?: true
+  createdAt?: true
+  reason?: true
   sessionId?: true
   type?: true
-  amount?: true
-  reason?: true
-  createdAt?: true
 }
 
 export type CashMovementCountAggregateInputType = {
   id?: true
+  amount?: true
+  createdAt?: true
+  reason?: true
   sessionId?: true
   type?: true
-  amount?: true
-  reason?: true
-  createdAt?: true
   _all?: true
 }
 
@@ -187,11 +187,11 @@ export type CashMovementGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 
 export type CashMovementGroupByOutputType = {
   id: string
+  amount: runtime.Decimal
+  createdAt: Date
+  reason: string | null
   sessionId: string
   type: $Enums.CashMovementType
-  amount: runtime.Decimal
-  reason: string | null
-  createdAt: Date
   _count: CashMovementCountAggregateOutputType | null
   _avg: CashMovementAvgAggregateOutputType | null
   _sum: CashMovementSumAggregateOutputType | null
@@ -219,22 +219,22 @@ export type CashMovementWhereInput = {
   OR?: Prisma.CashMovementWhereInput[]
   NOT?: Prisma.CashMovementWhereInput | Prisma.CashMovementWhereInput[]
   id?: Prisma.StringFilter<"CashMovement"> | string
+  amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
+  reason?: Prisma.StringNullableFilter<"CashMovement"> | string | null
   sessionId?: Prisma.StringFilter<"CashMovement"> | string
   type?: Prisma.EnumCashMovementTypeFilter<"CashMovement"> | $Enums.CashMovementType
-  amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.StringNullableFilter<"CashMovement"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
   session?: Prisma.XOR<Prisma.CashSessionScalarRelationFilter, Prisma.CashSessionWhereInput>
   payments?: Prisma.PaymentListRelationFilter
 }
 
 export type CashMovementOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  reason?: Prisma.SortOrderInput | Prisma.SortOrder
   sessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  reason?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   session?: Prisma.CashSessionOrderByWithRelationInput
   payments?: Prisma.PaymentOrderByRelationAggregateInput
 }
@@ -244,22 +244,22 @@ export type CashMovementWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.CashMovementWhereInput | Prisma.CashMovementWhereInput[]
   OR?: Prisma.CashMovementWhereInput[]
   NOT?: Prisma.CashMovementWhereInput | Prisma.CashMovementWhereInput[]
+  amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
+  reason?: Prisma.StringNullableFilter<"CashMovement"> | string | null
   sessionId?: Prisma.StringFilter<"CashMovement"> | string
   type?: Prisma.EnumCashMovementTypeFilter<"CashMovement"> | $Enums.CashMovementType
-  amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.StringNullableFilter<"CashMovement"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
   session?: Prisma.XOR<Prisma.CashSessionScalarRelationFilter, Prisma.CashSessionWhereInput>
   payments?: Prisma.PaymentListRelationFilter
 }, "id">
 
 export type CashMovementOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  reason?: Prisma.SortOrderInput | Prisma.SortOrder
   sessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  reason?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   _count?: Prisma.CashMovementCountOrderByAggregateInput
   _avg?: Prisma.CashMovementAvgOrderByAggregateInput
   _max?: Prisma.CashMovementMaxOrderByAggregateInput
@@ -272,77 +272,77 @@ export type CashMovementScalarWhereWithAggregatesInput = {
   OR?: Prisma.CashMovementScalarWhereWithAggregatesInput[]
   NOT?: Prisma.CashMovementScalarWhereWithAggregatesInput | Prisma.CashMovementScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"CashMovement"> | string
+  amount?: Prisma.DecimalWithAggregatesFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"CashMovement"> | Date | string
+  reason?: Prisma.StringNullableWithAggregatesFilter<"CashMovement"> | string | null
   sessionId?: Prisma.StringWithAggregatesFilter<"CashMovement"> | string
   type?: Prisma.EnumCashMovementTypeWithAggregatesFilter<"CashMovement"> | $Enums.CashMovementType
-  amount?: Prisma.DecimalWithAggregatesFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.StringNullableWithAggregatesFilter<"CashMovement"> | string | null
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"CashMovement"> | Date | string
 }
 
 export type CashMovementCreateInput = {
   id?: string
-  type: $Enums.CashMovementType
   amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: string | null
   createdAt?: Date | string
+  reason?: string | null
+  type: $Enums.CashMovementType
   session: Prisma.CashSessionCreateNestedOneWithoutMovementsInput
   payments?: Prisma.PaymentCreateNestedManyWithoutCashMovementInput
 }
 
 export type CashMovementUncheckedCreateInput = {
   id?: string
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  reason?: string | null
   sessionId: string
   type: $Enums.CashMovementType
-  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: string | null
-  createdAt?: Date | string
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCashMovementInput
 }
 
 export type CashMovementUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   session?: Prisma.CashSessionUpdateOneRequiredWithoutMovementsNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutCashMovementNestedInput
 }
 
 export type CashMovementUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessionId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
-  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutCashMovementNestedInput
 }
 
 export type CashMovementCreateManyInput = {
   id?: string
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  reason?: string | null
   sessionId: string
   type: $Enums.CashMovementType
-  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: string | null
-  createdAt?: Date | string
 }
 
 export type CashMovementUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
 }
 
 export type CashMovementUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessionId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
-  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CashMovementNullableScalarRelationFilter = {
@@ -362,11 +362,11 @@ export type CashMovementOrderByRelationAggregateInput = {
 
 export type CashMovementCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  reason?: Prisma.SortOrder
   sessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  reason?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
 }
 
 export type CashMovementAvgOrderByAggregateInput = {
@@ -375,20 +375,20 @@ export type CashMovementAvgOrderByAggregateInput = {
 
 export type CashMovementMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  reason?: Prisma.SortOrder
   sessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  reason?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
 }
 
 export type CashMovementMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  amount?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  reason?: Prisma.SortOrder
   sessionId?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  amount?: Prisma.SortOrder
-  reason?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
 }
 
 export type CashMovementSumOrderByAggregateInput = {
@@ -459,20 +459,20 @@ export type EnumCashMovementTypeFieldUpdateOperationsInput = {
 
 export type CashMovementCreateWithoutPaymentsInput = {
   id?: string
-  type: $Enums.CashMovementType
   amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: string | null
   createdAt?: Date | string
+  reason?: string | null
+  type: $Enums.CashMovementType
   session: Prisma.CashSessionCreateNestedOneWithoutMovementsInput
 }
 
 export type CashMovementUncheckedCreateWithoutPaymentsInput = {
   id?: string
+  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  reason?: string | null
   sessionId: string
   type: $Enums.CashMovementType
-  amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: string | null
-  createdAt?: Date | string
 }
 
 export type CashMovementCreateOrConnectWithoutPaymentsInput = {
@@ -493,37 +493,37 @@ export type CashMovementUpdateToOneWithWhereWithoutPaymentsInput = {
 
 export type CashMovementUpdateWithoutPaymentsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   session?: Prisma.CashSessionUpdateOneRequiredWithoutMovementsNestedInput
 }
 
 export type CashMovementUncheckedUpdateWithoutPaymentsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessionId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
-  amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CashMovementCreateWithoutSessionInput = {
   id?: string
-  type: $Enums.CashMovementType
   amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: string | null
   createdAt?: Date | string
+  reason?: string | null
+  type: $Enums.CashMovementType
   payments?: Prisma.PaymentCreateNestedManyWithoutCashMovementInput
 }
 
 export type CashMovementUncheckedCreateWithoutSessionInput = {
   id?: string
-  type: $Enums.CashMovementType
   amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: string | null
   createdAt?: Date | string
+  reason?: string | null
+  type: $Enums.CashMovementType
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCashMovementInput
 }
 
@@ -558,45 +558,45 @@ export type CashMovementScalarWhereInput = {
   OR?: Prisma.CashMovementScalarWhereInput[]
   NOT?: Prisma.CashMovementScalarWhereInput | Prisma.CashMovementScalarWhereInput[]
   id?: Prisma.StringFilter<"CashMovement"> | string
+  amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
+  reason?: Prisma.StringNullableFilter<"CashMovement"> | string | null
   sessionId?: Prisma.StringFilter<"CashMovement"> | string
   type?: Prisma.EnumCashMovementTypeFilter<"CashMovement"> | $Enums.CashMovementType
-  amount?: Prisma.DecimalFilter<"CashMovement"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.StringNullableFilter<"CashMovement"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"CashMovement"> | Date | string
 }
 
 export type CashMovementCreateManySessionInput = {
   id?: string
-  type: $Enums.CashMovementType
   amount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: string | null
   createdAt?: Date | string
+  reason?: string | null
+  type: $Enums.CashMovementType
 }
 
 export type CashMovementUpdateWithoutSessionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   payments?: Prisma.PaymentUpdateManyWithoutCashMovementNestedInput
 }
 
 export type CashMovementUncheckedUpdateWithoutSessionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutCashMovementNestedInput
 }
 
 export type CashMovementUncheckedUpdateManyWithoutSessionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
   amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumCashMovementTypeFieldUpdateOperationsInput | $Enums.CashMovementType
 }
 
 
@@ -632,11 +632,11 @@ export type CashMovementCountOutputTypeCountPaymentsArgs<ExtArgs extends runtime
 
 export type CashMovementSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  amount?: boolean
+  createdAt?: boolean
+  reason?: boolean
   sessionId?: boolean
   type?: boolean
-  amount?: boolean
-  reason?: boolean
-  createdAt?: boolean
   session?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
   payments?: boolean | Prisma.CashMovement$paymentsArgs<ExtArgs>
   _count?: boolean | Prisma.CashMovementCountOutputTypeDefaultArgs<ExtArgs>
@@ -644,34 +644,34 @@ export type CashMovementSelect<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type CashMovementSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  amount?: boolean
+  createdAt?: boolean
+  reason?: boolean
   sessionId?: boolean
   type?: boolean
-  amount?: boolean
-  reason?: boolean
-  createdAt?: boolean
   session?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashMovement"]>
 
 export type CashMovementSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  amount?: boolean
+  createdAt?: boolean
+  reason?: boolean
   sessionId?: boolean
   type?: boolean
-  amount?: boolean
-  reason?: boolean
-  createdAt?: boolean
   session?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashMovement"]>
 
 export type CashMovementSelectScalar = {
   id?: boolean
+  amount?: boolean
+  createdAt?: boolean
+  reason?: boolean
   sessionId?: boolean
   type?: boolean
-  amount?: boolean
-  reason?: boolean
-  createdAt?: boolean
 }
 
-export type CashMovementOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sessionId" | "type" | "amount" | "reason" | "createdAt", ExtArgs["result"]["cashMovement"]>
+export type CashMovementOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "amount" | "createdAt" | "reason" | "sessionId" | "type", ExtArgs["result"]["cashMovement"]>
 export type CashMovementInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   session?: boolean | Prisma.CashSessionDefaultArgs<ExtArgs>
   payments?: boolean | Prisma.CashMovement$paymentsArgs<ExtArgs>
@@ -692,11 +692,11 @@ export type $CashMovementPayload<ExtArgs extends runtime.Types.Extensions.Intern
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    amount: runtime.Decimal
+    createdAt: Date
+    reason: string | null
     sessionId: string
     type: $Enums.CashMovementType
-    amount: runtime.Decimal
-    reason: string | null
-    createdAt: Date
   }, ExtArgs["result"]["cashMovement"]>
   composites: {}
 }
@@ -1123,11 +1123,11 @@ export interface Prisma__CashMovementClient<T, Null = never, ExtArgs extends run
  */
 export interface CashMovementFieldRefs {
   readonly id: Prisma.FieldRef<"CashMovement", 'String'>
+  readonly amount: Prisma.FieldRef<"CashMovement", 'Decimal'>
+  readonly createdAt: Prisma.FieldRef<"CashMovement", 'DateTime'>
+  readonly reason: Prisma.FieldRef<"CashMovement", 'String'>
   readonly sessionId: Prisma.FieldRef<"CashMovement", 'String'>
   readonly type: Prisma.FieldRef<"CashMovement", 'CashMovementType'>
-  readonly amount: Prisma.FieldRef<"CashMovement", 'Decimal'>
-  readonly reason: Prisma.FieldRef<"CashMovement", 'String'>
-  readonly createdAt: Prisma.FieldRef<"CashMovement", 'DateTime'>
 }
     
 

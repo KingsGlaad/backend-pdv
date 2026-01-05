@@ -14,8 +14,6 @@ import { CreateSettingsDto } from './dto/create-settings.dto';
 import { JwtAuthGuard } from '@common/guards/jwt-auth.guard';
 import * as fs from 'fs';
 import * as path from 'path';
-import { PrinterConfig } from '../../generated/prisma/client';
-import { PrinterConfigDto } from './dto/printer-config.dto';
 
 @UseGuards(JwtAuthGuard)
 @Controller('settings')
@@ -35,26 +33,6 @@ export class SettingsController {
   @Post()
   async createSettings(@Body() dto: CreateSettingsDto) {
     return this.settingsService.saveSettings(dto);
-  }
-
-  @Get('printers/available')
-  async getAvailablePrinters() {
-    return this.settingsService.getAvailablePrinters();
-  }
-
-  @Get('printers')
-  async getPrinterConfigs() {
-    return await this.settingsService.getPrinterConfigs();
-  }
-
-  @Get('printers/:terminalId')
-  async getPrinterConfig(@Param('terminalId') terminalId: string): Promise<PrinterConfig | null> {
-    return this.settingsService.getPrinterConfig(terminalId);
-  }
-
-  @Post('printers')
-  async savePrinterConfig(@Body() dto: PrinterConfigDto) {
-    return this.settingsService.savePrinterConfig(dto);
   }
 
   @Post('upload/logo')

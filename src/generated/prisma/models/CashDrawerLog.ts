@@ -26,58 +26,58 @@ export type AggregateCashDrawerLog = {
 
 export type CashDrawerLogMinAggregateOutputType = {
   id: string | null
-  cashRegisterId: string | null
-  userId: string | null
-  action: string | null
   description: string | null
   createdAt: Date | null
+  action: string | null
+  cashRegisterId: string | null
+  userId: string | null
 }
 
 export type CashDrawerLogMaxAggregateOutputType = {
   id: string | null
-  cashRegisterId: string | null
-  userId: string | null
-  action: string | null
   description: string | null
   createdAt: Date | null
+  action: string | null
+  cashRegisterId: string | null
+  userId: string | null
 }
 
 export type CashDrawerLogCountAggregateOutputType = {
   id: number
-  cashRegisterId: number
-  userId: number
-  action: number
   description: number
   createdAt: number
+  action: number
+  cashRegisterId: number
+  userId: number
   _all: number
 }
 
 
 export type CashDrawerLogMinAggregateInputType = {
   id?: true
-  cashRegisterId?: true
-  userId?: true
-  action?: true
   description?: true
   createdAt?: true
+  action?: true
+  cashRegisterId?: true
+  userId?: true
 }
 
 export type CashDrawerLogMaxAggregateInputType = {
   id?: true
-  cashRegisterId?: true
-  userId?: true
-  action?: true
   description?: true
   createdAt?: true
+  action?: true
+  cashRegisterId?: true
+  userId?: true
 }
 
 export type CashDrawerLogCountAggregateInputType = {
   id?: true
-  cashRegisterId?: true
-  userId?: true
-  action?: true
   description?: true
   createdAt?: true
+  action?: true
+  cashRegisterId?: true
+  userId?: true
   _all?: true
 }
 
@@ -155,11 +155,11 @@ export type CashDrawerLogGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 
 export type CashDrawerLogGroupByOutputType = {
   id: string
-  cashRegisterId: string
-  userId: string
-  action: string
   description: string | null
   createdAt: Date
+  action: string
+  cashRegisterId: string
+  userId: string
   _count: CashDrawerLogCountAggregateOutputType | null
   _min: CashDrawerLogMinAggregateOutputType | null
   _max: CashDrawerLogMaxAggregateOutputType | null
@@ -185,22 +185,22 @@ export type CashDrawerLogWhereInput = {
   OR?: Prisma.CashDrawerLogWhereInput[]
   NOT?: Prisma.CashDrawerLogWhereInput | Prisma.CashDrawerLogWhereInput[]
   id?: Prisma.StringFilter<"CashDrawerLog"> | string
-  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  action?: Prisma.StringFilter<"CashDrawerLog"> | string
   description?: Prisma.StringNullableFilter<"CashDrawerLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CashDrawerLog"> | Date | string
+  action?: Prisma.StringFilter<"CashDrawerLog"> | string
+  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
   cashRegister?: Prisma.XOR<Prisma.CashRegisterScalarRelationFilter, Prisma.CashRegisterWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type CashDrawerLogOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  action?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  action?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   cashRegister?: Prisma.CashRegisterOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
 }
@@ -210,22 +210,22 @@ export type CashDrawerLogWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.CashDrawerLogWhereInput | Prisma.CashDrawerLogWhereInput[]
   OR?: Prisma.CashDrawerLogWhereInput[]
   NOT?: Prisma.CashDrawerLogWhereInput | Prisma.CashDrawerLogWhereInput[]
-  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  action?: Prisma.StringFilter<"CashDrawerLog"> | string
   description?: Prisma.StringNullableFilter<"CashDrawerLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CashDrawerLog"> | Date | string
+  action?: Prisma.StringFilter<"CashDrawerLog"> | string
+  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
   cashRegister?: Prisma.XOR<Prisma.CashRegisterScalarRelationFilter, Prisma.CashRegisterWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type CashDrawerLogOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  action?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  action?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   _count?: Prisma.CashDrawerLogCountOrderByAggregateInput
   _max?: Prisma.CashDrawerLogMaxOrderByAggregateInput
   _min?: Prisma.CashDrawerLogMinOrderByAggregateInput
@@ -236,72 +236,72 @@ export type CashDrawerLogScalarWhereWithAggregatesInput = {
   OR?: Prisma.CashDrawerLogScalarWhereWithAggregatesInput[]
   NOT?: Prisma.CashDrawerLogScalarWhereWithAggregatesInput | Prisma.CashDrawerLogScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
-  cashRegisterId?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
-  userId?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
-  action?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"CashDrawerLog"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"CashDrawerLog"> | Date | string
+  action?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
+  cashRegisterId?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
+  userId?: Prisma.StringWithAggregatesFilter<"CashDrawerLog"> | string
 }
 
 export type CashDrawerLogCreateInput = {
   id?: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
   cashRegister: Prisma.CashRegisterCreateNestedOneWithoutLogsInput
   user: Prisma.UserCreateNestedOneWithoutDrawerLogsInput
 }
 
 export type CashDrawerLogUncheckedCreateInput = {
   id?: string
-  cashRegisterId: string
-  userId: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
+  cashRegisterId: string
+  userId: string
 }
 
 export type CashDrawerLogUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   cashRegister?: Prisma.CashRegisterUpdateOneRequiredWithoutLogsNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutDrawerLogsNestedInput
 }
 
 export type CashDrawerLogUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type CashDrawerLogCreateManyInput = {
   id?: string
-  cashRegisterId: string
-  userId: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
+  cashRegisterId: string
+  userId: string
 }
 
 export type CashDrawerLogUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type CashDrawerLogUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type CashDrawerLogListRelationFilter = {
@@ -316,29 +316,29 @@ export type CashDrawerLogOrderByRelationAggregateInput = {
 
 export type CashDrawerLogCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  action?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  action?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type CashDrawerLogMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  action?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  action?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type CashDrawerLogMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cashRegisterId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  action?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  action?: Prisma.SortOrder
+  cashRegisterId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type CashDrawerLogCreateNestedManyWithoutUserInput = {
@@ -427,18 +427,18 @@ export type CashDrawerLogUncheckedUpdateManyWithoutCashRegisterNestedInput = {
 
 export type CashDrawerLogCreateWithoutUserInput = {
   id?: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
   cashRegister: Prisma.CashRegisterCreateNestedOneWithoutLogsInput
 }
 
 export type CashDrawerLogUncheckedCreateWithoutUserInput = {
   id?: string
-  cashRegisterId: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
+  cashRegisterId: string
 }
 
 export type CashDrawerLogCreateOrConnectWithoutUserInput = {
@@ -472,27 +472,27 @@ export type CashDrawerLogScalarWhereInput = {
   OR?: Prisma.CashDrawerLogScalarWhereInput[]
   NOT?: Prisma.CashDrawerLogScalarWhereInput | Prisma.CashDrawerLogScalarWhereInput[]
   id?: Prisma.StringFilter<"CashDrawerLog"> | string
-  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
-  action?: Prisma.StringFilter<"CashDrawerLog"> | string
   description?: Prisma.StringNullableFilter<"CashDrawerLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"CashDrawerLog"> | Date | string
+  action?: Prisma.StringFilter<"CashDrawerLog"> | string
+  cashRegisterId?: Prisma.StringFilter<"CashDrawerLog"> | string
+  userId?: Prisma.StringFilter<"CashDrawerLog"> | string
 }
 
 export type CashDrawerLogCreateWithoutCashRegisterInput = {
   id?: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
   user: Prisma.UserCreateNestedOneWithoutDrawerLogsInput
 }
 
 export type CashDrawerLogUncheckedCreateWithoutCashRegisterInput = {
   id?: string
-  userId: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
+  userId: string
 }
 
 export type CashDrawerLogCreateOrConnectWithoutCashRegisterInput = {
@@ -523,113 +523,113 @@ export type CashDrawerLogUpdateManyWithWhereWithoutCashRegisterInput = {
 
 export type CashDrawerLogCreateManyUserInput = {
   id?: string
-  cashRegisterId: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
+  cashRegisterId: string
 }
 
 export type CashDrawerLogUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   cashRegister?: Prisma.CashRegisterUpdateOneRequiredWithoutLogsNestedInput
 }
 
 export type CashDrawerLogUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type CashDrawerLogUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  cashRegisterId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type CashDrawerLogCreateManyCashRegisterInput = {
   id?: string
-  userId: string
-  action: string
   description?: string | null
   createdAt?: Date | string
+  action: string
+  userId: string
 }
 
 export type CashDrawerLogUpdateWithoutCashRegisterInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
   user?: Prisma.UserUpdateOneRequiredWithoutDrawerLogsNestedInput
 }
 
 export type CashDrawerLogUncheckedUpdateWithoutCashRegisterInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type CashDrawerLogUncheckedUpdateManyWithoutCashRegisterInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  action?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
 
 export type CashDrawerLogSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashRegisterId?: boolean
-  userId?: boolean
-  action?: boolean
   description?: boolean
   createdAt?: boolean
+  action?: boolean
+  cashRegisterId?: boolean
+  userId?: boolean
   cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashDrawerLog"]>
 
 export type CashDrawerLogSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashRegisterId?: boolean
-  userId?: boolean
-  action?: boolean
   description?: boolean
   createdAt?: boolean
+  action?: boolean
+  cashRegisterId?: boolean
+  userId?: boolean
   cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashDrawerLog"]>
 
 export type CashDrawerLogSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  cashRegisterId?: boolean
-  userId?: boolean
-  action?: boolean
   description?: boolean
   createdAt?: boolean
+  action?: boolean
+  cashRegisterId?: boolean
+  userId?: boolean
   cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cashDrawerLog"]>
 
 export type CashDrawerLogSelectScalar = {
   id?: boolean
-  cashRegisterId?: boolean
-  userId?: boolean
-  action?: boolean
   description?: boolean
   createdAt?: boolean
+  action?: boolean
+  cashRegisterId?: boolean
+  userId?: boolean
 }
 
-export type CashDrawerLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "cashRegisterId" | "userId" | "action" | "description" | "createdAt", ExtArgs["result"]["cashDrawerLog"]>
+export type CashDrawerLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "description" | "createdAt" | "action" | "cashRegisterId" | "userId", ExtArgs["result"]["cashDrawerLog"]>
 export type CashDrawerLogInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   cashRegister?: boolean | Prisma.CashRegisterDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -651,11 +651,11 @@ export type $CashDrawerLogPayload<ExtArgs extends runtime.Types.Extensions.Inter
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    cashRegisterId: string
-    userId: string
-    action: string
     description: string | null
     createdAt: Date
+    action: string
+    cashRegisterId: string
+    userId: string
   }, ExtArgs["result"]["cashDrawerLog"]>
   composites: {}
 }
@@ -1082,11 +1082,11 @@ export interface Prisma__CashDrawerLogClient<T, Null = never, ExtArgs extends ru
  */
 export interface CashDrawerLogFieldRefs {
   readonly id: Prisma.FieldRef<"CashDrawerLog", 'String'>
-  readonly cashRegisterId: Prisma.FieldRef<"CashDrawerLog", 'String'>
-  readonly userId: Prisma.FieldRef<"CashDrawerLog", 'String'>
-  readonly action: Prisma.FieldRef<"CashDrawerLog", 'String'>
   readonly description: Prisma.FieldRef<"CashDrawerLog", 'String'>
   readonly createdAt: Prisma.FieldRef<"CashDrawerLog", 'DateTime'>
+  readonly action: Prisma.FieldRef<"CashDrawerLog", 'String'>
+  readonly cashRegisterId: Prisma.FieldRef<"CashDrawerLog", 'String'>
+  readonly userId: Prisma.FieldRef<"CashDrawerLog", 'String'>
 }
     
 

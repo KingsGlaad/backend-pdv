@@ -44,4 +44,15 @@ export class CashController {
   async createMovement(@Request() req, @Body() dto: CreateMovementDto) {
     return this.movementService.create(req.user.id, dto);
   }
+
+  @Get('flow')
+  async getFlow(@Request() req) {
+    // Pegar query params se necessário, por enquanto via query simples do express se fosse o caso,
+    // mas o Nest usa @Query(). Vamos adicionar @Query.
+    const query = req.query;
+    return this.movementService.findAll({
+      startDate: query.startDate,
+      endDate: query.endDate,
+    });
+  }
 }

@@ -2,12 +2,6 @@ import { Injectable, BadRequestException, InternalServerErrorException } from '@
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateSettingsDto } from './dto/create-settings.dto';
 
-import { exec } from 'child_process';
-import { promisify } from 'util';
-import { PrinterConfigDto } from './dto/printer-config.dto';
-
-const execAsync = promisify(exec);
-
 interface BrasilApiResponse {
   razao_social: string;
   nome_fantasia: string;
@@ -85,41 +79,5 @@ export class SettingsService {
     }
 
     return this.prisma.config.create({ data: dto });
-  }
-
-  async getAvailablePrinters() {
-    try {
-      // PowerShell command to list printers
-      const { stdout } = await execAsync('powershell "Get-Printer | Select-Object Name"');
-
-      // Parse output: split by lines, remove header/separator, trim
-      const printers = stdout
-        .split('\n')
-        .map((line) => line.trim())
-        .filter((line) => line && line !== 'Name' && !line.startsWith('----'));
-
-      return printers;
-    } catch (error) {
-      console.error('Error fetching printers:', error);
-      return [];
-    }
-  }
-
-  async getPrinterConfigs() {
-    return await this.prisma.printerConfig.findMany();
-  }
-
-  async getPrinterConfig(terminalId: string) {
-    return await this.prisma.printerConfig.findUnique({
-      where: { terminalId },
-    });
-  }
-
-  async savePrinterConfig(dto: PrinterConfigDto) {
-    return await this.prisma.printerConfig.upsert({
-      where: { terminalId: dto.terminalId },
-      update: dto,
-      create: dto,
-    });
   }
 }

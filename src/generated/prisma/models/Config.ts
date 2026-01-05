@@ -30,15 +30,15 @@ export type ConfigMinAggregateOutputType = {
   logoUrl: string | null
   theme: string | null
   currency: string | null
-  companyName: string | null
-  tradingName: string | null
-  cnpj: string | null
-  stateRegistration: string | null
-  phone: string | null
-  email: string | null
-  address: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  address: string | null
+  cnpj: string | null
+  companyName: string | null
+  email: string | null
+  phone: string | null
+  stateRegistration: string | null
+  tradingName: string | null
 }
 
 export type ConfigMaxAggregateOutputType = {
@@ -47,15 +47,15 @@ export type ConfigMaxAggregateOutputType = {
   logoUrl: string | null
   theme: string | null
   currency: string | null
-  companyName: string | null
-  tradingName: string | null
-  cnpj: string | null
-  stateRegistration: string | null
-  phone: string | null
-  email: string | null
-  address: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  address: string | null
+  cnpj: string | null
+  companyName: string | null
+  email: string | null
+  phone: string | null
+  stateRegistration: string | null
+  tradingName: string | null
 }
 
 export type ConfigCountAggregateOutputType = {
@@ -64,15 +64,15 @@ export type ConfigCountAggregateOutputType = {
   logoUrl: number
   theme: number
   currency: number
-  companyName: number
-  tradingName: number
-  cnpj: number
-  stateRegistration: number
-  phone: number
-  email: number
-  address: number
   createdAt: number
   updatedAt: number
+  address: number
+  cnpj: number
+  companyName: number
+  email: number
+  phone: number
+  stateRegistration: number
+  tradingName: number
   _all: number
 }
 
@@ -83,15 +83,15 @@ export type ConfigMinAggregateInputType = {
   logoUrl?: true
   theme?: true
   currency?: true
-  companyName?: true
-  tradingName?: true
-  cnpj?: true
-  stateRegistration?: true
-  phone?: true
-  email?: true
-  address?: true
   createdAt?: true
   updatedAt?: true
+  address?: true
+  cnpj?: true
+  companyName?: true
+  email?: true
+  phone?: true
+  stateRegistration?: true
+  tradingName?: true
 }
 
 export type ConfigMaxAggregateInputType = {
@@ -100,15 +100,15 @@ export type ConfigMaxAggregateInputType = {
   logoUrl?: true
   theme?: true
   currency?: true
-  companyName?: true
-  tradingName?: true
-  cnpj?: true
-  stateRegistration?: true
-  phone?: true
-  email?: true
-  address?: true
   createdAt?: true
   updatedAt?: true
+  address?: true
+  cnpj?: true
+  companyName?: true
+  email?: true
+  phone?: true
+  stateRegistration?: true
+  tradingName?: true
 }
 
 export type ConfigCountAggregateInputType = {
@@ -117,15 +117,15 @@ export type ConfigCountAggregateInputType = {
   logoUrl?: true
   theme?: true
   currency?: true
-  companyName?: true
-  tradingName?: true
-  cnpj?: true
-  stateRegistration?: true
-  phone?: true
-  email?: true
-  address?: true
   createdAt?: true
   updatedAt?: true
+  address?: true
+  cnpj?: true
+  companyName?: true
+  email?: true
+  phone?: true
+  stateRegistration?: true
+  tradingName?: true
   _all?: true
 }
 
@@ -207,15 +207,15 @@ export type ConfigGroupByOutputType = {
   logoUrl: string | null
   theme: string
   currency: string
-  companyName: string | null
-  tradingName: string | null
-  cnpj: string | null
-  stateRegistration: string | null
-  phone: string | null
-  email: string | null
-  address: string | null
   createdAt: Date
   updatedAt: Date
+  address: string | null
+  cnpj: string | null
+  companyName: string | null
+  email: string | null
+  phone: string | null
+  stateRegistration: string | null
+  tradingName: string | null
   _count: ConfigCountAggregateOutputType | null
   _min: ConfigMinAggregateOutputType | null
   _max: ConfigMaxAggregateOutputType | null
@@ -245,15 +245,15 @@ export type ConfigWhereInput = {
   logoUrl?: Prisma.StringNullableFilter<"Config"> | string | null
   theme?: Prisma.StringFilter<"Config"> | string
   currency?: Prisma.StringFilter<"Config"> | string
-  companyName?: Prisma.StringNullableFilter<"Config"> | string | null
-  tradingName?: Prisma.StringNullableFilter<"Config"> | string | null
-  cnpj?: Prisma.StringNullableFilter<"Config"> | string | null
-  stateRegistration?: Prisma.StringNullableFilter<"Config"> | string | null
-  phone?: Prisma.StringNullableFilter<"Config"> | string | null
-  email?: Prisma.StringNullableFilter<"Config"> | string | null
-  address?: Prisma.StringNullableFilter<"Config"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Config"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Config"> | Date | string
+  address?: Prisma.StringNullableFilter<"Config"> | string | null
+  cnpj?: Prisma.StringNullableFilter<"Config"> | string | null
+  companyName?: Prisma.StringNullableFilter<"Config"> | string | null
+  email?: Prisma.StringNullableFilter<"Config"> | string | null
+  phone?: Prisma.StringNullableFilter<"Config"> | string | null
+  stateRegistration?: Prisma.StringNullableFilter<"Config"> | string | null
+  tradingName?: Prisma.StringNullableFilter<"Config"> | string | null
 }
 
 export type ConfigOrderByWithRelationInput = {
@@ -262,15 +262,15 @@ export type ConfigOrderByWithRelationInput = {
   logoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   theme?: Prisma.SortOrder
   currency?: Prisma.SortOrder
-  companyName?: Prisma.SortOrderInput | Prisma.SortOrder
-  tradingName?: Prisma.SortOrderInput | Prisma.SortOrder
-  cnpj?: Prisma.SortOrderInput | Prisma.SortOrder
-  stateRegistration?: Prisma.SortOrderInput | Prisma.SortOrder
-  phone?: Prisma.SortOrderInput | Prisma.SortOrder
-  email?: Prisma.SortOrderInput | Prisma.SortOrder
-  address?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  address?: Prisma.SortOrderInput | Prisma.SortOrder
+  cnpj?: Prisma.SortOrderInput | Prisma.SortOrder
+  companyName?: Prisma.SortOrderInput | Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  phone?: Prisma.SortOrderInput | Prisma.SortOrder
+  stateRegistration?: Prisma.SortOrderInput | Prisma.SortOrder
+  tradingName?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
 export type ConfigWhereUniqueInput = Prisma.AtLeast<{
@@ -282,15 +282,15 @@ export type ConfigWhereUniqueInput = Prisma.AtLeast<{
   logoUrl?: Prisma.StringNullableFilter<"Config"> | string | null
   theme?: Prisma.StringFilter<"Config"> | string
   currency?: Prisma.StringFilter<"Config"> | string
-  companyName?: Prisma.StringNullableFilter<"Config"> | string | null
-  tradingName?: Prisma.StringNullableFilter<"Config"> | string | null
-  cnpj?: Prisma.StringNullableFilter<"Config"> | string | null
-  stateRegistration?: Prisma.StringNullableFilter<"Config"> | string | null
-  phone?: Prisma.StringNullableFilter<"Config"> | string | null
-  email?: Prisma.StringNullableFilter<"Config"> | string | null
-  address?: Prisma.StringNullableFilter<"Config"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Config"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Config"> | Date | string
+  address?: Prisma.StringNullableFilter<"Config"> | string | null
+  cnpj?: Prisma.StringNullableFilter<"Config"> | string | null
+  companyName?: Prisma.StringNullableFilter<"Config"> | string | null
+  email?: Prisma.StringNullableFilter<"Config"> | string | null
+  phone?: Prisma.StringNullableFilter<"Config"> | string | null
+  stateRegistration?: Prisma.StringNullableFilter<"Config"> | string | null
+  tradingName?: Prisma.StringNullableFilter<"Config"> | string | null
 }, "id">
 
 export type ConfigOrderByWithAggregationInput = {
@@ -299,15 +299,15 @@ export type ConfigOrderByWithAggregationInput = {
   logoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   theme?: Prisma.SortOrder
   currency?: Prisma.SortOrder
-  companyName?: Prisma.SortOrderInput | Prisma.SortOrder
-  tradingName?: Prisma.SortOrderInput | Prisma.SortOrder
-  cnpj?: Prisma.SortOrderInput | Prisma.SortOrder
-  stateRegistration?: Prisma.SortOrderInput | Prisma.SortOrder
-  phone?: Prisma.SortOrderInput | Prisma.SortOrder
-  email?: Prisma.SortOrderInput | Prisma.SortOrder
-  address?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  address?: Prisma.SortOrderInput | Prisma.SortOrder
+  cnpj?: Prisma.SortOrderInput | Prisma.SortOrder
+  companyName?: Prisma.SortOrderInput | Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  phone?: Prisma.SortOrderInput | Prisma.SortOrder
+  stateRegistration?: Prisma.SortOrderInput | Prisma.SortOrder
+  tradingName?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ConfigCountOrderByAggregateInput
   _max?: Prisma.ConfigMaxOrderByAggregateInput
   _min?: Prisma.ConfigMinOrderByAggregateInput
@@ -322,15 +322,15 @@ export type ConfigScalarWhereWithAggregatesInput = {
   logoUrl?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
   theme?: Prisma.StringWithAggregatesFilter<"Config"> | string
   currency?: Prisma.StringWithAggregatesFilter<"Config"> | string
-  companyName?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
-  tradingName?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
-  cnpj?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
-  stateRegistration?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
-  phone?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
-  email?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
-  address?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Config"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Config"> | Date | string
+  address?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
+  cnpj?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
+  companyName?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
+  email?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
+  phone?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
+  stateRegistration?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
+  tradingName?: Prisma.StringNullableWithAggregatesFilter<"Config"> | string | null
 }
 
 export type ConfigCreateInput = {
@@ -339,15 +339,15 @@ export type ConfigCreateInput = {
   logoUrl?: string | null
   theme?: string
   currency?: string
-  companyName?: string | null
-  tradingName?: string | null
-  cnpj?: string | null
-  stateRegistration?: string | null
-  phone?: string | null
-  email?: string | null
-  address?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  address?: string | null
+  cnpj?: string | null
+  companyName?: string | null
+  email?: string | null
+  phone?: string | null
+  stateRegistration?: string | null
+  tradingName?: string | null
 }
 
 export type ConfigUncheckedCreateInput = {
@@ -356,15 +356,15 @@ export type ConfigUncheckedCreateInput = {
   logoUrl?: string | null
   theme?: string
   currency?: string
-  companyName?: string | null
-  tradingName?: string | null
-  cnpj?: string | null
-  stateRegistration?: string | null
-  phone?: string | null
-  email?: string | null
-  address?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  address?: string | null
+  cnpj?: string | null
+  companyName?: string | null
+  email?: string | null
+  phone?: string | null
+  stateRegistration?: string | null
+  tradingName?: string | null
 }
 
 export type ConfigUpdateInput = {
@@ -373,15 +373,15 @@ export type ConfigUpdateInput = {
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
-  companyName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stateRegistration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  companyName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stateRegistration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ConfigUncheckedUpdateInput = {
@@ -390,15 +390,15 @@ export type ConfigUncheckedUpdateInput = {
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
-  companyName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stateRegistration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  companyName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stateRegistration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ConfigCreateManyInput = {
@@ -407,15 +407,15 @@ export type ConfigCreateManyInput = {
   logoUrl?: string | null
   theme?: string
   currency?: string
-  companyName?: string | null
-  tradingName?: string | null
-  cnpj?: string | null
-  stateRegistration?: string | null
-  phone?: string | null
-  email?: string | null
-  address?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  address?: string | null
+  cnpj?: string | null
+  companyName?: string | null
+  email?: string | null
+  phone?: string | null
+  stateRegistration?: string | null
+  tradingName?: string | null
 }
 
 export type ConfigUpdateManyMutationInput = {
@@ -424,15 +424,15 @@ export type ConfigUpdateManyMutationInput = {
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
-  companyName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stateRegistration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  companyName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stateRegistration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ConfigUncheckedUpdateManyInput = {
@@ -441,15 +441,15 @@ export type ConfigUncheckedUpdateManyInput = {
   logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   theme?: Prisma.StringFieldUpdateOperationsInput | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
-  companyName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stateRegistration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  companyName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stateRegistration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ConfigCountOrderByAggregateInput = {
@@ -458,15 +458,15 @@ export type ConfigCountOrderByAggregateInput = {
   logoUrl?: Prisma.SortOrder
   theme?: Prisma.SortOrder
   currency?: Prisma.SortOrder
-  companyName?: Prisma.SortOrder
-  tradingName?: Prisma.SortOrder
-  cnpj?: Prisma.SortOrder
-  stateRegistration?: Prisma.SortOrder
-  phone?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  address?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  address?: Prisma.SortOrder
+  cnpj?: Prisma.SortOrder
+  companyName?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
+  stateRegistration?: Prisma.SortOrder
+  tradingName?: Prisma.SortOrder
 }
 
 export type ConfigMaxOrderByAggregateInput = {
@@ -475,15 +475,15 @@ export type ConfigMaxOrderByAggregateInput = {
   logoUrl?: Prisma.SortOrder
   theme?: Prisma.SortOrder
   currency?: Prisma.SortOrder
-  companyName?: Prisma.SortOrder
-  tradingName?: Prisma.SortOrder
-  cnpj?: Prisma.SortOrder
-  stateRegistration?: Prisma.SortOrder
-  phone?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  address?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  address?: Prisma.SortOrder
+  cnpj?: Prisma.SortOrder
+  companyName?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
+  stateRegistration?: Prisma.SortOrder
+  tradingName?: Prisma.SortOrder
 }
 
 export type ConfigMinOrderByAggregateInput = {
@@ -492,15 +492,15 @@ export type ConfigMinOrderByAggregateInput = {
   logoUrl?: Prisma.SortOrder
   theme?: Prisma.SortOrder
   currency?: Prisma.SortOrder
-  companyName?: Prisma.SortOrder
-  tradingName?: Prisma.SortOrder
-  cnpj?: Prisma.SortOrder
-  stateRegistration?: Prisma.SortOrder
-  phone?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  address?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  address?: Prisma.SortOrder
+  cnpj?: Prisma.SortOrder
+  companyName?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
+  stateRegistration?: Prisma.SortOrder
+  tradingName?: Prisma.SortOrder
 }
 
 
@@ -511,15 +511,15 @@ export type ConfigSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   logoUrl?: boolean
   theme?: boolean
   currency?: boolean
-  companyName?: boolean
-  tradingName?: boolean
-  cnpj?: boolean
-  stateRegistration?: boolean
-  phone?: boolean
-  email?: boolean
-  address?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  address?: boolean
+  cnpj?: boolean
+  companyName?: boolean
+  email?: boolean
+  phone?: boolean
+  stateRegistration?: boolean
+  tradingName?: boolean
 }, ExtArgs["result"]["config"]>
 
 export type ConfigSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -528,15 +528,15 @@ export type ConfigSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   logoUrl?: boolean
   theme?: boolean
   currency?: boolean
-  companyName?: boolean
-  tradingName?: boolean
-  cnpj?: boolean
-  stateRegistration?: boolean
-  phone?: boolean
-  email?: boolean
-  address?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  address?: boolean
+  cnpj?: boolean
+  companyName?: boolean
+  email?: boolean
+  phone?: boolean
+  stateRegistration?: boolean
+  tradingName?: boolean
 }, ExtArgs["result"]["config"]>
 
 export type ConfigSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -545,15 +545,15 @@ export type ConfigSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   logoUrl?: boolean
   theme?: boolean
   currency?: boolean
-  companyName?: boolean
-  tradingName?: boolean
-  cnpj?: boolean
-  stateRegistration?: boolean
-  phone?: boolean
-  email?: boolean
-  address?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  address?: boolean
+  cnpj?: boolean
+  companyName?: boolean
+  email?: boolean
+  phone?: boolean
+  stateRegistration?: boolean
+  tradingName?: boolean
 }, ExtArgs["result"]["config"]>
 
 export type ConfigSelectScalar = {
@@ -562,18 +562,18 @@ export type ConfigSelectScalar = {
   logoUrl?: boolean
   theme?: boolean
   currency?: boolean
-  companyName?: boolean
-  tradingName?: boolean
-  cnpj?: boolean
-  stateRegistration?: boolean
-  phone?: boolean
-  email?: boolean
-  address?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  address?: boolean
+  cnpj?: boolean
+  companyName?: boolean
+  email?: boolean
+  phone?: boolean
+  stateRegistration?: boolean
+  tradingName?: boolean
 }
 
-export type ConfigOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "appName" | "logoUrl" | "theme" | "currency" | "companyName" | "tradingName" | "cnpj" | "stateRegistration" | "phone" | "email" | "address" | "createdAt" | "updatedAt", ExtArgs["result"]["config"]>
+export type ConfigOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "appName" | "logoUrl" | "theme" | "currency" | "createdAt" | "updatedAt" | "address" | "cnpj" | "companyName" | "email" | "phone" | "stateRegistration" | "tradingName", ExtArgs["result"]["config"]>
 
 export type $ConfigPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Config"
@@ -584,15 +584,15 @@ export type $ConfigPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     logoUrl: string | null
     theme: string
     currency: string
-    companyName: string | null
-    tradingName: string | null
-    cnpj: string | null
-    stateRegistration: string | null
-    phone: string | null
-    email: string | null
-    address: string | null
     createdAt: Date
     updatedAt: Date
+    address: string | null
+    cnpj: string | null
+    companyName: string | null
+    email: string | null
+    phone: string | null
+    stateRegistration: string | null
+    tradingName: string | null
   }, ExtArgs["result"]["config"]>
   composites: {}
 }
@@ -1021,15 +1021,15 @@ export interface ConfigFieldRefs {
   readonly logoUrl: Prisma.FieldRef<"Config", 'String'>
   readonly theme: Prisma.FieldRef<"Config", 'String'>
   readonly currency: Prisma.FieldRef<"Config", 'String'>
-  readonly companyName: Prisma.FieldRef<"Config", 'String'>
-  readonly tradingName: Prisma.FieldRef<"Config", 'String'>
-  readonly cnpj: Prisma.FieldRef<"Config", 'String'>
-  readonly stateRegistration: Prisma.FieldRef<"Config", 'String'>
-  readonly phone: Prisma.FieldRef<"Config", 'String'>
-  readonly email: Prisma.FieldRef<"Config", 'String'>
-  readonly address: Prisma.FieldRef<"Config", 'String'>
   readonly createdAt: Prisma.FieldRef<"Config", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Config", 'DateTime'>
+  readonly address: Prisma.FieldRef<"Config", 'String'>
+  readonly cnpj: Prisma.FieldRef<"Config", 'String'>
+  readonly companyName: Prisma.FieldRef<"Config", 'String'>
+  readonly email: Prisma.FieldRef<"Config", 'String'>
+  readonly phone: Prisma.FieldRef<"Config", 'String'>
+  readonly stateRegistration: Prisma.FieldRef<"Config", 'String'>
+  readonly tradingName: Prisma.FieldRef<"Config", 'String'>
 }
     
 

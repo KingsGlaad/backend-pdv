@@ -3,6 +3,8 @@ import { OrdersService } from './orders.service';
 import { CloseOrderSchema } from './dto/close-order.dto';
 import { CreateOrderSchema } from './dto/create-order.dto';
 import { AddItemSchema } from './dto/add-item.dto';
+import { RemoveItemSchema } from './dto/remove-item.dto';
+import { CallWaiterSchema } from './dto/call-waiter.dto';
 import { CreateDirectSaleSchema } from './dto/create-direct-sale.dto';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 
@@ -39,9 +41,25 @@ export class OrdersController {
     return this.service.addItem(id, dto.quantity, dto.productId);
   }
 
+  @Post(':id/items/:itemId/remove')
+  async removeItem(
+    @Param('id') id: string,
+    @Param('itemId') itemId: string,
+    @Body() body: unknown,
+  ) {
+    const { reason } = RemoveItemSchema.parse(body);
+    return this.service.removeItem(id, itemId, reason);
+  }
+
   @Post(':id/close')
   async close(@Param('id') id: string, @Body() body: unknown) {
     const dto = CloseOrderSchema.parse(body);
     return this.service.closeOrder(id, dto);
+  }
+
+  @Post('call-waiter')
+  async callWaiter(@Body() body: unknown) {
+    const { table } = CallWaiterSchema.parse(body);
+    return this.service.callWaiter(table);
   }
 }

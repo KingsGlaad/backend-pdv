@@ -130,7 +130,7 @@ export class ReceiptGenerator {
     });
 
     // Change
-    const cashPay = sale.payments.find((p) => p.method === 'CASH' || p.method === 'money');
+    const cashPay = sale.payments.find((p) => p.method === 'CASH');
     if (cashPay) {
       const paid = Number(cashPay.amount);
       if (paid > final) {

@@ -17,7 +17,7 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
-        brokers: [process.env.KAFKA_BROKERS],
+        brokers: [process.env.KAFKA_BROKERS || 'localhost:9092'],
       },
       consumer: {
         groupId: 'pdv-backend-consumer',

@@ -1,0 +1,225 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NullsOrder = exports.QueryMode = exports.SortOrder = exports.PrinterConfigScalarFieldEnum = exports.ConfigScalarFieldEnum = exports.InventoryMovementScalarFieldEnum = exports.InventoryItemScalarFieldEnum = exports.CashDrawerLogScalarFieldEnum = exports.CashMovementScalarFieldEnum = exports.CashSessionScalarFieldEnum = exports.CashRegisterScalarFieldEnum = exports.PaymentScalarFieldEnum = exports.SaleScalarFieldEnum = exports.OrderItemScalarFieldEnum = exports.OrderScalarFieldEnum = exports.ProductScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
+const runtime = __importStar(require("@prisma/client/runtime/index-browser"));
+exports.Decimal = runtime.Decimal;
+exports.NullTypes = {
+    DbNull: runtime.NullTypes.DbNull,
+    JsonNull: runtime.NullTypes.JsonNull,
+    AnyNull: runtime.NullTypes.AnyNull,
+};
+exports.DbNull = runtime.DbNull;
+exports.JsonNull = runtime.JsonNull;
+exports.AnyNull = runtime.AnyNull;
+exports.ModelName = {
+    User: 'User',
+    Product: 'Product',
+    Order: 'Order',
+    OrderItem: 'OrderItem',
+    Sale: 'Sale',
+    Payment: 'Payment',
+    CashRegister: 'CashRegister',
+    CashSession: 'CashSession',
+    CashMovement: 'CashMovement',
+    CashDrawerLog: 'CashDrawerLog',
+    InventoryItem: 'InventoryItem',
+    InventoryMovement: 'InventoryMovement',
+    Config: 'Config',
+    PrinterConfig: 'PrinterConfig'
+};
+exports.TransactionIsolationLevel = {
+    ReadUncommitted: 'ReadUncommitted',
+    ReadCommitted: 'ReadCommitted',
+    RepeatableRead: 'RepeatableRead',
+    Serializable: 'Serializable'
+};
+exports.UserScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    email: 'email',
+    password: 'password',
+    role: 'role',
+    active: 'active',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt'
+};
+exports.ProductScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    price: 'price',
+    category: 'category',
+    active: 'active',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt',
+    code: 'code',
+    description: 'description',
+    imageUrl: 'imageUrl'
+};
+exports.OrderScalarFieldEnum = {
+    id: 'id',
+    number: 'number',
+    table: 'table',
+    status: 'status',
+    openedAt: 'openedAt',
+    closedAt: 'closedAt',
+    openedById: 'openedById',
+    createdAt: 'createdAt',
+    saleId: 'saleId'
+};
+exports.OrderItemScalarFieldEnum = {
+    id: 'id',
+    orderId: 'orderId',
+    productId: 'productId',
+    quantity: 'quantity',
+    price: 'price',
+    saleId: 'saleId'
+};
+exports.SaleScalarFieldEnum = {
+    id: 'id',
+    discount: 'discount',
+    createdAt: 'createdAt',
+    cashSessionId: 'cashSessionId',
+    code: 'code',
+    customerCpf: 'customerCpf',
+    paymentMethod: 'paymentMethod',
+    total: 'total',
+    userId: 'userId',
+    finalAmount: 'finalAmount',
+    status: 'status'
+};
+exports.PaymentScalarFieldEnum = {
+    id: 'id',
+    saleId: 'saleId',
+    method: 'method',
+    amount: 'amount',
+    status: 'status',
+    reference: 'reference',
+    createdAt: 'createdAt',
+    cashMovementId: 'cashMovementId'
+};
+exports.CashRegisterScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    createdAt: 'createdAt',
+    isActive: 'isActive'
+};
+exports.CashSessionScalarFieldEnum = {
+    id: 'id',
+    cashRegisterId: 'cashRegisterId',
+    openedAt: 'openedAt',
+    closedAt: 'closedAt',
+    difference: 'difference',
+    finalBalance: 'finalBalance',
+    initialBalance: 'initialBalance',
+    systemBalance: 'systemBalance',
+    userId: 'userId',
+    status: 'status'
+};
+exports.CashMovementScalarFieldEnum = {
+    id: 'id',
+    amount: 'amount',
+    createdAt: 'createdAt',
+    reason: 'reason',
+    sessionId: 'sessionId',
+    type: 'type'
+};
+exports.CashDrawerLogScalarFieldEnum = {
+    id: 'id',
+    description: 'description',
+    createdAt: 'createdAt',
+    action: 'action',
+    cashRegisterId: 'cashRegisterId',
+    userId: 'userId'
+};
+exports.InventoryItemScalarFieldEnum = {
+    id: 'id',
+    updatedAt: 'updatedAt',
+    minStock: 'minStock',
+    quantity: 'quantity',
+    productId: 'productId'
+};
+exports.InventoryMovementScalarFieldEnum = {
+    id: 'id',
+    inventoryItemId: 'inventoryItemId',
+    quantity: 'quantity',
+    reason: 'reason',
+    createdAt: 'createdAt',
+    userId: 'userId',
+    type: 'type'
+};
+exports.ConfigScalarFieldEnum = {
+    id: 'id',
+    appName: 'appName',
+    logoUrl: 'logoUrl',
+    theme: 'theme',
+    currency: 'currency',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    address: 'address',
+    cnpj: 'cnpj',
+    companyName: 'companyName',
+    email: 'email',
+    phone: 'phone',
+    stateRegistration: 'stateRegistration',
+    tradingName: 'tradingName'
+};
+exports.PrinterConfigScalarFieldEnum = {
+    id: 'id',
+    terminalId: 'terminalId',
+    name: 'name',
+    printerName: 'printerName',
+    printerType: 'printerType',
+    connection: 'connection',
+    width: 'width',
+    enabled: 'enabled',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+exports.SortOrder = {
+    asc: 'asc',
+    desc: 'desc'
+};
+exports.QueryMode = {
+    default: 'default',
+    insensitive: 'insensitive'
+};
+exports.NullsOrder = {
+    first: 'first',
+    last: 'last'
+};
+//# sourceMappingURL=prismaNamespaceBrowser.js.map

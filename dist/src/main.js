@@ -1,38 +1,48 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@nestjs/core");
-const app_module_1 = require("./app.module");
-const swagger_1 = require("@nestjs/swagger");
-const microservices_1 = require("@nestjs/microservices");
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+// Remova ou comente as importações do MicroserviceOptions se não for usar
+// import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+
 async function bootstrap() {
-    const app = await core_1.NestFactory.create(app_module_1.AppModule);
-    app.setGlobalPrefix('api');
-    app.enableCors({
-        origin: ['http://localhost:3000', 'http://192.168.0.5:3000'],
-        credentials: true,
-        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    });
-    app.connectMicroservice({
-        transport: microservices_1.Transport.KAFKA,
-        options: {
-            client: {
-                brokers: [process.env.KAFKA_BROKERS || 'localhost:9092'],
-            },
-            consumer: {
-                groupId: 'pdv-backend-consumer',
-            },
-        },
-    });
-    await app.startAllMicroservices();
-    const config = new swagger_1.DocumentBuilder()
-        .setTitle('Costela API')
-        .setDescription('The Costela API description')
-        .setVersion('1.0')
-        .addTag('costela')
-        .build();
-    const document = swagger_1.SwaggerModule.createDocument(app, config);
-    swagger_1.SwaggerModule.setup('api', app, document);
-    await app.listen(process.env.PORT || 3333);
+  const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix('api');
+
+  app.enableCors({
+    // Na Vercel, a origem muda. É bom permitir tudo '*' ou o seu domínio de frontend
+    origin: '*', 
+    credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  });
+
+  // --- BLOCO COMENTADO PARA A VERCEL ---
+  // A Vercel não suporta Kafka Consumers de longa duração.
+  // Se descomentar isto na Vercel, a função vai dar timeout e erro 504.
+  /*
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        brokers: [process.env.KAFKA_BROKER || 'localhost:9092'],
+      },
+      consumer: {
+        groupId: 'pdv-backend-consumer',
+      },
+    },
+  });
+  await app.startAllMicroservices();
+  */
+  // -------------------------------------
+
+  const config = new DocumentBuilder()
+    .setTitle('Costela API')
+    .setDescription('The Costela API description')
+    .setVersion('1.0')
+    .addTag('costela')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
-//# sourceMappingURL=main.js.map

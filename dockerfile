@@ -1,23 +1,37 @@
-FROM node:20-slim
+# ----- STAGE 1: BUILD -----
+FROM node:20-slim AS builder
 
-# Instalar dependências de compilação para o serialport/usb (python, make, g++)
-# e openssl para o Prisma
-RUN apt-get update && apt-get install -y python3 make g++ openssl libssl-dev
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++ \
+    openssl \
+    libssl-dev
 
 WORKDIR /app
 
 COPY package*.json ./
-# Instalar dependências (incluindo as nativas)
+
 RUN npm ci
 
 COPY . .
 
-# Gerar o cliente Prisma
 RUN npx prisma generate
 
-# Compilar o NestJS
 RUN npm run build
+
+
+# ----- STAGE 2: PRODUÇÃO -----
+FROM node:20-slim
+
+WORKDIR /app
+
+# Copiar apenas o necessário do build
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/prisma ./prisma
 
 EXPOSE 3333
 
-CMD ["npm", "run", "start:prod"]
+CMD ["node", "dist/main"]
